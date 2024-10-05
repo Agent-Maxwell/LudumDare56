@@ -31,7 +31,8 @@ func start_game():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#if the amount of cats in the goal yard is equal to the amount of cats, we can move to the next level
-	if goal.catAmount == catAmount:
+	if goal.catAmount == catAmount: 
+		#going to need like a ten second timer here  that checks at the end if this condition is still true, and if so then goes to next level
 		next_level()
 
 
