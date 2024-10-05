@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
-[ext_resource type="PackedScene" uid="uid://y4dkkkvom4u8" path="res://cat.tscn" id="2_dv0n1"]
 [ext_resource type="Script" path="res://cat_checker_a.gd" id="4_xa23j"]
 [ext_resource type="Script" path="res://cat_checker_b.gd" id="5_c1wau"]
+[ext_resource type="Script" path="res://cat_spawner.gd" id="6_c0b2u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lxx6"]
 albedo_color = Color(0.0352941, 1, 0.0745098, 1)
@@ -27,7 +27,7 @@ background_mode = 1
 background_color = Color(0.54902, 0.694118, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7aetu"]
-size = Vector3(19.7, 1, 30.3)
+size = Vector3(19.7597, 1, 30.3)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_b8frq")
@@ -126,32 +126,24 @@ shadow_enabled = true
 [node name="Player" parent="." instance=ExtResource("1_jfpvx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76998, 2.33752, 0)
 
-[node name="Cat" parent="." instance=ExtResource("2_dv0n1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30181, 1.79381, 0.201881)
-
-[node name="Cat2" parent="." instance=ExtResource("2_dv0n1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30181, 1.79381, 1.80593)
-
-[node name="Cat3" parent="." instance=ExtResource("2_dv0n1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4853, 1.79381, 1.80593)
-
 [node name="CatCheckerA" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, 0)
 collision_mask = 4
 script = ExtResource("4_xa23j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CatCheckerA"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.05, -2, -4.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.05, 1, -4.75)
 shape = SubResource("BoxShape3D_7aetu")
 
 [node name="CatCheckerB" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3, 0)
 collision_mask = 4
 script = ExtResource("5_c1wau")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CatCheckerB"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0499992, -2, -4.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, -5)
 shape = SubResource("BoxShape3D_7aetu")
+
+[node name="CatSpawner" type="Node3D" parent="."]
+script = ExtResource("6_c0b2u")
 
 [connection signal="body_entered" from="CatCheckerA" to="CatCheckerA" method="_on_body_entered"]
 [connection signal="body_exited" from="CatCheckerA" to="CatCheckerA" method="_on_body_exited"]
