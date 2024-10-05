@@ -61,6 +61,7 @@ func next_level():
 	goalSide = temp
 	
 	#move the players position
+	$Player.position = find_child("PlayerSpawnerSide" + currentSide).position
 	
 	#unhide obstacles/hazards
 	for i in $levelData.obstacles[level].size():

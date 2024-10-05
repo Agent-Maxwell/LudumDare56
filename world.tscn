@@ -60,6 +60,17 @@ mesh = SubResource("BoxMesh_vxh1j")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Fence/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_aohfv")
 
+[node name="TallFence" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 30, 0, 1.95205, -5)
+visible = false
+material_override = SubResource("StandardMaterial3D_070dd")
+mesh = SubResource("BoxMesh_vxh1j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/TallFence"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/TallFence/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_aohfv")
+
 [node name="Fence3" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 30, -20, 0.5, -5)
 material_override = SubResource("StandardMaterial3D_070dd")
@@ -151,6 +162,12 @@ script = ExtResource("6_c0b2u")
 
 [node name="levelData" type="Node" parent="."]
 script = ExtResource("7_ml12b")
+
+[node name="PlayerSpawnerSideA" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.72096, 2.09987, -4.53716)
+
+[node name="PlayerSpawnerSideB" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8152, 2.09987, -4.53716)
 
 [connection signal="body_entered" from="CatCheckerA" to="CatCheckerA" method="_on_body_entered"]
 [connection signal="body_exited" from="CatCheckerA" to="CatCheckerA" method="_on_body_exited"]

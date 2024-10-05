@@ -5,7 +5,7 @@ var catAmount = [1,2,5]
 
 #obstacles to unhide for each level
 #format [array0(level 0)[obstaclename1, obstaclename2, etc], array1(level 1)[obstaclename1, obstaclename2, etc], [etc]]
-var obstacles = [[],[],[]]
+var obstacles = [[],["TallFence"],[]]
 
 #dialogue to play each level
 #format [array0(level 0)[[who is talking in scene one, who is talking in scene two, etc]
