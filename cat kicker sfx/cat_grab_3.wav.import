@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dgb3u4uk1bkj1"
+path="res://.godot/imported/cat_grab_3.wav-857fd87a2c083d5662aefe3de10366cd.sample"
+
+[deps]
+
+source_file="res://cat kicker sfx/cat_grab_3.wav"
+dest_files=["res://.godot/imported/cat_grab_3.wav-857fd87a2c083d5662aefe3de10366cd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
