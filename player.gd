@@ -155,7 +155,7 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "pickup" || anim_name == "pickup_whiff" || anim_name == "throw":
 		can_grab = true
 		if (holding == ""):
-			anim_player.play("idle")
+			anim_player.play("idle_empty")
 		elif (holding == "cat"):
 			anim_player.play("idle_cat")
 	

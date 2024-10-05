@@ -29,8 +29,8 @@ func spawn_cats(catAmount, current):
 		catInst.position.x += randi_range(current.get_child(0).shape.size[0]/2 -1, -current.get_child(0).shape.size[0]/2 +1)
 		catInst.position.z += randi_range(current.get_child(0).shape.size[2]/2 -1, -current.get_child(0).shape.size[2]/2 +1)
 		#if the cat is colliding with anything, delete it and run this again
-		if catInst:
-			catInst.queue_free()
-			i+=1
+		#if catInst:
+		#	catInst.queue_free()
+		#	i+=1
 		add_sibling(catInst)
 	

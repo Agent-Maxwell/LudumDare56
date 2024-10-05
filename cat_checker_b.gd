@@ -21,6 +21,7 @@ func cat_amount():
 #if a cat enters, increment tehe cat count by 1
 func _on_body_entered(body):
 	catAmount +=1
+	print(catAmount)
 
 #if a cat exits, decrement the cat count by 1
 func _on_body_exited(body):
