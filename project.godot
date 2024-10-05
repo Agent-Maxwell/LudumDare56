@@ -81,3 +81,7 @@ kick={
 3d_physics/layer_2="characters"
 3d_physics/layer_3="cats"
 3d_physics/layer_4="obstacles"
+
+[physics]
+
+3d/default_linear_damp=0.0

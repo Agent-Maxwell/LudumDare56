@@ -10,8 +10,8 @@ const SPEED = 5.0
 const SPEED_WHILE_CHARGING = 3.0
 const MOUSE_SENS = .06
 const JUMP_VELOCITY = 4.5
-const KICK_ANGLE = 45
-const KICK_VELOCITY = 10
+const KICK_ANGLE = 25
+const KICK_VELOCITY = 5
 
 var can_grab = true
 var holding = ""
@@ -57,9 +57,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("kick"):
 		kick()
 	
-	# if charging, tick up charge time (to max of 2 sec)
+	# if charging, tick up charge time (to max of 1 sec)
 	if charging == true:
-		charge_time = move_toward(charge_time, 2, delta)
+		charge_time = move_toward(charge_time, 1, delta)
 
 
 func _physics_process(delta: float) -> void:
@@ -113,9 +113,8 @@ func click_release_action():
 		var catInst = catPrefab.instantiate()
 		var spawn_position = $Face.global_transform.origin + -$Face.global_transform.basis.z * 1 # face location + (face's forward vector * some distance)
 		catInst.global_transform.origin = spawn_position
-		print(charge_time * 5)
 		#print(velocity.length())
-		catInst.linear_velocity = -$Face.global_transform.basis.z * charge_time * 6 + velocity # set velocity to face's forward vector * throw speed
+		catInst.linear_velocity = -$Face.global_transform.basis.z * (4 + (charge_time * 10)) + velocity # set velocity to face's forward vector * throw speed
 		charge_time = 0 #reset charge time for next charge
 		add_sibling(catInst) # it appears...
 		holding = "" # my hand is empty now ???!!
@@ -150,7 +149,7 @@ func kick():
 		for i in kickHitbox.get_collision_count():
 			var start_speed = kickHitbox.get_collider(i).linear_velocity.length()
 			print(start_speed)
-			kickHitbox.get_collider(i).linear_velocity = -global_transform.basis.z.rotated(global_transform.basis.x, KICK_ANGLE) * (KICK_VELOCITY + start_speed)
+			kickHitbox.get_collider(i).linear_velocity = -global_transform.basis.z.rotated(global_transform.basis.x, deg_to_rad(KICK_ANGLE)) * (KICK_VELOCITY + start_speed)
 			#(-global_transform.basis.z + Vector3(0, 1, 0)) * 10
 
 # you fail
