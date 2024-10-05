@@ -24,7 +24,7 @@ func _ready():
 
 #Called when someone presses the start button on the main menu
 func start_game():
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN	
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Main_Menu.hide()
 
 

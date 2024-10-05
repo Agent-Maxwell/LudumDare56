@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://dba24vvsaihhc"]
 
-[ext_resource type="FontFile" path="res://OpenSans-Regular.ttf" id="1_bdstf"]
+[ext_resource type="FontFile" uid="uid://dqalj8lhxxtxm" path="res://OpenSans-Regular.ttf" id="1_bdstf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rde3f"]
 bg_color = Color(0.903598, 0.903598, 0.903598, 1)
