@@ -77,6 +77,7 @@ collision_mask = 3
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+fov = 100.7
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -97,10 +98,8 @@ grow_vertical = 0
 position = Vector2(373, -81)
 scale = Vector2(0.574699, 0.574699)
 sprite_frames = SubResource("SpriteFrames_klnha")
-animation = &"grab"
+animation = &"idle"
 autoplay = "idle"
-frame = 3
-frame_progress = 1.0
 
 [node name="FailScreen" type="Control" parent="CanvasLayer"]
 visible = false

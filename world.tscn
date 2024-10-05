@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=9 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
 
@@ -7,7 +7,11 @@ albedo_color = Color(0.0352941, 1, 0.0745098, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wldeh"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pcqxp"]
+size = Vector3(2.03857, 1, 2.06995)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_070dd"]
+metallic = 0.44
 
 [sub_resource type="BoxMesh" id="BoxMesh_vxh1j"]
 
@@ -26,6 +30,12 @@ background_color = Color(0.54902, 0.694118, 1, 1)
 transform = Transform3D(8.64794, 0, 0, 0, 0.745164, 0, 0, 0, 8.38686, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_2lxx6")
 mesh = SubResource("PlaneMesh_wldeh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999963, 0.00903322, -0.423164, 0.00224985)
+shape = SubResource("BoxShape3D_pcqxp")
 
 [node name="Fence" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.435684, 0, 0, 0, 1, 0, 0, 0, 3.54439, 0, 0.481763, 0)
