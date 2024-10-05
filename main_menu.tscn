@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq1632l237tc2"]
+
+[ext_resource type="FontFile" path="res://Cattino.ttf" id="1_i35tq"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_rb71w"]
+[ext_resource type="Theme" uid="uid://dba24vvsaihhc" path="res://menu_button.tres" id="2_14mwx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpjrl"]
+bg_color = Color(0.282353, 0.662745, 0.6, 1)
+
+[node name="Main Menu" type="CanvasLayer"]
+script = ExtResource("1_rb71w")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background Color" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fpjrl")
+
+[node name="Title" type="Label" parent="MarginContainer/Background Color"]
+layout_mode = 2
+offset_top = 20.0
+offset_right = 1920.0
+offset_bottom = 1100.0
+theme_override_colors/font_color = Color(1, 0.494118, 1, 1)
+theme_override_fonts/font = ExtResource("1_i35tq")
+theme_override_font_sizes/font_size = 150
+text = "Cat-astrophe!"
+horizontal_alignment = 1
+
+[node name="Button Spacer" type="VBoxContainer" parent="MarginContainer/Background Color"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 264.0
+offset_right = 1260.0
+offset_bottom = 688.0
+theme_override_constants/separation = 36
+
+[node name="Start" type="Button" parent="MarginContainer/Background Color/Button Spacer"]
+layout_mode = 2
+theme = ExtResource("2_14mwx")
+text = "Start"
+
+[node name="Options" type="Button" parent="MarginContainer/Background Color/Button Spacer"]
+layout_mode = 2
+theme = ExtResource("2_14mwx")
+text = "Options"
+
+[node name="About" type="Button" parent="MarginContainer/Background Color/Button Spacer"]
+layout_mode = 2
+theme = ExtResource("2_14mwx")
+text = "About"
+
+[node name="Quit" type="Button" parent="MarginContainer/Background Color/Button Spacer"]
+layout_mode = 2
+theme = ExtResource("2_14mwx")
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/Background Color/Button Spacer/Start" to="." method="_on_start_pressed"]

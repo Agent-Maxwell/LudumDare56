@@ -16,7 +16,17 @@ var catAmount = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE	
+	var main_menu = get_node("Main_Menu")
+	$Main_Menu.show()
+	main_menu.start_game.connect(start_game)
 	next_level()
+
+#Called when someone presses the start button on the main menu
+func start_game():
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN	
+	$Main_Menu.hide()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
