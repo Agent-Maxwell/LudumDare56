@@ -1,0 +1,159 @@
+[gd_scene load_steps=12 format=3 uid="uid://rmhrq5qmmkuj"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_cqcfi"]
+[ext_resource type="Texture2D" uid="uid://bkagmxvxuyrog" path="res://handplaceholder.png" id="1_ia0tg"]
+[ext_resource type="AudioStream" uid="uid://dc5t8mmfgqdrw" path="res://catgrab.mp3" id="3_q1y1w"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xgkp0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnh80"]
+atlas = ExtResource("1_ia0tg")
+region = Rect2(415, 0, 415, 438)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srdd3"]
+atlas = ExtResource("1_ia0tg")
+region = Rect2(830, 0, 415, 438)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu7kt"]
+atlas = ExtResource("1_ia0tg")
+region = Rect2(1245, 0, 415, 438)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8fxj"]
+atlas = ExtResource("1_ia0tg")
+region = Rect2(0, 0, 415, 438)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sljq1"]
+atlas = ExtResource("1_ia0tg")
+region = Rect2(0, 0, 415, 438)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wgca"]
+atlas = ExtResource("1_ia0tg")
+region = Rect2(1245, 0, 415, 438)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_klnha"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnh80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srdd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu7kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8fxj")
+}],
+"loop": false,
+"name": &"grab",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sljq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wgca")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_cqcfi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_xgkp0")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+target_position = Vector3(0, 0, -1000)
+collision_mask = 3
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HandBase" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/HandBase"]
+position = Vector2(373, -81)
+scale = Vector2(0.574699, 0.574699)
+sprite_frames = SubResource("SpriteFrames_klnha")
+animation = &"grab"
+autoplay = "idle"
+frame = 3
+frame_progress = 1.0
+
+[node name="FailScreen" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/FailScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.5
+offset_top = -58.0
+offset_right = 114.5
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/FailScreen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.5
+offset_top = -11.5
+offset_right = 128.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "you suck abnd are toollol slowllol"
+
+[node name="Button" type="Button" parent="CanvasLayer/FailScreen/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "restart"
+
+[node name="CatGrabSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_q1y1w")
+bus = &"Sfx"
