@@ -13,18 +13,15 @@ func _process(delta):
 	pass
 
 #makes sure we have the correct amount of cats
-func spawn_cats(catAmount, goal):
+func spawn_cats(catAmount, current):
 	#if we have enough cats, dont do anything
-	if goal.catAmount == catAmount:
+	if current.catAmount == catAmount:
 		pass
 	
-	#if we dont, make a cat
-	var catInst = catPrefab.instantiate()
-	catInst.global_transform.origin = goal.get_child(0).position
-	add_sibling(catInst)
-	goal.get_overlapping_bodies()
-	print(goal.catAmount)
-	
-	#and then run this function again
-	#spawn_cats(catAmount, goal)
+	#if we dont, make enough cats
+	for i in catAmount - current.catAmount+1:
+		var catInst = catPrefab.instantiate()
+		catInst.global_transform.origin = current.get_child(0).position
+		add_sibling(catInst)
+		print(current.catAmount)
 	

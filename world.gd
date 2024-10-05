@@ -15,12 +15,12 @@ var catAmount = 10
 func _ready():
 	level_start()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#if the amount of cats in the goal yard is equal to the amount of cats, we can move to the next level
 	if goal.catAmount == catAmount:
 		pass
+
 	
 #sets up the variables for the new level
 func level_start():
@@ -29,6 +29,6 @@ func level_start():
 	goal = find_child("CatChecker" + goalSide)
 	
 	#spawn all the cats we need
-	$CatSpawner.spawn_cats(catAmount, goal)
+	$CatSpawner.spawn_cats(catAmount, current)
 	
 	#the amount of cats on each side is automatically updated by the catchecker script (even at game start)
