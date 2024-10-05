@@ -43,7 +43,7 @@ func level_start():
 	
 	#the amount of cats on each side is automatically updated by the catchecker script (even at game start)
 	
-func score_points(value, multiplier):
+func score_points(value, multiplier, text):
 	score += value*multiplier
 	print(score)
 	
