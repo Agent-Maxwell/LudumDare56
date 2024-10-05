@@ -9,7 +9,7 @@ radius = 0.502801
 
 [node name="Cat" type="RigidBody3D"]
 collision_layer = 4
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("1_fjgkt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -17,3 +17,5 @@ mesh = SubResource("SphereMesh_sir3u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_0k6tk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
