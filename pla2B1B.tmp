@@ -152,18 +152,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(-541, 229), Vector2(-527, -313)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("HandBase/right hand:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
 
 [sub_resource type="Animation" id="Animation_7tno0"]
 resource_name = "idle_cat"
@@ -200,10 +188,10 @@ tracks/2/path = NodePath("HandBase/left hand:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [Vector2(-541, 229)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -273,7 +261,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_6wnep"]
 resource_name = "pickup"
-length = 0.3915
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -281,10 +269,10 @@ tracks/0/path = NodePath("HandBase/right hand:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [4]
+"values": [2, 4]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -293,10 +281,10 @@ tracks/1/path = NodePath("HandBase/right hand:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.166667, 0.366667),
+"times": PackedFloat32Array(0, 0.0666667, 0.2, 0.433333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(505, -107), Vector2(844, -275), Vector2(-58, 256), Vector2(505, -107)]
+"values": [Vector2(505, -107), Vector2(833, -193), Vector2(-58, 256), Vector2(505, -107)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -305,7 +293,7 @@ tracks/2/path = NodePath("HandBase/right hand:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.266667, 0.366667),
+"times": PackedFloat32Array(0, 0.0666667, 0.3, 0.433333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.584685, -0.696386, 0.0]
@@ -377,7 +365,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_ccqeo"]
 resource_name = "throw"
-length = 0.4925
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -385,10 +373,10 @@ tracks/0/path = NodePath("HandBase/right hand:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.366667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [3, 2]
+"values": [4, 3, 2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -397,10 +385,10 @@ tracks/1/path = NodePath("HandBase/right hand:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.3, 0.466667),
+"times": PackedFloat32Array(0, 0.166667, 0.3, 0.466667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(855, -402), Vector2(-60, 195), Vector2(326, 201), Vector2(505, -107)]
+"values": [Vector2(939, -344), Vector2(81, 190), Vector2(326, 201), Vector2(505, -107)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -409,10 +397,10 @@ tracks/2/path = NodePath("HandBase/left hand:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0666667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-550, -216), Vector2(-930, -78)]
+"values": [Vector2(-930, -78)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -421,10 +409,10 @@ tracks/3/path = NodePath("HandBase/right hand:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.466667),
+"times": PackedFloat32Array(0, 0.166667, 0.466667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.418879, -0.656244, 0.0]
+"values": [0.0, -0.656244, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_drks6"]
@@ -473,6 +461,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/HandBase"]
+visible = false
 position = Vector2(373, -81)
 scale = Vector2(0.574699, 0.574699)
 sprite_frames = SubResource("SpriteFrames_klnha")
@@ -554,5 +543,3 @@ text = "restart"
 [node name="CatGrabSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_q1y1w")
 bus = &"Sfx"
-
-[connection signal="animation_finished" from="CanvasLayer/HandBase/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
