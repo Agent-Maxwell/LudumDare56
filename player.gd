@@ -45,6 +45,8 @@ func _process(delta):
 		return
 	if Input.is_action_just_pressed("click_action"):
 		click_action()
+	if Input.is_action_just_pressed("kick"):
+		kick()
 
 	
 
@@ -102,6 +104,9 @@ func grab():
 func grab_animation_done():
 	can_grab = true
 	grabSprite.play("idle")
+	
+func kick():
+	pass
 
 # you fail
 func fail():
