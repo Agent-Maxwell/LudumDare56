@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cq1632l237tc2"]
 
-[ext_resource type="FontFile" path="res://Cattino.ttf" id="1_i35tq"]
+[ext_resource type="FontFile" uid="uid://dxdv0uyd0elyf" path="res://Cattino.ttf" id="1_i35tq"]
 [ext_resource type="Script" path="res://main_menu.gd" id="1_rb71w"]
 [ext_resource type="Theme" uid="uid://dba24vvsaihhc" path="res://menu_button.tres" id="2_14mwx"]
 
