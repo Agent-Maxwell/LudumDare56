@@ -83,7 +83,7 @@ func click_action():
 		var catInst = catPrefab.instantiate()
 		var spawn_position = $Face.global_transform.origin + -$Face.global_transform.basis.z * 1 # face location + (face's forward vector * some distance)
 		catInst.global_transform.origin = spawn_position
-		catInst.linear_velocity = -$Face.global_transform.basis.z * 10 # set velocity to face's forward vector * throw speed
+		catInst.linear_velocity = -$Face.global_transform.basis.z * 10 + velocity * 2# set velocity to face's forward vector * throw speed
 		add_sibling(catInst) # it appears...
 		holding = "" # my hand is empty now ???!!
 
