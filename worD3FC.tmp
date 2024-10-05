@@ -152,8 +152,3 @@ script = ExtResource("5_c1wau")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CatCheckerB"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0499992, -2, -4.75)
 shape = SubResource("BoxShape3D_7aetu")
-
-[connection signal="body_entered" from="CatCheckerA" to="CatCheckerA" method="_on_body_entered"]
-[connection signal="body_exited" from="CatCheckerA" to="CatCheckerA" method="_on_body_exited"]
-[connection signal="body_entered" from="CatCheckerB" to="CatCheckerB" method="_on_body_entered"]
-[connection signal="body_exited" from="CatCheckerB" to="CatCheckerB" method="_on_body_exited"]
