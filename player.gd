@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@onready var anim_player = $CanvasLayer/HandBase/AnimationPlayer
+@onready var anim_player = $CanvasLayer/HUD/AnimationPlayer
 @onready var myRayCast = $Face/RayCast3D
 @onready var kickHitbox = $ShapeCast3D
 @onready var grabSound = $CatGrabSound

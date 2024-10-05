@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq1632l237tc2"]
+[gd_scene load_steps=5 format=3 uid="uid://cxmcsy2xr4r2y"]
 
 [ext_resource type="FontFile" uid="uid://dxdv0uyd0elyf" path="res://Cattino.ttf" id="1_i35tq"]
 [ext_resource type="Script" path="res://main_menu.gd" id="1_rb71w"]
