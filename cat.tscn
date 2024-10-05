@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://y4dkkkvom4u8"]
+
+[ext_resource type="Script" path="res://cat.gd" id="1_fjgkt"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_sir3u"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0k6tk"]
+radius = 0.502801
+
+[node name="Cat" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_fjgkt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_sir3u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_0k6tk")
