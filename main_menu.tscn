@@ -61,3 +61,4 @@ theme = ExtResource("2_14mwx")
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/Background Color/Button Spacer/Start" to="." method="_on_start_pressed"]
+[connection signal="button_up" from="MarginContainer/Background Color/Button Spacer/Quit" to="." method="_on_quit_button_up"]
