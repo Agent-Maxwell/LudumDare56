@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var anim_player = $CanvasLayer/HandBase/AnimationPlayer
 @onready var myRayCast = $Face/RayCast3D
+@onready var kickHitbox = $ShapeCast3D
 @onready var grabSound = $CatGrabSound
 
 # mouse/movement stuff
@@ -9,6 +10,8 @@ const SPEED = 5.0
 const SPEED_WHILE_CHARGING = 3.0
 const MOUSE_SENS = .06
 const JUMP_VELOCITY = 4.5
+const KICK_ANGLE = 45
+const KICK_VELOCITY = 10
 
 var can_grab = true
 var holding = ""
@@ -143,7 +146,12 @@ func grab():
 		#anim_player.play("idle_cat")
 	
 func kick():
-	pass
+	if kickHitbox.is_colliding():
+		for i in kickHitbox.get_collision_count():
+			var start_speed = kickHitbox.get_collider(i).linear_velocity.length()
+			print(start_speed)
+			kickHitbox.get_collider(i).linear_velocity = -global_transform.basis.z.rotated(global_transform.basis.x, KICK_ANGLE) * (KICK_VELOCITY + start_speed)
+			#(-global_transform.basis.z + Vector3(0, 1, 0)) * 10
 
 # you fail
 func fail():
