@@ -66,6 +66,7 @@ func next_level():
 	#unhide obstacles/hazards
 	for i in $levelData.obstacles[level].size():
 		find_child($levelData.obstacles[level][i]).show()
+		find_child($levelData.obstacles[level][i]).get_child(0).get_child(0).disabled = false
 	
 	#play level specific dialogue
 	
