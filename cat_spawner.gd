@@ -23,5 +23,4 @@ func spawn_cats(catAmount, current):
 		var catInst = catPrefab.instantiate()
 		catInst.global_transform.origin = current.get_child(0).position
 		add_sibling(catInst)
-		print(current.catAmount)
 	
