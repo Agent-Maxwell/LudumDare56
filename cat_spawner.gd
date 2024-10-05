@@ -19,7 +19,7 @@ func spawn_cats(catAmount, current):
 		pass
 	
 	#if we dont, make enough cats
-	for i in catAmount - current.catAmount+100:
+	for i in catAmount - current.catAmount:
 		var catInst = catPrefab.instantiate()
 		#set the base positon to the middle of the yard
 		catInst.global_transform.origin = current.get_child(0).position
