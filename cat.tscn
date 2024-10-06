@@ -1,6 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://y4dkkkvom4u8"]
+[gd_scene load_steps=15 format=3 uid="uid://y4dkkkvom4u8"]
 
 [ext_resource type="Script" path="res://cat.gd" id="1_fjgkt"]
+[ext_resource type="AudioStream" uid="uid://dpko8x56r5vnp" path="res://cat kicker sfx/throw_meow_1.wav" id="2_h5ni7"]
+[ext_resource type="AudioStream" uid="uid://deonki3o3ip56" path="res://cat kicker sfx/throw_meow_2.wav" id="3_qploi"]
+[ext_resource type="AudioStream" uid="uid://ddkv6jtsl458v" path="res://cat kicker sfx/throw_meow_3.wav" id="4_tyey8"]
+[ext_resource type="AudioStream" uid="uid://dnl74vgkahp83" path="res://cat kicker sfx/throw_meow_4.wav" id="5_4wcoa"]
+[ext_resource type="AudioStream" uid="uid://b7kh7pswfsq2r" path="res://cat kicker sfx/cat_bounce_1.wav" id="6_fxrej"]
+[ext_resource type="AudioStream" uid="uid://c5bqgyhhidux1" path="res://cat kicker sfx/cat_bounce_2.wav" id="7_668de"]
+[ext_resource type="AudioStream" uid="uid://c56r1ie28mmf7" path="res://cat kicker sfx/cat_bounce_3.wav" id="8_54cp3"]
+[ext_resource type="AudioStream" uid="uid://b1e8cnrgsdt66" path="res://cat kicker sfx/cat_bounce_4.wav" id="9_2jdpx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8yadw"]
 bounce = 0.55
@@ -10,10 +18,26 @@ bounce = 0.55
 [sub_resource type="SphereShape3D" id="SphereShape3D_0k6tk"]
 radius = 0.502801
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jl31h"]
+streams_count = 4
+stream_0/stream = ExtResource("2_h5ni7")
+stream_1/stream = ExtResource("3_qploi")
+stream_2/stream = ExtResource("4_tyey8")
+stream_3/stream = ExtResource("5_4wcoa")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_shcbi"]
+streams_count = 4
+stream_0/stream = ExtResource("6_fxrej")
+stream_1/stream = ExtResource("7_668de")
+stream_2/stream = ExtResource("8_54cp3")
+stream_3/stream = ExtResource("9_2jdpx")
+
 [node name="Cat" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 13
 physics_material_override = SubResource("PhysicsMaterial_8yadw")
+contact_monitor = true
+max_contacts_reported = 2
 script = ExtResource("1_fjgkt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -21,5 +45,13 @@ mesh = SubResource("SphereMesh_sir3u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_0k6tk")
+
+[node name="ThrowMeow" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_jl31h")
+unit_size = 3.0
+
+[node name="Bounce" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_shcbi")
+unit_size = 3.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

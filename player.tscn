@@ -1,13 +1,20 @@
-[gd_scene load_steps=32 format=3 uid="uid://rmhrq5qmmkuj"]
+[gd_scene load_steps=41 format=3 uid="uid://rmhrq5qmmkuj"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_cqcfi"]
 [ext_resource type="Texture2D" uid="uid://bkagmxvxuyrog" path="res://handplaceholder.png" id="1_ia0tg"]
 [ext_resource type="Texture2D" uid="uid://crxtxvqqawptj" path="res://hand sprites/hand spritesheet.png" id="3_ilttr"]
-[ext_resource type="AudioStream" uid="uid://dc5t8mmfgqdrw" path="res://catgrab.mp3" id="3_q1y1w"]
 [ext_resource type="Texture2D" uid="uid://5u4c6nje1sed" path="res://hand sprites/leg spritesheet.png" id="3_vc4r5"]
 [ext_resource type="AudioStream" uid="uid://dnxckqfjxxfij" path="res://cat kicker sfx/kick1.wav" id="4_7sibd"]
 [ext_resource type="AudioStream" uid="uid://bedrb2maj857f" path="res://cat kicker sfx/kick2.wav" id="5_mtp5c"]
 [ext_resource type="FontFile" uid="uid://dxdv0uyd0elyf" path="res://Cattino.ttf" id="5_xcwns"]
+[ext_resource type="AudioStream" uid="uid://b8hiow76krg2c" path="res://cat kicker sfx/cat_grab_1.wav" id="8_4en6m"]
+[ext_resource type="AudioStream" uid="uid://cedxtou1b16f6" path="res://cat kicker sfx/cat_grab_2.wav" id="9_f8tdm"]
+[ext_resource type="AudioStream" uid="uid://dgb3u4uk1bkj1" path="res://cat kicker sfx/cat_grab_3.wav" id="10_4y2o5"]
+[ext_resource type="AudioStream" uid="uid://cfmiegidht14f" path="res://cat kicker sfx/cat_grab_4.wav" id="11_vcje7"]
+[ext_resource type="AudioStream" uid="uid://h6e7neyy1mjj" path="res://cat kicker sfx/cat_grab_5.wav" id="12_j01kf"]
+[ext_resource type="AudioStream" uid="uid://d3rjj4npuhnsa" path="res://cat kicker sfx/throw_1.wav" id="13_4pwf7"]
+[ext_resource type="AudioStream" uid="uid://booumlrc55ncs" path="res://cat kicker sfx/throw_2.wav" id="14_l1ixa"]
+[ext_resource type="AudioStream" uid="uid://dc5t8mmfgqdrw" path="res://geh.mp3" id="15_h5etk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xgkp0"]
 
@@ -524,6 +531,20 @@ font_size = 50
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1pcp6"]
+streams_count = 5
+stream_0/stream = ExtResource("8_4en6m")
+stream_1/stream = ExtResource("9_f8tdm")
+stream_2/stream = ExtResource("10_4y2o5")
+stream_3/stream = ExtResource("11_vcje7")
+stream_4/stream = ExtResource("12_j01kf")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ik1aq"]
+playback_mode = 1
+streams_count = 2
+stream_0/stream = ExtResource("13_4pwf7")
+stream_1/stream = ExtResource("14_l1ixa")
+
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 2
 collision_mask = 3
@@ -698,8 +719,14 @@ grow_vertical = 0
 text = "restart"
 
 [node name="CatGrabSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_q1y1w")
+stream = SubResource("AudioStreamRandomizer_1pcp6")
 bus = &"Sfx"
+
+[node name="CatThrowSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_ik1aq")
+
+[node name="GrabWhiffSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_h5etk")
 
 [connection signal="animation_finished" from="CanvasLayer/HUD/hands/leg/legPlayer" to="." method="_on_leg_player_animation_finished"]
 [connection signal="animation_finished" from="CanvasLayer/HUD/handPlayer" to="." method="_on_animation_player_animation_finished"]

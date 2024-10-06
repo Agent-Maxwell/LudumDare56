@@ -5,7 +5,9 @@ extends CharacterBody3D
 @onready var myRayCast = $Face/RayCast3D
 @onready var kickHitbox = $ShapeCast3D
 @onready var grabSound = $CatGrabSound
+@onready var throwSound = $CatThrowSound
 @onready var kickSounds = $CanvasLayer/HUD/hands/leg/kickSounds
+@onready var whiffSound = $GrabWhiffSound
 
 # mouse/movement stuff
 const SPEED = 5.0
@@ -138,9 +140,11 @@ func click_release_action():
 		catInst.linear_velocity = -$Face.global_transform.basis.z * (4 + (charge_time * 10)) + velocity # set velocity to face's forward vector * throw speed
 		charge_time = 0 #reset charge time for next charge
 		add_sibling(catInst) # it appears...
+		catInst.launch_meow() # meoooooow
 		catInst.beenGrabbed = true
 		holding = "" # my hand is empty now ???!!
 		hand_anim.play("throw")
+		throwSound.play()
 	
 	
 
@@ -148,14 +152,15 @@ func grab():
 	if !can_grab: # if pickup/throw animation is already playing, dont initiate another
 		return
 	can_grab = false
-	grabSound.play()
 	# if line of sight with a grabbable object, run its grab function and set 'holding' to its type
 	if myRayCast.is_colliding() and myRayCast.get_collider().has_method("grabbed"):
 		holding = myRayCast.get_collider().type()
 		myRayCast.get_collider().grabbed()
 		hand_anim.play("pickup")
+		grabSound.play()
 	else:
 		hand_anim.play("pickup_whiff")
+		whiffSound.play()
 
 	
 func kick():
@@ -168,6 +173,7 @@ func kick():
 				var start_speed = kickHitbox.get_collider(i).linear_velocity.length()
 				kickHitbox.get_collider(i).linear_velocity = -global_transform.basis.z.rotated(global_transform.basis.x, deg_to_rad(KICK_ANGLE)) * (KICK_VELOCITY + start_speed)
 				kickHitbox.get_collider(i).beenKicked = true
+				kickHitbox.get_collider(i).launch_meow()
 				#dropkick scoring
 				if kickHitbox.get_collider(i).beenKicked and kickHitbox.get_collider(i).beenGrabbed:
 					scoreMessage("Dropkick!")

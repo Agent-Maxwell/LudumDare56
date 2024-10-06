@@ -8,10 +8,11 @@ var multiplier = 1
 var beenKicked = false
 var beenGrabbed = false
 
+#@onready var throw_meow = $ThrowMeow
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -34,3 +35,12 @@ func grabbed():
 func resetScore():
 	score = 0
 	multiplier = 1
+
+#meow when kicked or thrown
+func launch_meow():
+	$ThrowMeow.play()
+
+#bounce sound plays if it bounces hard enough
+func _on_body_entered(body):
+	if (linear_velocity.length() > 10):
+		$Bounce.play()
