@@ -8,10 +8,12 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpjrl"]
 bg_color = Color(0.282353, 0.662745, 0.6, 1)
 
-[node name="Main Menu" type="CanvasLayer"]
+[node name="MainMenu" type="CanvasLayer"]
+process_mode = 2
 script = ExtResource("1_rb71w")
 
 [node name="Menu" type="CanvasLayer" parent="."]
+layer = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 anchors_preset = 15
@@ -64,7 +66,7 @@ theme = ExtResource("2_14mwx")
 text = "Quit"
 
 [node name="Options" type="CanvasLayer" parent="."]
-visible = false
+layer = 7
 
 [node name="MarginContainer" type="MarginContainer" parent="Options"]
 anchors_preset = 15

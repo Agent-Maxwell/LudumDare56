@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=19 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
 [ext_resource type="Script" path="res://tree.gd" id="2_l0eu8"]
 [ext_resource type="Script" path="res://cat_checker_a.gd" id="4_xa23j"]
 [ext_resource type="Script" path="res://cat_spawner.gd" id="6_c0b2u"]
+[ext_resource type="PackedScene" uid="uid://cq1632l237tc2" path="res://main_menu.tscn" id="6_ewqnf"]
 [ext_resource type="Script" path="res://oob_catcher.gd" id="7_kxeyp"]
 [ext_resource type="Script" path="res://level_data.gd" id="7_ml12b"]
 [ext_resource type="PackedScene" uid="uid://dnx0lyo5wsmhn" path="res://cutscene.tscn" id="8_lp2vk"]
@@ -207,6 +208,9 @@ shape = SubResource("BoxShape3D_mq4f1")
 [node name="Cutscene" parent="." instance=ExtResource("8_lp2vk")]
 visible = false
 
+[node name="MainMenu" parent="." instance=ExtResource("6_ewqnf")]
+process_mode = 3
+
 [connection signal="start_cutscene" from="." to="Cutscene" method="start_cutscene"]
 [connection signal="body_entered" from="CatCheckerA" to="CatCheckerA" method="_on_body_entered"]
 [connection signal="body_exited" from="CatCheckerA" to="CatCheckerA" method="_on_body_exited"]
@@ -214,3 +218,4 @@ visible = false
 [connection signal="body_exited" from="CatCheckerB" to="CatCheckerB" method="_on_body_exited"]
 [connection signal="body_entered" from="OOBCatcher" to="OOBCatcher" method="_on_body_entered"]
 [connection signal="end_cutscene" from="Cutscene" to="." method="end_cutscene"]
+[connection signal="start" from="MainMenu" to="." method="start"]

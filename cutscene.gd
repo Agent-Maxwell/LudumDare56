@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var currCutsceneID = 0
+var currCutsceneID = -1
 var currPageNum = 0
 
 @onready var dialogueBox = $DialogueBox
@@ -13,7 +13,7 @@ signal end_cutscene
 
 #When user clicks, presses spacebar, or presses enter, advances cutscene
 func _process(delta):
-	if Input.is_action_just_pressed("cutscene_forward"):
+	if Input.is_action_just_pressed("cutscene_forward") && currCutsceneID != -1:
 		cutscene_forward()
 
 #All dialogue. Triple array. First tracks individual cutscenes,
@@ -65,4 +65,5 @@ func cutscene_forward():
 		var currPage = currCutscene[currPageNum]
 		set_dialogue(currPage[0], currPage[1], currPage[2])
 	else:
+		currCutsceneID = -1
 		emit_signal("end_cutscene")

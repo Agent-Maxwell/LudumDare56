@@ -24,8 +24,18 @@ var catAmount = 1
 func _ready():
 	$Cutscene.hide()
 	$Cutscene/DialogueBox.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	$MainMenu.show()
+	$MainMenu/Menu.show()
+	get_tree().paused = true
+	
+func start():
+	$MainMenu.hide()
+	$MainMenu/Menu.hide()
+	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	next_level()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
