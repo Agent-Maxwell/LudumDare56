@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=25 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://oob_catcher.gd" id="7_kxeyp"]
 [ext_resource type="Script" path="res://level_data.gd" id="7_ml12b"]
 [ext_resource type="PackedScene" uid="uid://dnx0lyo5wsmhn" path="res://cutscene.tscn" id="8_lp2vk"]
+[ext_resource type="Script" path="res://cat_spawn_checker.gd" id="8_pcucf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lxx6"]
 albedo_color = Color(0.0352941, 1, 0.0745098, 1)
@@ -40,6 +41,8 @@ background_color = Color(0.54902, 0.694118, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7aetu"]
 size = Vector3(19.1675, 0.291351, 29.5411)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6nly1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mq4f1"]
 size = Vector3(1, 62.5316, 40)
@@ -232,6 +235,13 @@ shape = SubResource("BoxShape3D_7aetu")
 [node name="CatSpawner" type="Node3D" parent="."]
 script = ExtResource("6_c0b2u")
 
+[node name="CatSpawnChecker" type="RigidBody3D" parent="CatSpawner"]
+collision_mask = 14
+script = ExtResource("8_pcucf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CatSpawner/CatSpawnChecker"]
+shape = SubResource("SphereShape3D_6nly1")
+
 [node name="levelData" type="Node" parent="."]
 script = ExtResource("7_ml12b")
 
@@ -272,6 +282,7 @@ process_mode = 3
 [connection signal="body_exited" from="CatCheckerA" to="CatCheckerA" method="_on_body_exited"]
 [connection signal="body_entered" from="CatCheckerB" to="CatCheckerB" method="_on_body_entered"]
 [connection signal="body_exited" from="CatCheckerB" to="CatCheckerB" method="_on_body_exited"]
+[connection signal="body_entered" from="CatSpawner/CatSpawnChecker" to="CatSpawner/CatSpawnChecker" method="_on_body_entered"]
 [connection signal="body_entered" from="OOBCatcher" to="OOBCatcher" method="_on_body_entered"]
 [connection signal="end_cutscene" from="Cutscene" to="." method="end_cutscene"]
 [connection signal="start" from="MainMenu" to="." method="start"]
