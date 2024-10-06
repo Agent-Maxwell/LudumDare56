@@ -8,6 +8,10 @@ var goalSide = "A"
 var current = null
 var goal = null
 
+#initialize scoring variables
+var score = 0
+var canScore = true
+
 #initialize the level tracker
 var level = -1
 
@@ -38,6 +42,13 @@ func level_start():
 	$CatSpawner.spawn_cats(catAmount, current)
 	
 	#the amount of cats on each side is automatically updated by the catchecker script (even at game start)
+	
+func score_points(value, multiplier, text):
+	score += value*multiplier
+	print(score)
+	
+	$Player.updateScore(score)
+	$Player.scoreMessage(text)
 	
 # update all variables and take us to the next level
 func next_level():

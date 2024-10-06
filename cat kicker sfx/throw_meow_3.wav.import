@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ddkv6jtsl458v"
+path="res://.godot/imported/throw_meow_3.wav-4f4e3c2da9b947637c79204845d9a409.sample"
+
+[deps]
+
+source_file="res://cat kicker sfx/throw_meow_3.wav"
+dest_files=["res://.godot/imported/throw_meow_3.wav-4f4e3c2da9b947637c79204845d9a409.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

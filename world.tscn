@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=17 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
 [ext_resource type="Script" path="res://cat_checker_a.gd" id="4_xa23j"]
 [ext_resource type="Script" path="res://cat_checker_b.gd" id="5_c1wau"]
 [ext_resource type="Script" path="res://cat_spawner.gd" id="6_c0b2u"]
+[ext_resource type="Script" path="res://oob_catcher.gd" id="7_kxeyp"]
 [ext_resource type="Script" path="res://level_data.gd" id="7_ml12b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lxx6"]
@@ -29,6 +30,9 @@ background_color = Color(0.54902, 0.694118, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7aetu"]
 size = Vector3(19.7597, 1, 30.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mq4f1"]
+size = Vector3(1, 62.5316, 40)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_b8frq")
@@ -140,6 +144,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76998, 2.33752, 0)
 
 [node name="CatCheckerA" type="Area3D" parent="."]
+collision_layer = 0
 collision_mask = 4
 script = ExtResource("4_xa23j")
 
@@ -148,6 +153,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.05, 1, -4.75)
 shape = SubResource("BoxShape3D_7aetu")
 
 [node name="CatCheckerB" type="Area3D" parent="."]
+collision_layer = 0
 collision_mask = 4
 script = ExtResource("5_c1wau")
 
@@ -167,7 +173,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.72096, 2.09987, -4.53716)
 [node name="PlayerSpawnerSideB" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8152, 2.09987, -4.53716)
 
+[node name="OOBCatcher" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("7_kxeyp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OOBCatcher"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8, 30.3894, -4.0202)
+shape = SubResource("BoxShape3D_mq4f1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="OOBCatcher"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.263685, 30.3894, -21.0202)
+shape = SubResource("BoxShape3D_mq4f1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="OOBCatcher"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7, 30.3894, -4.0202)
+shape = SubResource("BoxShape3D_mq4f1")
+
 [connection signal="body_entered" from="CatCheckerA" to="CatCheckerA" method="_on_body_entered"]
 [connection signal="body_exited" from="CatCheckerA" to="CatCheckerA" method="_on_body_exited"]
 [connection signal="body_entered" from="CatCheckerB" to="CatCheckerB" method="_on_body_entered"]
 [connection signal="body_exited" from="CatCheckerB" to="CatCheckerB" method="_on_body_exited"]
+[connection signal="body_entered" from="OOBCatcher" to="OOBCatcher" method="_on_body_entered"]

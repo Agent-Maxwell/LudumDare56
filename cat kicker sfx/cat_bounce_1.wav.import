@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7kh7pswfsq2r"
+path="res://.godot/imported/cat_bounce_1.wav-abb7d827ca18a08387e35e1934c1eedc.sample"
+
+[deps]
+
+source_file="res://cat kicker sfx/cat_bounce_1.wav"
+dest_files=["res://.godot/imported/cat_bounce_1.wav-abb7d827ca18a08387e35e1934c1eedc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
