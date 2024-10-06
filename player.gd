@@ -30,7 +30,6 @@ var catPrefab = preload("res://cat.tscn")
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED # gimme dat
-	$CanvasLayer/FailScreen/Panel/Button.button_up.connect(restart)
 
 func _input(event):
 	if failed:
@@ -52,8 +51,8 @@ func _process(delta):
 		sprinting = true
 	if Input.is_action_just_released("sprint"):
 		sprinting = false
-	if Input.is_action_just_pressed("restart"):
-		restart()
+	if Input.is_action_just_pressed("unstuck"):
+		position = $"../".find_child("PlayerSpawnerSide" + $"../".currentSide).position
 	if failed:
 		return
 	if Input.is_action_just_pressed("click_action"):
