@@ -26,11 +26,14 @@ func spawn_cats(catAmount, current):
 		#increase the height a tad
 		catInst.position.y += 2
 		#place it randomly along the x and y axis
-		catInst.position.x += randi_range(current.get_child(0).shape.size[0]/2 -1, -current.get_child(0).shape.size[0]/2 +1)
-		catInst.position.z += randi_range(current.get_child(0).shape.size[2]/2 -1, -current.get_child(0).shape.size[2]/2 +1)
-		#if the cat is colliding with anything, delete it and run this again
-		#if catInst:
-		#	catInst.queue_free()
-		#	i+=1
-		add_sibling(catInst)
+		catInst.position.x += randf_range(current.get_child(0).shape.size[0]/2 -1, -current.get_child(0).shape.size[0]/2 +1)
+		catInst.position.z += randf_range(current.get_child(0).shape.size[2]/2 -1, -current.get_child(0).shape.size[2]/2 +1)
+		
+		#check if the cat would collide with anything
+		$CatSpawnChecker.colliding = false
+		$CatSpawnChecker.position = catInst.position
+		if $CatSpawnChecker.colliding:
+			i+=1
+		else:
+			add_sibling(catInst)
 	

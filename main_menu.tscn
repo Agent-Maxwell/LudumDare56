@@ -71,3 +71,4 @@ visible = false
 [connection signal="pressed" from="Menu/MarginContainer/Background Color/Button Spacer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Background Color/Button Spacer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Background Color/Button Spacer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="apply_options" from="Options" to="." method="_on_options_apply_options"]

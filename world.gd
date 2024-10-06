@@ -65,6 +65,13 @@ func score_points(value, multiplier, text):
 	
 # update all variables and take us to the next level
 func next_level():
+	
+	#deactivate previous obstacles/hazards
+	if (level) != -1:
+		for i in $levelData.activateObstacles[level].size():
+			find_child($levelData.activateObstacles[level][i]).get_child(1).get_child(0).disabled = true
+			print("skog")
+	
 	#increment the level counter
 	level +=1
 	
@@ -82,9 +89,15 @@ func next_level():
 	$Player.position = find_child("PlayerSpawnerSide" + currentSide).position
 	
 	#unhide obstacles/hazards
-	for i in $levelData.obstacles[level].size():
-		find_child($levelData.obstacles[level][i]).show()
-		find_child($levelData.obstacles[level][i]).get_child(0).get_child(0).disabled = false
+	for i in $levelData.unhideObstacles[level].size():
+		find_child($levelData.unhideObstacles[level][i]).show()
+		find_child($levelData.unhideObstacles[level][i]).get_child(0).get_child(0).disabled = false
+	
+	#activate obstacles/hazards
+	for i in $levelData.activateObstacles[level].size():
+		find_child($levelData.activateObstacles[level][i]).get_child(1).get_child(0).disabled = false
+		
+	
 	
 	#play level specific dialogue
 	get_tree().paused = true
