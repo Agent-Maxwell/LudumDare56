@@ -93,6 +93,8 @@ sprint={
 3d_physics/layer_2="characters"
 3d_physics/layer_3="cats"
 3d_physics/layer_4="obstacles"
+3d_physics/layer_5="catcollider"
+3d_physics/layer_6="ground"
 
 [physics]
 

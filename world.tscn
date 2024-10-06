@@ -78,6 +78,7 @@ material_override = SubResource("StandardMaterial3D_2lxx6")
 mesh = SubResource("PlaneMesh_wldeh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/Ground"]
+collision_layer = 33
 collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground/StaticBody3D"]
@@ -85,7 +86,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999977, 0.0178044, -0.586059, 
 shape = SubResource("BoxShape3D_pcqxp")
 
 [node name="Fence" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 30, 0, 0.5, -5)
+transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, -32.5685, 0, 0.5, -15.8755)
 material_override = SubResource("StandardMaterial3D_070dd")
 mesh = SubResource("BoxMesh_vxh1j")
 
@@ -95,7 +96,7 @@ mesh = SubResource("BoxMesh_vxh1j")
 shape = SubResource("ConcavePolygonShape3D_aohfv")
 
 [node name="TallFence" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 30, 0, 1.95205, -5)
+transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, -32.5685, 0, 1.95205, -15.8755)
 visible = false
 material_override = SubResource("StandardMaterial3D_070dd")
 mesh = SubResource("BoxMesh_vxh1j")
@@ -117,7 +118,7 @@ shape = SubResource("BoxShape3D_023i7")
 disabled = true
 
 [node name="Fence3" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 30, -20, 0.5, -5)
+transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 42, -26.8857, 0.5, -10.715)
 material_override = SubResource("StandardMaterial3D_070dd")
 mesh = SubResource("BoxMesh_vxh1j")
 
@@ -127,7 +128,7 @@ mesh = SubResource("BoxMesh_vxh1j")
 shape = SubResource("ConcavePolygonShape3D_aohfv")
 
 [node name="Fence2" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(-2.18557e-08, 0, 20, 0, 1.5, 0, -0.5, 0, -8.74228e-07, -10, 0.5, -20)
+transform = Transform3D(-2.18557e-08, 0, 27, 0, 1.5, 0, -0.5, 0, -1.18021e-06, -13.5, 0.5, -31.9076)
 material_override = SubResource("StandardMaterial3D_070dd")
 mesh = SubResource("BoxMesh_vxh1j")
 
@@ -137,7 +138,7 @@ mesh = SubResource("BoxMesh_vxh1j")
 shape = SubResource("ConcavePolygonShape3D_aohfv")
 
 [node name="Fence4" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(-2.18557e-08, 0, 20, 0, 1.5, 0, -0.5, 0, -8.74228e-07, 10, 0.5, -20)
+transform = Transform3D(-2.18557e-08, 0, 27, 0, 1.5, 0, -0.5, 0, -1.18021e-06, 13.5, 0.5, -31.9076)
 material_override = SubResource("StandardMaterial3D_070dd")
 mesh = SubResource("BoxMesh_vxh1j")
 
@@ -146,8 +147,18 @@ mesh = SubResource("BoxMesh_vxh1j")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Fence4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_aohfv")
 
+[node name="Fence6" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(-2.18557e-08, 0, 27, 0, 1.5, 0, -0.5, 0, -1.18021e-06, 13.5, 0.5, 10.0373)
+material_override = SubResource("StandardMaterial3D_070dd")
+mesh = SubResource("BoxMesh_vxh1j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Fence6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Fence6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_aohfv")
+
 [node name="Fence5" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 30, 20, 0.5, -5)
+transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 42, 26.9692, 0.5, -10.715)
 material_override = SubResource("StandardMaterial3D_070dd")
 mesh = SubResource("BoxMesh_vxh1j")
 
@@ -225,24 +236,61 @@ transform = Transform3D(1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, -0.00138
 shape = SubResource("CylinderShape3D_isf5k")
 disabled = true
 
-[node name="House" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 10, -10, 5, 15)
+[node name="HouseBoxes" type="Node3D" parent="Environment"]
+
+[node name="House" type="MeshInstance3D" parent="Environment/HouseBoxes"]
+transform = Transform3D(28.359, 0, 0, 0, 13.0013, 0, 0, 0, 18.3284, -14.1458, 6.36456, 19.2963)
 material_override = SubResource("StandardMaterial3D_070dd")
 mesh = SubResource("BoxMesh_vxh1j")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/House"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/HouseBoxes/House"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/House/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HouseBoxes/House/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_aohfv")
 
-[node name="House2" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 10, 10, 5, 15)
+[node name="House2" type="MeshInstance3D" parent="Environment/HouseBoxes"]
+transform = Transform3D(9.99738, 0, 0, 0, 5.78571, 1.3219, 0, -0.35843, 21.3378, 4.83995, 2.83895, 10.9342)
 material_override = SubResource("StandardMaterial3D_070dd")
 mesh = SubResource("BoxMesh_vxh1j")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/House2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/HouseBoxes/House2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/House2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HouseBoxes/House2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_aohfv")
+
+[node name="House3" type="MeshInstance3D" parent="Environment/HouseBoxes"]
+transform = Transform3D(8.26688, 0, 0, 0, 9.7109, 0, 0, 0, 13.5506, 12.3067, 4.75827, 12.4434)
+material_override = SubResource("StandardMaterial3D_070dd")
+mesh = SubResource("BoxMesh_vxh1j")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/HouseBoxes/House3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HouseBoxes/House3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_aohfv")
+
+[node name="House4" type="MeshInstance3D" parent="Environment/HouseBoxes"]
+transform = Transform3D(4.13023, -3.45287, 0, 4.77312, 2.98781, 0, 0, 0, 13.5506, 11.4017, 10.0012, 12.4434)
+material_override = SubResource("StandardMaterial3D_070dd")
+mesh = SubResource("BoxMesh_vxh1j")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/HouseBoxes/House4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HouseBoxes/House4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_aohfv")
+
+[node name="House5" type="MeshInstance3D" parent="Environment/HouseBoxes"]
+transform = Transform3D(5.16382, 3.00603, 0, -4.51629, 3.43703, 0, 0, 0, 13.5506, 12.8448, 9.93247, 12.4434)
+material_override = SubResource("StandardMaterial3D_070dd")
+mesh = SubResource("BoxMesh_vxh1j")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/HouseBoxes/House5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HouseBoxes/House5/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_aohfv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

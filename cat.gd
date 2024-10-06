@@ -42,13 +42,16 @@ func _physics_process(delta):
 					player.scoreMessage("Bounce! (100)")
 					score += 100
 					$Bounce.play()
-				else: #if it was slow, play soft impact sound,
+				elif deltaV > 10: #if it was medium, play soft impact sound,
+					$SoftImpact.play()
+					player.scoreMessage("Bonk! (50)")
+					score += 50
+					if groundRay.is_colliding(): #and if it was medium AND on the ground, land
+						set_state("grounded")
+				else:
 					$SoftImpact.play()
 					if groundRay.is_colliding(): #and if it was slow AND on the ground, land
 						set_state("grounded")
-					else: #if it didnt land, increment score
-						player.scoreMessage("Bonk! (50)")
-						score += 50
 	else:
 		ignoreThat = false
 	
