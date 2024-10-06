@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://q0cfwjvosjem"]
+
+[ext_resource type="Theme" uid="uid://44n7bldb2ld6" path="res://dialogue.tres" id="1_76bui"]
+[ext_resource type="Script" path="res://textbox.gd" id="1_yg8xv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qatg"]
+bg_color = Color(0, 0, 0, 0.635294)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(1, 1, 1, 1)
+
+[node name="Textbox" type="CanvasLayer"]
+script = ExtResource("1_yg8xv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -357.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_right = 300
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3qatg")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="MarginContainer/MarginContainer/HSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_76bui")
+text = "* "
+
+[node name="Dialogue" type="Label" parent="MarginContainer/MarginContainer/HSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_76bui")
+text = "I am Grill Dad. Feaster of souls."
+autowrap_mode = 2
+
+[node name="End" type="Label" parent="MarginContainer/MarginContainer/HSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("1_76bui")
+text = " *"

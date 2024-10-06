@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://44n7bldb2ld6"]
+
+[ext_resource type="FontFile" uid="uid://dqalj8lhxxtxm" path="res://OpenSans-Regular.ttf" id="1_x8jrj"]
+
+[resource]
+default_font_size = 50
+Label/fonts/font = ExtResource("1_x8jrj")
