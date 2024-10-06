@@ -1,9 +1,27 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dba24vvsaihhc"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dba24vvsaihhc"]
 
 [ext_resource type="FontFile" uid="uid://dqalj8lhxxtxm" path="res://OpenSans-Regular.ttf" id="1_bdstf"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51vjx"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1wbx"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rde3f"]
 bg_color = Color(0.903598, 0.903598, 0.903598, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yoqds"]
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -13,4 +31,10 @@ corner_radius_bottom_left = 20
 default_font = ExtResource("1_bdstf")
 default_font_size = 46
 Button/colors/font_color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+Button/colors/font_focus_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+Button/colors/font_hover_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+Button/colors/font_pressed_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_51vjx")
+Button/styles/hover = SubResource("StyleBoxFlat_c1wbx")
 Button/styles/normal = SubResource("StyleBoxFlat_rde3f")
+Button/styles/pressed = SubResource("StyleBoxFlat_yoqds")

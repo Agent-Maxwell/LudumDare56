@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c2cdil0o3xt10"]
+
+[ext_resource type="FontFile" uid="uid://dqalj8lhxxtxm" path="res://OpenSans-Regular.ttf" id="1_0yu4t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwayn"]
+bg_color = Color(0.136826, 0.136826, 0.136826, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[resource]
+HSlider/styles/slider = SubResource("StyleBoxFlat_jwayn")
+Label/font_sizes/font_size = 38
+Label/fonts/font = ExtResource("1_0yu4t")
