@@ -93,7 +93,7 @@ func next_level():
 	#deactivate previous obstacles/hazards
 	if level-1 != -1:
 		for i in $levelData.activateObstacles[level-1].size():
-			find_child($levelData.activateObstacles[level][i]).get_child(1).get_child(0).disabled = false
+			find_child($levelData.activateObstacles[level][i]).get_child(1).get_child(0).disabled = true
 	
 	#play level specific dialogue
 	get_tree().paused = true
