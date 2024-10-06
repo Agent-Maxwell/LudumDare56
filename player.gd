@@ -40,7 +40,8 @@ func _input(event):
 			$Face.rotation_degrees.x = -90
 		if ($Face.rotation_degrees.x > 90):
 			$Face.rotation_degrees.x = 90
-	
+
+#happens every frame
 func _process(delta):
 	
 	# exit, restart, and click inputs
@@ -60,6 +61,29 @@ func _process(delta):
 	# if charging, tick up charge time (to max of 1 sec)
 	if charging == true:
 		charge_time = move_toward(charge_time, 1, delta)
+		
+		
+#updates the score on the hud
+func updateScore (score):
+	$CanvasLayer/HUD/Panel/ScoreValue.text = str(score)
+
+#writes a message to the score box
+func scoreMessage(message):
+	#store the label we are editing
+	var label = $CanvasLayer/HUD/Panel/ScoreMessage
+	
+	#add the message to the score box
+	label.text += message + "\n"
+	
+	#wait for five seconds
+	await get_tree().create_timer(5.0).timeout
+	
+	#remove the first line of the message box
+	var strings = label.text.split('\n')
+	strings.remove_at(0)
+	label.text = '\n'.join(strings)
+	
+	
 
 
 func _physics_process(delta: float) -> void:
