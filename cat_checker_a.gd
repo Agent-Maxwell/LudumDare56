@@ -16,9 +16,9 @@ func _on_body_entered(body):
 		#give the catt some score
 		body.score +=100
 		#score it
-		$"..".score_points(body.score, body.multiplier, "Cat Moved!")
+		$"..".score_points(body.score, body.multiplier, "Cat Scored! Total " + str(body.score))
 		#then stop it
-		body.linear_velocity = Vector3(0,0,0)
+		#body.linear_velocity = Vector3(0,0,0)
 
 #if a cat exits, decrement the cat count by 1
 func _on_body_exited(body):

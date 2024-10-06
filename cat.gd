@@ -4,6 +4,8 @@ extends RigidBody3D
 var score = 0
 var multiplier = 1
 
+@onready var player = $"../Player"
+
 @onready var groundRay = $GroundRayCast
 var state
 var prevVelocity # to detect bounce collision speed, need to compare current vel with prev vel
@@ -25,7 +27,7 @@ func _process(delta):
 	#if we have been kicked and grabbed
 	if beenGrabbed and beenKicked:
 		#weve been dropkicked, awesome!
-		multiplier+=1
+		multiplier += 1
 		beenKicked = false
 		beenGrabbed = false
 		
@@ -36,12 +38,17 @@ func _physics_process(delta):
 		var deltaV = (linear_velocity - prevVelocity).length() # deltaV = change in velocity since last physics step
 		if state == "airborne": #if airborne:
 			if deltaV > 1: #if there was a collision,
-				if deltaV > 20: #if it was fast, play bounce sound;
+				if deltaV > 20: #if it was fast, bounce;
+					player.scoreMessage("Bounce! (100)")
+					score += 100
 					$Bounce.play()
 				else: #if it was slow, play soft impact sound,
 					$SoftImpact.play()
 					if groundRay.is_colliding(): #and if it was slow AND on the ground, land
 						set_state("grounded")
+					else: #if it didnt land, increment score
+						player.scoreMessage("Bonk! (50)")
+						score += 50
 	else:
 		ignoreThat = false
 	
@@ -74,7 +81,11 @@ func getKicked(kickDir, kickVel):
 	beenKicked = true
 	ignoreThat = true
 	set_state("airborne")
-	$ThrowMeow.play()
+	launch_meow()
+	#scoring
+	if beenKicked and beenGrabbed:
+		player.scoreMessage("Dropkick! (50)")
+		score += 50
 
 # manager for setting airborne/grounded state
 func set_state(newState):
