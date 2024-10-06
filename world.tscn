@@ -290,12 +290,12 @@ process_mode = 2
 [node name="MainSoundtrack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_bm5av")
 volume_db = -10.0
-parameters/looping = false
+parameters/looping = true
 
 [node name="PauseSoundtrack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_rfdqs")
 volume_db = -10.0
-parameters/looping = false
+parameters/looping = true
 
 [connection signal="start_cutscene" from="." to="Cutscene" method="start_cutscene"]
 [connection signal="body_entered" from="Environment/TallFence/Area3D" to="Environment/TallFence" method="_on_area_3d_body_entered"]
