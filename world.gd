@@ -66,6 +66,8 @@ func next_level():
 	var temp = currentSide
 	currentSide = goalSide
 	goalSide = temp
+	find_child("CatChecker" + goalSide).goal = true
+	find_child("CatChecker" + currentSide).goal = false
 	
 	#move the players position
 	$Player.position = find_child("PlayerSpawnerSide" + currentSide).position
