@@ -1,9 +1,11 @@
 extends CharacterBody3D
 
-@onready var anim_player = $CanvasLayer/HUD/AnimationPlayer
+@onready var hand_anim = $CanvasLayer/HUD/handPlayer
+@onready var leg_anim = $CanvasLayer/HUD/hands/leg/legPlayer
 @onready var myRayCast = $Face/RayCast3D
 @onready var kickHitbox = $ShapeCast3D
 @onready var grabSound = $CatGrabSound
+@onready var kickSounds = $CanvasLayer/HUD/hands/leg/kickSounds
 
 # mouse/movement stuff
 const SPEED = 5.0
@@ -14,6 +16,7 @@ const KICK_ANGLE = 25
 const KICK_VELOCITY = 5
 
 var can_grab = true
+var can_kick = true
 var holding = ""
 var charging = false
 var charge_time = 0.0
@@ -23,8 +26,6 @@ var catPrefab = preload("res://cat.tscn")
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED # gimme dat
-	#anim_player.on_animation_player_animation_finished("pickup").connect(grab_animation_done)
-	#anim_player.on_animation_player_animation_finished("pickup_whiff").connect(grab_animation_done)
 	$CanvasLayer/FailScreen/Panel/Button.button_up.connect(restart)
 
 func _input(event):
@@ -122,7 +123,7 @@ func click_action():
 	elif (holding == "cat"): # if hand is full (of cat), throw the cat
 		can_grab = false
 		charging = true
-		anim_player.play("charge_throw")
+		hand_anim.play("charge_throw")
 		
 
 # called when click action is released; for throwing after charge up
@@ -138,7 +139,7 @@ func click_release_action():
 		charge_time = 0 #reset charge time for next charge
 		add_sibling(catInst) # it appears...
 		holding = "" # my hand is empty now ???!!
-		anim_player.play("throw")
+		hand_anim.play("throw")
 	
 	
 
@@ -151,26 +152,21 @@ func grab():
 	if myRayCast.is_colliding() and myRayCast.get_collider().has_method("grabbed"):
 		holding = myRayCast.get_collider().type()
 		myRayCast.get_collider().grabbed()
-		anim_player.play("pickup")
+		hand_anim.play("pickup")
 	else:
-		anim_player.play("pickup_whiff")
+		hand_anim.play("pickup_whiff")
 
-# when grab animation finishes, we are clear for another grab (this is connected to the animation signal in _ready)
-#func grab_animation_done():
-	#print("animation done signal receieved")
-	#can_grab = true
-	#if (holding == ""):
-		#anim_player.play("idle")
-	#elif (holding == "cat"):
-		#anim_player.play("idle_cat")
 	
 func kick():
-	if kickHitbox.is_colliding():
-		for i in kickHitbox.get_collision_count():
-			var start_speed = kickHitbox.get_collider(i).linear_velocity.length()
-			print(start_speed)
-			kickHitbox.get_collider(i).linear_velocity = -global_transform.basis.z.rotated(global_transform.basis.x, deg_to_rad(KICK_ANGLE)) * (KICK_VELOCITY + start_speed)
-			#(-global_transform.basis.z + Vector3(0, 1, 0)) * 10
+	if can_kick:
+		can_kick = false;
+		leg_anim.play("kick")
+		kickSounds.play()
+		if kickHitbox.is_colliding():
+			for i in kickHitbox.get_collision_count():
+				var start_speed = kickHitbox.get_collider(i).linear_velocity.length()
+				print(start_speed)
+				kickHitbox.get_collider(i).linear_velocity = -global_transform.basis.z.rotated(global_transform.basis.x, deg_to_rad(KICK_ANGLE)) * (KICK_VELOCITY + start_speed)
 
 # you fail
 func fail():
@@ -182,10 +178,14 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "pickup" || anim_name == "pickup_whiff" || anim_name == "throw":
 		can_grab = true
 		if (holding == ""):
-			anim_player.play("idle_empty")
+			hand_anim.play("idle_empty")
 		elif (holding == "cat"):
-			anim_player.play("idle_cat")
+			hand_anim.play("idle_cat")
 	
 	# want to wait on the last frame of charge until the throw happens
 	if anim_name == "charge_throw":
 		pass
+
+
+func _on_leg_player_animation_finished(anim_name: StringName) -> void:
+	can_kick = true
