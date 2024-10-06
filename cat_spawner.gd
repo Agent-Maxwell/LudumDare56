@@ -3,15 +3,6 @@ extends Node3D
 #preload the cat
 var catPrefab = preload("res://cat.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 #makes sure we have the correct amount of cats
 func spawn_cats(catAmount, current):
 	#if we have enough cats, dont do anything
@@ -30,9 +21,7 @@ func spawn_cats(catAmount, current):
 		catInst.position.z += randf_range(current.get_child(0).shape.size[2]/2 -1, -current.get_child(0).shape.size[2]/2 +1)
 		
 		#check if the cat would collide with anything
-		$CatSpawnChecker.colliding = false
-		$CatSpawnChecker.position = catInst.position
-		if $CatSpawnChecker.colliding:
+		if $CatSpawnChecker.isColliding(catInst.position):
 			i+=1
 		else:
 			add_sibling(catInst)

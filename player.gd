@@ -139,6 +139,12 @@ func click_release_action():
 		#print(velocity.length())
 		catInst.linear_velocity = -$Face.global_transform.basis.z * (4 + (charge_time * 10)) + velocity # set velocity to face's forward vector * throw speed
 		charge_time = 0 #reset charge time for next charge
+		
+		#make sure we arent spawning the meowmeow in a wall
+		if $"../CatSpawner/CatSpawnChecker".isColliding(spawn_position):
+			return
+		
+		
 		add_sibling(catInst) # it appears...
 		catInst.launch_meow() # meoooooow
 		catInst.beenGrabbed = true

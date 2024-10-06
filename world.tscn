@@ -42,7 +42,7 @@ background_color = Color(0.54902, 0.694118, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7aetu"]
 size = Vector3(19.1675, 0.291351, 29.5411)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_6nly1"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_y6j6o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mq4f1"]
 size = Vector3(1, 62.5316, 40)
@@ -235,12 +235,14 @@ shape = SubResource("BoxShape3D_7aetu")
 [node name="CatSpawner" type="Node3D" parent="."]
 script = ExtResource("6_c0b2u")
 
-[node name="CatSpawnChecker" type="RigidBody3D" parent="CatSpawner"]
-collision_mask = 14
+[node name="CatSpawnChecker" type="Area3D" parent="CatSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.5672, 0)
+collision_layer = 16
+collision_mask = 15
 script = ExtResource("8_pcucf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CatSpawner/CatSpawnChecker"]
-shape = SubResource("SphereShape3D_6nly1")
+shape = SubResource("SphereShape3D_y6j6o")
 
 [node name="levelData" type="Node" parent="."]
 script = ExtResource("7_ml12b")
