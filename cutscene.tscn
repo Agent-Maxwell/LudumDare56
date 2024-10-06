@@ -1,14 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnx0lyo5wsmhn"]
+[gd_scene load_steps=5 format=3 uid="uid://dnx0lyo5wsmhn"]
 
 [ext_resource type="Script" path="res://cutscene.gd" id="1_d5lip"]
 [ext_resource type="Texture2D" uid="uid://dihsdnygcagtr" path="res://character sprites/BBQ_Dad.PNG" id="1_kbi03"]
 [ext_resource type="PackedScene" uid="uid://q0cfwjvosjem" path="res://textbox.tscn" id="2_wmgcx"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f78w6"]
+bg_color = Color(0.0476574, 0.178774, 0.153334, 1)
+
 [node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 2
 script = ExtResource("1_d5lip")
 
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f78w6")
+
 [node name="LeftImage" type="TextureRect" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,7 +30,6 @@ grow_vertical = 2
 texture = ExtResource("1_kbi03")
 expand_mode = 3
 stretch_mode = 4
-flip_h = true
 
 [node name="RightImage" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -36,3 +46,4 @@ expand_mode = 3
 stretch_mode = 4
 
 [node name="DialogueBox" parent="." instance=ExtResource("2_wmgcx")]
+layer = 3

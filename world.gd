@@ -1,5 +1,7 @@
 extends Node3D
 
+signal start_cutscene(cutsceneID)
+
 #the side we are on, and the side we are throwing the cats to
 var currentSide = "B"
 var goalSide = "A"
@@ -20,6 +22,8 @@ var catAmount = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Cutscene.hide()
+	$Cutscene/DialogueBox.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	next_level()
 
@@ -72,7 +76,14 @@ func next_level():
 		find_child($levelData.obstacles[level][i]).get_child(0).get_child(0).disabled = false
 	
 	#play level specific dialogue
+	get_tree().paused = true
+	$Cutscene.show()
+	$Cutscene/DialogueBox.show()
+	emit_signal("start_cutscene", level)
 	
-	
-	#start the level
+func end_cutscene():
+	$Cutscene.hide()
+	$Cutscene/DialogueBox.hide()
+	get_tree().paused = false
+	#start next level
 	level_start()
