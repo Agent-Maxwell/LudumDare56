@@ -4,7 +4,6 @@ var colliding = false
 
 func _on_body_entered(body):
 	colliding = true
-	print(body)
 
 func isColliding(instPosition):
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=37 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
@@ -7,6 +7,9 @@
 [ext_resource type="ArrayMesh" uid="uid://uk78ifei1sl3" path="res://Obstacle Models/grill.obj" id="3_q5qvw"]
 [ext_resource type="Script" path="res://trampoline.gd" id="4_268g1"]
 [ext_resource type="Script" path="res://cat_checker_a.gd" id="4_xa23j"]
+[ext_resource type="ArrayMesh" uid="uid://cao26f7x33a5j" path="res://Obstacle Models/shrubbery.obj" id="5_nkjyj"]
+[ext_resource type="Script" path="res://shrubbery.gd" id="5_tkrkt"]
+[ext_resource type="ArrayMesh" uid="uid://7ba1affe73ky" path="res://Obstacle Models/trampoline.obj" id="5_x2iex"]
 [ext_resource type="Script" path="res://cat_spawner.gd" id="6_c0b2u"]
 [ext_resource type="PackedScene" uid="uid://cq1632l237tc2" path="res://main_menu.tscn" id="6_ewqnf"]
 [ext_resource type="Script" path="res://oob_catcher.gd" id="7_kxeyp"]
@@ -38,11 +41,19 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_023i7"]
 size = Vector3(0.892029, 0.0354614, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mu52m"]
-size = Vector3(3.66504, 2.66846, 1.41101)
+[sub_resource type="BoxShape3D" id="BoxShape3D_f5oqg"]
+size = Vector3(1.2547, 2.07553, 2.68005)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yr742"]
-size = Vector3(3.97629, 2.71283, 1.36807)
+size = Vector3(1.36736, 2.13426, 2.89403)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i8etp"]
+height = 0.185436
+radius = 1.01032
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_isf5k"]
+height = 0.235632
+radius = 0.855971
 
 [sub_resource type="Environment" id="Environment_sfw5c"]
 background_mode = 1
@@ -147,16 +158,16 @@ shape = SubResource("ConcavePolygonShape3D_aohfv")
 
 [node name="Grill" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-0.453166, 0, 0.891426, 0, 1, 0, -0.891426, 0, -0.453166, 16.4734, 1.29767, -15.8112)
+visible = false
 mesh = ExtResource("3_q5qvw")
 script = ExtResource("2_l0eu8")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/Grill"]
-collision_layer = 8
 collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Grill/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0207014, 0.0366758, 0.22551)
-shape = SubResource("BoxShape3D_mu52m")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00452137, 0.103998, 0.0402031)
+shape = SubResource("BoxShape3D_f5oqg")
 disabled = true
 
 [node name="Area3D" type="Area3D" parent="Environment/Grill"]
@@ -168,19 +179,40 @@ transform = Transform3D(1, 0, 0, 0, 0.999994, 0, 0, 0, 1, 0.0113659, 0.0794983, 
 shape = SubResource("BoxShape3D_yr742")
 disabled = true
 
-[node name="Trampoline" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(2.48298, -0.512459, 0, 2.26513, 0.561745, 0, 0, 0, 3.54062, 17.6492, 1.23236, -4.45876)
+[node name="Shrubbery" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4715, 1.29767, -14.7038)
 visible = false
-material_override = SubResource("StandardMaterial3D_070dd")
-mesh = SubResource("BoxMesh_vxh1j")
+mesh = ExtResource("5_nkjyj")
+script = ExtResource("5_tkrkt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Shrubbery"]
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Shrubbery/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0126781, -0.244193, 0.0252562)
+shape = SubResource("BoxShape3D_f5oqg")
+disabled = true
+
+[node name="Area3D" type="Area3D" parent="Environment/Shrubbery"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Shrubbery/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999994, 0, 0, 0, 1, 0.00610924, -0.209784, 0.00206518)
+shape = SubResource("BoxShape3D_yr742")
+disabled = true
+
+[node name="Trampoline" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1.53128, -1.00204, 0, 1.00204, 1.53128, 0, 0, 0, 1.83, 18.0611, 1.52916, -4.45876)
+visible = false
+mesh = ExtResource("5_x2iex")
 script = ExtResource("4_268g1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/Trampoline"]
-collision_layer = 8
 collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Trampoline/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_aohfv")
+shape = SubResource("CylinderShape3D_i8etp")
 disabled = true
 
 [node name="Area3D" type="Area3D" parent="Environment/Trampoline"]
@@ -188,8 +220,8 @@ collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Trampoline/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000994205, 0.789168, 0.0109949)
-shape = SubResource("BoxShape3D_yr742")
+transform = Transform3D(1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0, 1, -0.00138474, 0.0943446, 0.0109949)
+shape = SubResource("CylinderShape3D_isf5k")
 disabled = true
 
 [node name="House" type="MeshInstance3D" parent="Environment"]
@@ -310,6 +342,7 @@ parameters/looping = true
 [connection signal="start_cutscene" from="." to="Cutscene" method="start_cutscene"]
 [connection signal="body_entered" from="Environment/TallFence/Area3D" to="Environment/TallFence" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Environment/Grill/Area3D" to="Environment/Grill" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Environment/Shrubbery/Area3D" to="Environment/Shrubbery" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Environment/Trampoline/Area3D" to="Environment/Trampoline" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="CatCheckerA" to="CatCheckerA" method="_on_body_entered"]
 [connection signal="body_exited" from="CatCheckerA" to="CatCheckerA" method="_on_body_exited"]
