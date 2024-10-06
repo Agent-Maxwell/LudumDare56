@@ -57,21 +57,17 @@ func resetScore():
 	score = 0
 	multiplier = 1
 
-#meow when kicked or thrown
-func launch_meow():
-	$ThrowMeow.play()
+##meow when kicked or thrown
+#func launch_meow():
+	#
 
 #func _on_body_entered(body):
 	#pass
 
-#func getKicked(kickVelocity: Vector3):
-	#var start_speed = kickHitbox.get_collider(i).linear_velocity.length()
-	#kickHitbox.get_collider(i).linear_velocity = -global_transform.basis.z.rotated(global_transform.basis.x, deg_to_rad(KICK_ANGLE)) * (KICK_VELOCITY + start_speed)
-	#kickHitbox.get_collider(i).beenKicked = true
-	#kickHitbox.get_collider(i).launch_meow()
-	##dropkick scoring
-	#if kickHitbox.get_collider(i).beenKicked and kickHitbox.get_collider(i).beenGrabbed:
-		#scoreMessage("Dropkick!")
+func getKicked(kickDir: Vector3, kickVel):
+	linear_velocity = kickDir * (kickVel + linear_velocity.length()) #set velocity to correct direction, kick magnitute + current speed
+	beenKicked = true
+	$ThrowMeow.play()
 
 # manager for setting airborne/grounded state
 func set_state(newState):

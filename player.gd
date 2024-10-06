@@ -174,12 +174,7 @@ func kick():
 		kickSounds.play()
 		if kickHitbox.is_colliding():
 			for i in kickHitbox.get_collision_count():
-				var start_speed = kickHitbox.get_collider(i).linear_velocity.length()
-				kickHitbox.get_collider(i).linear_velocity = -global_transform.basis.z.rotated(global_transform.basis.x, deg_to_rad(KICK_ANGLE)) * (KICK_VELOCITY + start_speed)
-				kickHitbox.get_collider(i).beenKicked = true
-				kickHitbox.get_collider(i).launch_meow()
-				
-				
+				kickHitbox.get_collider(i).getKicked()
 				
 				#dropkick scoring
 				if kickHitbox.get_collider(i).beenKicked and kickHitbox.get_collider(i).beenGrabbed:
