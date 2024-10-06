@@ -10,6 +10,7 @@ var prevVelocity # to detect bounce collision speed, need to compare current vel
 
 #track whether we have been kicked or grabbed (or both)
 var beenKicked = false
+var ignoreThat = false
 var beenGrabbed = false
 
 #@onready var throw_meow = $ThrowMeow
@@ -31,15 +32,19 @@ func _process(delta):
 
 func _physics_process(delta):
 	# Bounce logic
-	var deltaV = (linear_velocity - prevVelocity).length() # deltaV = change in velocity since last physics step
-	if state == "airborne": #if airborne:
-		if deltaV > 1: #if there was a collision,
-			if deltaV > 20: #if it was fast, play bounce sound;
-				$Bounce.play()
-			else: #if it was slow, play soft impact sound,
-				$SoftImpact.play()
-				if groundRay.is_colliding(): #and if it was slow AND on the ground, land
-					set_state("grounded")
+	if !ignoreThat:
+		var deltaV = (linear_velocity - prevVelocity).length() # deltaV = change in velocity since last physics step
+		if state == "airborne": #if airborne:
+			if deltaV > 1: #if there was a collision,
+				if deltaV > 20: #if it was fast, play bounce sound;
+					$Bounce.play()
+				else: #if it was slow, play soft impact sound,
+					$SoftImpact.play()
+					if groundRay.is_colliding(): #and if it was slow AND on the ground, land
+						set_state("grounded")
+	else:
+		ignoreThat = false
+	
 	prevVelocity = linear_velocity
 	
 	if state == "grounded": # destroy upwards vertical velocity while grounded
@@ -64,9 +69,11 @@ func launch_meow():
 #func _on_body_entered(body):
 	#pass
 
-func getKicked(kickDir: Vector3, kickVel):
+func getKicked(kickDir, kickVel):
 	linear_velocity = kickDir * (kickVel + linear_velocity.length()) #set velocity to correct direction, kick magnitute + current speed
 	beenKicked = true
+	ignoreThat = true
+	set_state("airborne")
 	$ThrowMeow.play()
 
 # manager for setting airborne/grounded state

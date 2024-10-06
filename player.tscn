@@ -84,7 +84,6 @@ _data = {
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xyk1u"]
 playback_mode = 1
 random_pitch = 9.17
-random_volume_offset_db = 13.33
 streams_count = 2
 stream_0/stream = ExtResource("4_7sibd")
 stream_1/stream = ExtResource("5_mtp5c")
@@ -621,6 +620,7 @@ libraries = {
 
 [node name="kickSounds" type="AudioStreamPlayer" parent="CanvasLayer/HUD/hands/leg"]
 stream = SubResource("AudioStreamRandomizer_xyk1u")
+volume_db = -10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/HUD"]
 position = Vector2(960, 540)
