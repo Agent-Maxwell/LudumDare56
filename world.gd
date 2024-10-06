@@ -23,8 +23,10 @@ var catAmount = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Cutscene.hide()
+	$Options.hide()
 	$Cutscene/DialogueBox.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	$PauseMenu.hide()
 	$MainMenu.show()
 	$MainMenu/Menu.show()
 	get_tree().paused = true
@@ -35,16 +37,24 @@ func start():
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	next_level()
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed("pause"):
+		$PauseMenu.show()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_tree().paused = true
 	#if the amount of cats in the goal yard is equal to the amount of cats, we can move to the next level
 	if goal.catAmount == catAmount: 
 		#going to need like a ten second timer here  that checks at the end if this condition is still true, and if so then goes to next level
 		next_level()
 
+
+func _on_pause_menu_unpause() -> void:
+	$PauseMenu.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	get_tree().paused = false
 
 #sets up the variables for the new level
 func level_start():
@@ -111,3 +121,12 @@ func end_cutscene():
 	get_tree().paused = false
 	#start next level
 	level_start()
+
+func _on_main_menu_open_options() -> void:
+	$Options.show()
+	
+func _on_pause_menu_open_options() -> void:
+	$Options.show()
+
+func _on_options_apply_options() -> void:
+	$Options.hide()

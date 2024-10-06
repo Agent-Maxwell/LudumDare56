@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqnemnodd1c4w"]
+[gd_scene load_steps=5 format=3 uid="uid://dqnemnodd1c4w"]
 
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_3e2xi"]
 [ext_resource type="FontFile" uid="uid://dqalj8lhxxtxm" path="res://OpenSans-Regular.ttf" id="1_ikau7"]
 [ext_resource type="Theme" uid="uid://dba24vvsaihhc" path="res://menu_button.tres" id="2_5kyq4"]
 
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3e2xi")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 handle_input_locally = false
@@ -23,6 +25,7 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+layer = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="SubViewport/CanvasLayer"]
 anchors_preset = 8
@@ -43,6 +46,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ofih6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/CanvasLayer/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 45
 alignment = 1
 
@@ -54,17 +58,21 @@ theme_override_font_sizes/font_size = 80
 text = "Pause"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="SubViewport/CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="Resume Game" type="Button" parent="SubViewport/CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_5kyq4")
-text = "Resume Game"
+text = "  Resume Game  "
 
-[node name="Button2" type="Button" parent="SubViewport/CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="SubViewport/CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_5kyq4")
 text = "Settings"
 
-[node name="Button3" type="Button" parent="SubViewport/CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="SubViewport/CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_5kyq4")
 text = "Quit"
+
+[connection signal="pressed" from="SubViewport/CanvasLayer/MarginContainer/VBoxContainer/Resume Game" to="." method="_on_resume_game_pressed"]
+[connection signal="pressed" from="SubViewport/CanvasLayer/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="SubViewport/CanvasLayer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -47,8 +47,6 @@ func _input(event):
 func _process(delta):
 	
 	# exit, restart, and click inputs
-	if Input.is_action_just_pressed("exit"):
-		get_tree().quit()
 	if Input.is_action_just_pressed("restart"):
 		restart()
 	if failed:

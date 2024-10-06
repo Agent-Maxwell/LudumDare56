@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cq1632l237tc2"]
+[gd_scene load_steps=5 format=3 uid="uid://cq1632l237tc2"]
 
 [ext_resource type="FontFile" uid="uid://dxdv0uyd0elyf" path="res://Cattino.ttf" id="1_i35tq"]
 [ext_resource type="Script" path="res://main_menu.gd" id="1_rb71w"]
 [ext_resource type="Theme" uid="uid://dba24vvsaihhc" path="res://menu_button.tres" id="2_14mwx"]
-[ext_resource type="PackedScene" uid="uid://o05om0sdhr7i" path="res://option_menu.tscn" id="4_yeuv2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpjrl"]
 bg_color = Color(0.282353, 0.662745, 0.6, 1)
@@ -65,10 +64,6 @@ layout_mode = 2
 theme = ExtResource("2_14mwx")
 text = "Quit"
 
-[node name="Options" parent="." instance=ExtResource("4_yeuv2")]
-visible = false
-
 [connection signal="pressed" from="Menu/MarginContainer/Background Color/Button Spacer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Background Color/Button Spacer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Background Color/Button Spacer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="apply_options" from="Options" to="." method="_on_options_apply_options"]

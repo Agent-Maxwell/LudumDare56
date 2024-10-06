@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=27 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://level_data.gd" id="7_ml12b"]
 [ext_resource type="PackedScene" uid="uid://dnx0lyo5wsmhn" path="res://cutscene.tscn" id="8_lp2vk"]
 [ext_resource type="Script" path="res://cat_spawn_checker.gd" id="8_pcucf"]
+[ext_resource type="PackedScene" uid="uid://dqnemnodd1c4w" path="res://pause_menu.tscn" id="13_ixj68"]
+[ext_resource type="PackedScene" uid="uid://o05om0sdhr7i" path="res://option_menu.tscn" id="14_k2rpt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lxx6"]
 albedo_color = Color(0.0352941, 1, 0.0745098, 1)
@@ -276,6 +278,12 @@ visible = false
 [node name="MainMenu" parent="." instance=ExtResource("6_ewqnf")]
 process_mode = 3
 
+[node name="PauseMenu" parent="." instance=ExtResource("13_ixj68")]
+process_mode = 3
+
+[node name="Options" parent="." instance=ExtResource("14_k2rpt")]
+process_mode = 2
+
 [connection signal="start_cutscene" from="." to="Cutscene" method="start_cutscene"]
 [connection signal="body_entered" from="Environment/TallFence/Area3D" to="Environment/TallFence" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Environment/Tree/Area3D" to="Environment/Tree" method="_on_area_3d_body_entered"]
@@ -287,4 +295,8 @@ process_mode = 3
 [connection signal="body_entered" from="CatSpawner/CatSpawnChecker" to="CatSpawner/CatSpawnChecker" method="_on_body_entered"]
 [connection signal="body_entered" from="OOBCatcher" to="OOBCatcher" method="_on_body_entered"]
 [connection signal="end_cutscene" from="Cutscene" to="." method="end_cutscene"]
+[connection signal="open_options" from="MainMenu" to="." method="_on_main_menu_open_options"]
 [connection signal="start" from="MainMenu" to="." method="start"]
+[connection signal="open_options" from="PauseMenu" to="." method="_on_pause_menu_open_options"]
+[connection signal="unpause" from="PauseMenu" to="." method="_on_pause_menu_unpause"]
+[connection signal="apply_options" from="Options" to="." method="_on_options_apply_options"]
