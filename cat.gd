@@ -58,8 +58,8 @@ func resetScore():
 	multiplier = 1
 
 ##meow when kicked or thrown
-#func launch_meow():
-	#
+func launch_meow():
+	$ThrowMeow.play()
 
 #func _on_body_entered(body):
 	#pass

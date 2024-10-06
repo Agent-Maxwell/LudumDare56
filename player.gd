@@ -12,6 +12,7 @@ extends CharacterBody3D
 # mouse/movement stuff
 const SPEED = 5.0
 const SPEED_WHILE_CHARGING = 3.0
+const SPEED_WHILE_SPRINTING = 10.0
 const MOUSE_SENS = .06
 const JUMP_VELOCITY = 4.5
 const KICK_ANGLE = 25
@@ -21,6 +22,7 @@ var can_grab = true
 var can_kick = true
 var holding = ""
 var charging = false
+var sprinting = false
 var charge_time = 0.0
 var failed = false
 
@@ -45,8 +47,11 @@ func _input(event):
 			$Face.rotation_degrees.x = 90
 	
 func _process(delta):
-	
 	# exit, restart, and click inputs
+	if Input.is_action_just_pressed("sprint"):
+		sprinting = true
+	if Input.is_action_just_released("sprint"):
+		sprinting = false
 	if Input.is_action_just_pressed("restart"):
 		restart()
 	if failed:
@@ -101,6 +106,8 @@ func _physics_process(delta: float) -> void:
 	var current_speed
 	if (charging):
 		current_speed = SPEED_WHILE_CHARGING
+	elif(sprinting):
+		current_speed = SPEED_WHILE_SPRINTING
 	else:
 		current_speed = SPEED
 	
