@@ -26,13 +26,13 @@ func _on_apply_pressed() -> void:
 #Sets a slider's corresponding bus to that value
 func _on_master_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(masterBus, linear_to_db(masterSlider.value))
-
+	
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(musicBus, linear_to_db(musicSlider.value))
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(sfxBus, linear_to_db(sfxSlider.value))
 
-
+#Emits the sensitivity to player when the sensitivity slider value is altered
 func _on_sensitivity_slider_value_changed(value: float) -> void:
 	emit_signal("change_sensitivity", sensitivitySlider.value)

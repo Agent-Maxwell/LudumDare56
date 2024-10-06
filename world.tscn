@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=32 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://o05om0sdhr7i" path="res://option_menu.tscn" id="14_k2rpt"]
 [ext_resource type="AudioStream" uid="uid://dnh1y83vklrxm" path="res://make_a_break_for_it.mp3" id="15_bm5av"]
 [ext_resource type="AudioStream" uid="uid://dc40785yuvkbm" path="res://make_a_break_for_it_lofi_version.mp3" id="16_rfdqs"]
+[ext_resource type="PackedScene" uid="uid://oja52qj5sf8m" path="res://note_reader.tscn" id="16_tg7wx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lxx6"]
 albedo_color = Color(0.0352941, 1, 0.0745098, 1)
@@ -290,6 +291,10 @@ process_mode = 3
 [node name="Options" parent="." instance=ExtResource("14_k2rpt")]
 process_mode = 2
 
+[node name="NoteReader" parent="." instance=ExtResource("16_tg7wx")]
+process_mode = 2
+layer = 10
+
 [node name="MainSoundtrack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_bm5av")
 volume_db = -10.0
@@ -319,3 +324,5 @@ parameters/looping = true
 [connection signal="unpause" from="PauseMenu" to="." method="_on_pause_menu_unpause"]
 [connection signal="apply_options" from="Options" to="." method="_on_options_apply_options"]
 [connection signal="change_sensitivity" from="Options" to="Player" method="_on_options_change_sensitivity"]
+[connection signal="first_note_finished" from="NoteReader" to="." method="_on_note_reader_first_note_finished"]
+[connection signal="second_note_finished" from="NoteReader" to="." method="_on_note_reader_second_note_finished"]

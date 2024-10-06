@@ -25,6 +25,7 @@ func _ready():
 	$Cutscene.hide()
 	$Options.hide()
 	$Cutscene/DialogueBox.hide()
+	$NoteReader.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	$PauseMenu.hide()
 	$MainMenu.show()
@@ -32,7 +33,12 @@ func _ready():
 	get_tree().paused = true
 	$PauseSoundtrack.play()
 	
+#Occurs after someone hits "start" on the main menu. Activates note reader
 func start():
+	$NoteReader.show()
+	
+func _on_note_reader_first_note_finished() -> void:
+	$NoteReader.hide()
 	$MainSoundtrack.play($PauseSoundtrack.get_playback_position())
 	$MainMenu.hide()
 	$MainMenu/Menu.hide()
@@ -40,6 +46,12 @@ func start():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	next_level()
 
+func _on_note_reader_second_note_finished() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$Cutscene.show()
+	$Cutscene/DialogueBox.show()
+	$NoteReader.hide()
+	emit_signal("start_cutscene", level)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -116,9 +128,15 @@ func next_level():
 	#play level specific dialogue
 	get_tree().paused = true
 	$PauseSoundtrack.play($MainSoundtrack.get_playback_position())
-	$Cutscene.show()
-	$Cutscene/DialogueBox.show()
-	emit_signal("start_cutscene", level)
+	
+	#Plays second note
+	if(level == 1):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		$NoteReader.show()
+	else:
+		$Cutscene.show()
+		$Cutscene/DialogueBox.show()
+		emit_signal("start_cutscene", level)
 	
 func end_cutscene():
 	$MainSoundtrack.play($PauseSoundtrack.get_playback_position())

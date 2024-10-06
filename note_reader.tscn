@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://oja52qj5sf8m"]
+
+[ext_resource type="Script" path="res://note_reader.gd" id="1_ua1yl"]
+[ext_resource type="Texture2D" uid="uid://dtan6neoy2bje" path="res://character sprites/BBQ_Dad_Actual_Letter.PNG" id="1_va4n3"]
+[ext_resource type="Texture2D" uid="uid://b5c2oyr1dyxln" path="res://character sprites/Cat_Arrow.PNG" id="2_df2wi"]
+[ext_resource type="Texture2D" uid="uid://kt2kj2lhcfln" path="res://character sprites/Cat_Arrow_Highlighted.png" id="3_5oemv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qugaw"]
+bg_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oma1a"]
+texture = ExtResource("2_df2wi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kim84"]
+texture = ExtResource("3_5oemv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mnfcu"]
+texture = ExtResource("2_df2wi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ogbke"]
+texture = ExtResource("2_df2wi")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_ua1yl")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qugaw")
+
+[node name="Image" type="TextureRect" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -381.756
+offset_right = 381.756
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_va4n3")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1546.0
+offset_top = 805.0
+offset_right = 1838.0
+offset_bottom = 1039.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_oma1a")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kim84")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mnfcu")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ogbke")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
