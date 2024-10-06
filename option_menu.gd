@@ -1,6 +1,29 @@
 extends CanvasLayer
 
+@onready var masterBus := AudioServer.get_bus_index("Master")
+@onready var musicBus := AudioServer.get_bus_index("Music")
+@onready var sfxBus := AudioServer.get_bus_index("Sfx")
+@onready var masterSlider = $"MarginContainer/Background Color/Button Spacer/Master Volume/Master Slider"
+@onready var musicSlider = $"MarginContainer/Background Color/Button Spacer/Music Volume/Music Slider"
+@onready var sfxSlider = $"MarginContainer/Background Color/Button Spacer/SFX Volume/SFX Slider"
+
+
+#Syncs volumes up to the values in the buses at start of game
+func _ready() -> void:
+	masterSlider.value = db_to_linear(AudioServer.get_bus_volume_db(masterBus))
+	musicSlider.value = db_to_linear(AudioServer.get_bus_volume_db(musicBus))
+	sfxSlider.value = db_to_linear(AudioServer.get_bus_volume_db(sfxBus))
+
 signal apply_options
 
 func _on_apply_pressed() -> void:
 	emit_signal("apply_options")
+
+func _on_master_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(masterBus, linear_to_db(masterSlider.value))
+
+func _on_music_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(musicBus, linear_to_db(musicSlider.value))
+
+func _on_sfx_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(sfxBus, linear_to_db(sfxSlider.value))

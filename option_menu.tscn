@@ -71,13 +71,15 @@ theme = ExtResource("2_tnm1p")
 text = "Master Volume:"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/Background Color/Button Spacer/Master Volume"]
+[node name="Master Slider" type="HSlider" parent="MarginContainer/Background Color/Button Spacer/Master Volume"]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 theme = ExtResource("2_tnm1p")
-value = 100.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="Music Volume" type="HBoxContainer" parent="MarginContainer/Background Color/Button Spacer"]
 layout_mode = 2
@@ -89,13 +91,15 @@ theme = ExtResource("2_tnm1p")
 text = "Music Volume:"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/Background Color/Button Spacer/Music Volume"]
+[node name="Music Slider" type="HSlider" parent="MarginContainer/Background Color/Button Spacer/Music Volume"]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 theme = ExtResource("2_tnm1p")
-value = 100.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="SFX Volume" type="HBoxContainer" parent="MarginContainer/Background Color/Button Spacer"]
 layout_mode = 2
@@ -107,13 +111,15 @@ theme = ExtResource("2_tnm1p")
 text = "SFX Volume:"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/Background Color/Button Spacer/SFX Volume"]
+[node name="SFX Slider" type="HSlider" parent="MarginContainer/Background Color/Button Spacer/SFX Volume"]
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 theme = ExtResource("2_tnm1p")
-value = 100.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="Spacer" type="Label" parent="MarginContainer/Background Color/Button Spacer"]
 layout_mode = 2
@@ -127,4 +133,7 @@ size_flags_horizontal = 4
 theme = ExtResource("3_h1gj4")
 text = "Apply"
 
+[connection signal="value_changed" from="MarginContainer/Background Color/Button Spacer/Master Volume/Master Slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Background Color/Button Spacer/Music Volume/Music Slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Background Color/Button Spacer/SFX Volume/SFX Slider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/Background Color/Button Spacer/Apply" to="." method="_on_apply_pressed"]
