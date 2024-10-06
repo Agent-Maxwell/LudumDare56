@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cao26f7x33a5j"
+path="res://.godot/imported/shrubbery.obj-1e0539ad6923395273f030a76387177f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/shrubbery.obj-1e0539ad6923395273f030a76387177f.mesh"]
+
+source_file="res://Obstacle Models/shrubbery.obj"
+dest_files=["res://.godot/imported/shrubbery.obj-1e0539ad6923395273f030a76387177f.mesh", "res://.godot/imported/shrubbery.obj-1e0539ad6923395273f030a76387177f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

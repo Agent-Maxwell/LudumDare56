@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=31 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
 [ext_resource type="Script" path="res://tall_fence.gd" id="2_2s6gq"]
 [ext_resource type="Script" path="res://tree.gd" id="2_l0eu8"]
+[ext_resource type="ArrayMesh" uid="uid://uk78ifei1sl3" path="res://Obstacle Models/grill.obj" id="3_q5qvw"]
 [ext_resource type="Script" path="res://trampoline.gd" id="4_268g1"]
 [ext_resource type="Script" path="res://cat_checker_a.gd" id="4_xa23j"]
 [ext_resource type="Script" path="res://cat_spawner.gd" id="6_c0b2u"]
@@ -36,8 +37,11 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_023i7"]
 size = Vector3(0.892029, 0.0354614, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mu52m"]
+size = Vector3(3.66504, 2.66846, 1.41101)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_yr742"]
-size = Vector3(0.879761, 0.556152, 0.833611)
+size = Vector3(3.97629, 2.71283, 1.36807)
 
 [sub_resource type="Environment" id="Environment_sfw5c"]
 background_mode = 1
@@ -140,27 +144,26 @@ mesh = SubResource("BoxMesh_vxh1j")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Fence5/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_aohfv")
 
-[node name="Tree" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.872958, 0, 0, 0, 7.93201, 0, 0, 0, 0.915527, 14.3341, 4.07486, -17.0388)
-visible = false
-material_override = SubResource("StandardMaterial3D_070dd")
-mesh = SubResource("BoxMesh_vxh1j")
+[node name="Grill" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(-0.453166, 0, 0.891426, 0, 1, 0, -0.891426, 0, -0.453166, 16.4734, 1.29767, -15.8112)
+mesh = ExtResource("3_q5qvw")
 script = ExtResource("2_l0eu8")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Tree"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Grill"]
 collision_layer = 8
 collision_mask = 6
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Tree/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_aohfv")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Grill/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0207014, 0.0366758, 0.22551)
+shape = SubResource("BoxShape3D_mu52m")
 disabled = true
 
-[node name="Area3D" type="Area3D" parent="Environment/Tree"]
+[node name="Area3D" type="Area3D" parent="Environment/Grill"]
 collision_layer = 8
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Tree/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999994, 0, 0, 0, 1, -0.208498, 0.221923, 0.144958)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Grill/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999994, 0, 0, 0, 1, 0.0113659, 0.0794983, 0.203993)
 shape = SubResource("BoxShape3D_yr742")
 disabled = true
 
@@ -301,7 +304,7 @@ parameters/looping = true
 
 [connection signal="start_cutscene" from="." to="Cutscene" method="start_cutscene"]
 [connection signal="body_entered" from="Environment/TallFence/Area3D" to="Environment/TallFence" method="_on_area_3d_body_entered"]
-[connection signal="body_entered" from="Environment/Tree/Area3D" to="Environment/Tree" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Environment/Grill/Area3D" to="Environment/Grill" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Environment/Trampoline/Area3D" to="Environment/Trampoline" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="CatCheckerA" to="CatCheckerA" method="_on_body_entered"]
 [connection signal="body_exited" from="CatCheckerA" to="CatCheckerA" method="_on_body_exited"]
