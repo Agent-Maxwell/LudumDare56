@@ -30,8 +30,10 @@ func _ready():
 	$MainMenu.show()
 	$MainMenu/Menu.show()
 	get_tree().paused = true
+	$PauseSoundtrack.play()
 	
 func start():
+	$MainSoundtrack.play($PauseSoundtrack.get_playback_position())
 	$MainMenu.hide()
 	$MainMenu/Menu.hide()
 	get_tree().paused = false
@@ -45,6 +47,7 @@ func _process(delta):
 		$PauseMenu.show()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_tree().paused = true
+		$PauseSoundtrack.play($MainSoundtrack.get_playback_position())
 	#if the amount of cats in the goal yard is equal to the amount of cats, we can move to the next level
 	if goal.catAmount == catAmount: 
 		#going to need like a ten second timer here  that checks at the end if this condition is still true, and if so then goes to next level
@@ -52,6 +55,7 @@ func _process(delta):
 
 
 func _on_pause_menu_unpause() -> void:
+	$MainSoundtrack.play($PauseSoundtrack.get_playback_position())
 	$PauseMenu.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().paused = false
@@ -111,11 +115,13 @@ func next_level():
 	
 	#play level specific dialogue
 	get_tree().paused = true
+	$PauseSoundtrack.play($MainSoundtrack.get_playback_position())
 	$Cutscene.show()
 	$Cutscene/DialogueBox.show()
 	emit_signal("start_cutscene", level)
 	
 func end_cutscene():
+	$MainSoundtrack.play($PauseSoundtrack.get_playback_position())
 	$Cutscene.hide()
 	$Cutscene/DialogueBox.hide()
 	get_tree().paused = false
