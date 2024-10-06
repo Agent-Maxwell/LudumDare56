@@ -44,8 +44,6 @@ func _physics_process(delta):
 	
 	if state == "grounded": # destroy upwards vertical velocity while grounded
 		linear_velocity.y = min(linear_velocity.y, 0)
-	
-	print(state)
 
 # player be like "what am i holding now"
 func type():
@@ -65,6 +63,15 @@ func launch_meow():
 
 #func _on_body_entered(body):
 	#pass
+
+#func getKicked(kickVelocity: Vector3):
+	#var start_speed = kickHitbox.get_collider(i).linear_velocity.length()
+	#kickHitbox.get_collider(i).linear_velocity = -global_transform.basis.z.rotated(global_transform.basis.x, deg_to_rad(KICK_ANGLE)) * (KICK_VELOCITY + start_speed)
+	#kickHitbox.get_collider(i).beenKicked = true
+	#kickHitbox.get_collider(i).launch_meow()
+	##dropkick scoring
+	#if kickHitbox.get_collider(i).beenKicked and kickHitbox.get_collider(i).beenGrabbed:
+		#scoreMessage("Dropkick!")
 
 # manager for setting airborne/grounded state
 func set_state(newState):
