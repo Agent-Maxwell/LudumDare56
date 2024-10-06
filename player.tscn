@@ -1,13 +1,75 @@
-[gd_scene load_steps=22 format=3 uid="uid://rmhrq5qmmkuj"]
+[gd_scene load_steps=26 format=3 uid="uid://rmhrq5qmmkuj"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_cqcfi"]
 [ext_resource type="Texture2D" uid="uid://bkagmxvxuyrog" path="res://handplaceholder.png" id="1_ia0tg"]
 [ext_resource type="Texture2D" uid="uid://crxtxvqqawptj" path="res://hand sprites/hand spritesheet.png" id="3_ilttr"]
 [ext_resource type="AudioStream" uid="uid://dc5t8mmfgqdrw" path="res://catgrab.mp3" id="3_q1y1w"]
+[ext_resource type="Texture2D" uid="uid://5u4c6nje1sed" path="res://hand sprites/leg spritesheet.png" id="3_vc4r5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xgkp0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p660o"]
+
+[sub_resource type="Animation" id="Animation_4avm8"]
+resource_name = "kick"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.2, 0.366667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(144, 374.178), Vector2(144, -60), Vector2(144, -60), Vector2(144, 374.178)]
+}
+
+[sub_resource type="Animation" id="Animation_qb8pt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(144, 405.333)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83oya"]
+_data = {
+"RESET": SubResource("Animation_qb8pt"),
+"kick": SubResource("Animation_4avm8")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gnh80"]
 atlas = ExtResource("1_ia0tg")
@@ -501,6 +563,17 @@ rotation = 0.218166
 scale = Vector2(0.265734, 0.265734)
 texture = ExtResource("3_ilttr")
 hframes = 5
+
+[node name="leg" type="Sprite2D" parent="CanvasLayer/HUD/hands"]
+position = Vector2(144, 405.333)
+scale = Vector2(0.160911, 0.160911)
+texture = ExtResource("3_vc4r5")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/HUD/hands/leg"]
+libraries = {
+"": SubResource("AnimationLibrary_83oya")
+}
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/HUD"]
 position = Vector2(373, -81)
