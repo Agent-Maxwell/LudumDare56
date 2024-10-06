@@ -315,3 +315,4 @@ parameters/looping = true
 [connection signal="open_options" from="PauseMenu" to="." method="_on_pause_menu_open_options"]
 [connection signal="unpause" from="PauseMenu" to="." method="_on_pause_menu_unpause"]
 [connection signal="apply_options" from="Options" to="." method="_on_options_apply_options"]
+[connection signal="change_sensitivity" from="Options" to="Player" method="_on_options_change_sensitivity"]

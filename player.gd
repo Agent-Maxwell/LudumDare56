@@ -13,10 +13,10 @@ extends CharacterBody3D
 const SPEED = 5.0
 const SPEED_WHILE_CHARGING = 3.0
 const SPEED_WHILE_SPRINTING = 10.0
-const MOUSE_SENS = .06
 const JUMP_VELOCITY = 4.5
 const KICK_ANGLE = 25
 const KICK_VELOCITY = 5
+var mouse_sens = .06
 
 var can_grab = true
 var can_kick = true
@@ -37,8 +37,8 @@ func _input(event):
 		return
 	# left/right rotation rotates entire player, up/down only rotates its "face" node
 	if event is InputEventMouseMotion:
-		rotation_degrees.y -= event.relative.x * MOUSE_SENS
-		$Face.rotation_degrees.x -= event.relative.y * MOUSE_SENS
+		rotation_degrees.y -= event.relative.x * mouse_sens
+		$Face.rotation_degrees.x -= event.relative.y * mouse_sens
 		
 		# we must clamp vertical rotation
 		if ($Face.rotation_degrees.x < -90):
@@ -207,3 +207,7 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_leg_player_animation_finished(anim_name: StringName) -> void:
 	can_kick = true
+
+
+func _on_options_change_sensitivity(sensValue: Variant) -> void:
+	mouse_sens = sensValue
