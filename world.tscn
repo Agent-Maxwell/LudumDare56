@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://o05om0sdhr7i" path="res://option_menu.tscn" id="14_k2rpt"]
 [ext_resource type="AudioStream" uid="uid://dnh1y83vklrxm" path="res://make_a_break_for_it.mp3" id="15_bm5av"]
 [ext_resource type="AudioStream" uid="uid://dc40785yuvkbm" path="res://make_a_break_for_it_lofi_version.mp3" id="16_rfdqs"]
-[ext_resource type="PackedScene" uid="uid://oja52qj5sf8m" path="res://note_reader.tscn" id="16_tg7wx"]
+[ext_resource type="PackedScene" path="res://note_reader.tscn" id="16_tg7wx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lxx6"]
 albedo_color = Color(0.0352941, 1, 0.0745098, 1)
@@ -48,7 +48,7 @@ size = Vector3(1.2547, 2.07553, 2.68005)
 size = Vector3(1.36736, 2.13426, 2.89403)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_i8etp"]
-height = 0.185436
+height = 0.777128
 radius = 1.01032
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_isf5k"]
@@ -204,7 +204,6 @@ disabled = true
 
 [node name="Trampoline" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1.53128, -1.00204, 0, 1.00204, 1.53128, 0, 0, 0, 1.83, 18.0611, 1.52916, -4.45876)
-visible = false
 mesh = ExtResource("5_x2iex")
 script = ExtResource("4_268g1")
 
@@ -212,6 +211,7 @@ script = ExtResource("4_268g1")
 collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Trampoline/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8871e-08, -0.336968, 0)
 shape = SubResource("CylinderShape3D_i8etp")
 disabled = true
 
