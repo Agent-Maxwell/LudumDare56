@@ -15,7 +15,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	#if we have been kicked and grabbed
+	if beenGrabbed and beenKicked:
+		#weve been dropkicked, awesome!
+		multiplier+=1
+		beenKicked = false
+		beenGrabbed = false
+		
 
 # player be like "what am i holding now"
 func type():

@@ -138,6 +138,7 @@ func click_release_action():
 		catInst.linear_velocity = -$Face.global_transform.basis.z * (4 + (charge_time * 10)) + velocity # set velocity to face's forward vector * throw speed
 		charge_time = 0 #reset charge time for next charge
 		add_sibling(catInst) # it appears...
+		catInst.beenGrabbed = true
 		holding = "" # my hand is empty now ???!!
 		hand_anim.play("throw")
 	
@@ -165,8 +166,11 @@ func kick():
 		if kickHitbox.is_colliding():
 			for i in kickHitbox.get_collision_count():
 				var start_speed = kickHitbox.get_collider(i).linear_velocity.length()
-				print(start_speed)
 				kickHitbox.get_collider(i).linear_velocity = -global_transform.basis.z.rotated(global_transform.basis.x, deg_to_rad(KICK_ANGLE)) * (KICK_VELOCITY + start_speed)
+				kickHitbox.get_collider(i).beenKicked = true
+				#dropkick scoring
+				if kickHitbox.get_collider(i).beenKicked and kickHitbox.get_collider(i).beenGrabbed:
+					scoreMessage("Dropkick!")
 
 # you fail
 func fail():
