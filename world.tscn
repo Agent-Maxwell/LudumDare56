@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=18 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
+[ext_resource type="Script" path="res://tree.gd" id="2_l0eu8"]
 [ext_resource type="Script" path="res://cat_checker_a.gd" id="4_xa23j"]
 [ext_resource type="Script" path="res://cat_spawner.gd" id="6_c0b2u"]
 [ext_resource type="Script" path="res://oob_catcher.gd" id="7_kxeyp"]
@@ -111,6 +112,19 @@ mesh = SubResource("BoxMesh_vxh1j")
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/Fence5"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Fence5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_aohfv")
+
+[node name="Tree" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.872958, 0, 0, 0, 7.93201, 0, 0, 0, 0.915527, 14.3341, 4.07486, -17.0388)
+material_override = SubResource("StandardMaterial3D_070dd")
+mesh = SubResource("BoxMesh_vxh1j")
+script = ExtResource("2_l0eu8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Tree"]
+collision_layer = 8
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Tree/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_aohfv")
 
 [node name="House" type="MeshInstance3D" parent="Environment"]
