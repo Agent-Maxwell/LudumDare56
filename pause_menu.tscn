@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqnemnodd1c4w"]
+
+[ext_resource type="FontFile" uid="uid://dqalj8lhxxtxm" path="res://OpenSans-Regular.ttf" id="1_ikau7"]
+[ext_resource type="Theme" uid="uid://dba24vvsaihhc" path="res://menu_button.tres" id="2_5kyq4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofih6"]
+bg_color = Color(1, 1, 1, 0.639216)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport/CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -405.0
+offset_right = 360.0
+offset_bottom = 405.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="SubViewport/CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ofih6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Label" type="Label" parent="SubViewport/CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.584314, 0.647059, 1)
+theme_override_fonts/font = ExtResource("1_ikau7")
+theme_override_font_sizes/font_size = 80
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="SubViewport/CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5kyq4")
+text = "Resume Game"
+
+[node name="Button2" type="Button" parent="SubViewport/CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5kyq4")
+text = "Settings"
+
+[node name="Button3" type="Button" parent="SubViewport/CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5kyq4")
+text = "Quit"

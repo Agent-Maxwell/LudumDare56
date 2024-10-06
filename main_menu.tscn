@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://dxdv0uyd0elyf" path="res://Cattino.ttf" id="1_i35tq"]
 [ext_resource type="Script" path="res://main_menu.gd" id="1_rb71w"]
 [ext_resource type="Theme" uid="uid://dba24vvsaihhc" path="res://menu_button.tres" id="2_14mwx"]
-[ext_resource type="Theme" uid="uid://c2cdil0o3xt10" path="res://settings.tres" id="4_l40sv"]
+[ext_resource type="PackedScene" uid="uid://o05om0sdhr7i" path="res://option_menu.tscn" id="4_yeuv2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpjrl"]
 bg_color = Color(0.282353, 0.662745, 0.6, 1)
@@ -53,7 +53,7 @@ text = "Start"
 [node name="Options" type="Button" parent="Menu/MarginContainer/Background Color/Button Spacer"]
 layout_mode = 2
 theme = ExtResource("2_14mwx")
-text = "Options"
+text = "Settings"
 
 [node name="About" type="Button" parent="Menu/MarginContainer/Background Color/Button Spacer"]
 layout_mode = 2
@@ -65,125 +65,9 @@ layout_mode = 2
 theme = ExtResource("2_14mwx")
 text = "Quit"
 
-[node name="Options" type="CanvasLayer" parent="."]
-layer = 7
-
-[node name="MarginContainer" type="MarginContainer" parent="Options"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Background Color" type="Panel" parent="Options/MarginContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fpjrl")
-
-[node name="Title" type="Label" parent="Options/MarginContainer/Background Color"]
-layout_mode = 2
-offset_top = 20.0
-offset_right = 1920.0
-offset_bottom = 1100.0
-theme_override_colors/font_color = Color(1, 0.494118, 1, 1)
-theme_override_fonts/font = ExtResource("1_i35tq")
-theme_override_font_sizes/font_size = 150
-text = "Settings"
-horizontal_alignment = 1
-
-[node name="Button Spacer" type="VBoxContainer" parent="Options/MarginContainer/Background Color"]
-layout_mode = 0
-offset_left = 510.0
-offset_top = 264.0
-offset_right = 1410.0
-offset_bottom = 829.0
-theme_override_constants/separation = 36
-
-[node name="Sensitivity" type="HBoxContainer" parent="Options/MarginContainer/Background Color/Button Spacer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="Options/MarginContainer/Background Color/Button Spacer/Sensitivity"]
-layout_mode = 2
-theme = ExtResource("4_l40sv")
-text = "Sensitivity:"
-vertical_alignment = 1
-
-[node name="HSlider" type="HSlider" parent="Options/MarginContainer/Background Color/Button Spacer/Sensitivity"]
-custom_minimum_size = Vector2(400, 50)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-theme = ExtResource("4_l40sv")
-min_value = 1.0
-value = 50.0
-
-[node name="Master Volume" type="HBoxContainer" parent="Options/MarginContainer/Background Color/Button Spacer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="Options/MarginContainer/Background Color/Button Spacer/Master Volume"]
-layout_mode = 2
-theme = ExtResource("4_l40sv")
-text = "Master Volume:"
-vertical_alignment = 1
-
-[node name="HSlider" type="HSlider" parent="Options/MarginContainer/Background Color/Button Spacer/Master Volume"]
-custom_minimum_size = Vector2(400, 50)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-theme = ExtResource("4_l40sv")
-value = 100.0
-
-[node name="Music Volume" type="HBoxContainer" parent="Options/MarginContainer/Background Color/Button Spacer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="Options/MarginContainer/Background Color/Button Spacer/Music Volume"]
-layout_mode = 2
-theme = ExtResource("4_l40sv")
-text = "Music Volume:"
-vertical_alignment = 1
-
-[node name="HSlider" type="HSlider" parent="Options/MarginContainer/Background Color/Button Spacer/Music Volume"]
-custom_minimum_size = Vector2(400, 50)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-theme = ExtResource("4_l40sv")
-value = 100.0
-
-[node name="SFX Volume" type="HBoxContainer" parent="Options/MarginContainer/Background Color/Button Spacer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="Options/MarginContainer/Background Color/Button Spacer/SFX Volume"]
-layout_mode = 2
-theme = ExtResource("4_l40sv")
-text = "SFX Volume:"
-vertical_alignment = 1
-
-[node name="HSlider" type="HSlider" parent="Options/MarginContainer/Background Color/Button Spacer/SFX Volume"]
-custom_minimum_size = Vector2(400, 50)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-theme = ExtResource("4_l40sv")
-value = 100.0
-
-[node name="Spacer" type="Label" parent="Options/MarginContainer/Background Color/Button Spacer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 1
-vertical_alignment = 1
-
-[node name="Apply" type="Button" parent="Options/MarginContainer/Background Color/Button Spacer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("2_14mwx")
-text = "Apply"
+[node name="Options" parent="." instance=ExtResource("4_yeuv2")]
+visible = false
 
 [connection signal="pressed" from="Menu/MarginContainer/Background Color/Button Spacer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Background Color/Button Spacer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Background Color/Button Spacer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Options/MarginContainer/Background Color/Button Spacer/Apply" to="." method="_on_apply_pressed"]

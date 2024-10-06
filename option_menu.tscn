@@ -1,0 +1,130 @@
+[gd_scene load_steps=6 format=3 uid="uid://o05om0sdhr7i"]
+
+[ext_resource type="FontFile" uid="uid://dxdv0uyd0elyf" path="res://Cattino.ttf" id="1_rt8bs"]
+[ext_resource type="Script" path="res://option_menu.gd" id="1_v6uaf"]
+[ext_resource type="Theme" uid="uid://c2cdil0o3xt10" path="res://settings.tres" id="2_tnm1p"]
+[ext_resource type="Theme" uid="uid://dba24vvsaihhc" path="res://menu_button.tres" id="3_h1gj4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpjrl"]
+bg_color = Color(0.282353, 0.662745, 0.6, 1)
+
+[node name="Options" type="CanvasLayer"]
+layer = 7
+script = ExtResource("1_v6uaf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background Color" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fpjrl")
+
+[node name="Title" type="Label" parent="MarginContainer/Background Color"]
+layout_mode = 2
+offset_top = 20.0
+offset_right = 1920.0
+offset_bottom = 1100.0
+theme_override_colors/font_color = Color(1, 0.494118, 1, 1)
+theme_override_fonts/font = ExtResource("1_rt8bs")
+theme_override_font_sizes/font_size = 150
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Button Spacer" type="VBoxContainer" parent="MarginContainer/Background Color"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 264.0
+offset_right = 1410.0
+offset_bottom = 829.0
+theme_override_constants/separation = 36
+
+[node name="Sensitivity" type="HBoxContainer" parent="MarginContainer/Background Color/Button Spacer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Background Color/Button Spacer/Sensitivity"]
+layout_mode = 2
+theme = ExtResource("2_tnm1p")
+text = "Sensitivity:"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Background Color/Button Spacer/Sensitivity"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme = ExtResource("2_tnm1p")
+min_value = 1.0
+value = 50.0
+
+[node name="Master Volume" type="HBoxContainer" parent="MarginContainer/Background Color/Button Spacer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Background Color/Button Spacer/Master Volume"]
+layout_mode = 2
+theme = ExtResource("2_tnm1p")
+text = "Master Volume:"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Background Color/Button Spacer/Master Volume"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme = ExtResource("2_tnm1p")
+value = 100.0
+
+[node name="Music Volume" type="HBoxContainer" parent="MarginContainer/Background Color/Button Spacer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Background Color/Button Spacer/Music Volume"]
+layout_mode = 2
+theme = ExtResource("2_tnm1p")
+text = "Music Volume:"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Background Color/Button Spacer/Music Volume"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme = ExtResource("2_tnm1p")
+value = 100.0
+
+[node name="SFX Volume" type="HBoxContainer" parent="MarginContainer/Background Color/Button Spacer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Background Color/Button Spacer/SFX Volume"]
+layout_mode = 2
+theme = ExtResource("2_tnm1p")
+text = "SFX Volume:"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/Background Color/Button Spacer/SFX Volume"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme = ExtResource("2_tnm1p")
+value = 100.0
+
+[node name="Spacer" type="Label" parent="MarginContainer/Background Color/Button Spacer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 1
+vertical_alignment = 1
+
+[node name="Apply" type="Button" parent="MarginContainer/Background Color/Button Spacer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_h1gj4")
+text = "Apply"
+
+[connection signal="pressed" from="MarginContainer/Background Color/Button Spacer/Apply" to="." method="_on_apply_pressed"]

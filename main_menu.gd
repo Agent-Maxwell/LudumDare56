@@ -15,10 +15,8 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_options_pressed() -> void:
-	$Menu.hide()
 	$Options.show()
 
-
-func _on_apply_pressed() -> void:
-	$Options.hide()
+func _on_options_apply_options() -> void:
 	$Menu.show()
+	$Options.hide()
