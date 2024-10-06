@@ -47,6 +47,9 @@ func score_points(value, multiplier, text):
 	score += value*multiplier
 	print(score)
 	
+	$Player.updateScore(score)
+	$Player.scoreMessage(text)
+	
 # update all variables and take us to the next level
 func next_level():
 	#increment the level counter
