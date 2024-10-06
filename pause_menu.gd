@@ -3,8 +3,6 @@ extends SubViewportContainer
 signal open_options
 signal unpause
 
-var paused = false
-
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
