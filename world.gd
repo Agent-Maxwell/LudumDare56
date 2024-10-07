@@ -123,6 +123,7 @@ func next_level():
 	
 	#unhide obstacles/hazards
 	for i in $levelData.unhideObstacles[level].size():
+		print($levelData.unhideObstacles[level][i])
 		find_child($levelData.unhideObstacles[level][i]).show()
 		if(!$levelData.unhideObstacles[level][i].ends_with("Fence")):
 			find_child($levelData.unhideObstacles[level][i]).get_child(0).get_child(0).disabled = false

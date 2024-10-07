@@ -27,12 +27,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#if we have been kicked and grabbed
-	if beenGrabbed and beenKicked:
-		#weve been dropkicked, awesome!
-		multiplier += 1
-		beenKicked = false
-		beenGrabbed = false
+	pass
 		
 
 func _physics_process(delta):
