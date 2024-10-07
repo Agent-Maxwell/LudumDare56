@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://5u4c6nje1sed"
 path.s3tc="res://.godot/imported/leg spritesheet.png-2829a77b5d323113c5393d4a3af0530c.s3tc.ctex"
+path.etc2="res://.godot/imported/leg spritesheet.png-2829a77b5d323113c5393d4a3af0530c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://hand sprites/leg spritesheet.png"
-dest_files=["res://.godot/imported/leg spritesheet.png-2829a77b5d323113c5393d4a3af0530c.s3tc.ctex"]
+dest_files=["res://.godot/imported/leg spritesheet.png-2829a77b5d323113c5393d4a3af0530c.s3tc.ctex", "res://.godot/imported/leg spritesheet.png-2829a77b5d323113c5393d4a3af0530c.etc2.ctex"]
 
 [params]
 
