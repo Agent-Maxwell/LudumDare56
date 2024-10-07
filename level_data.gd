@@ -1,7 +1,7 @@
 extends Node
 
 #amount of cats for each level
-var catAmount = [1,2,3,3,3,3,3,3,3]
+var catAmount = [3,4,5,5,6,6,6,7,8]
 
 #obstacles to unhide for each level
 #format [array0(level 0)[obstaclename1, obstaclename2, etc], array1(level 1)[obstaclename1, obstaclename2, etc], [etc]]

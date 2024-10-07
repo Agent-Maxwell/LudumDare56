@@ -62,7 +62,10 @@ func _process(delta):
 		$PauseSoundtrack.play($MainSoundtrack.get_playback_position())
 	#if the amount of cats in the goal yard is equal to the amount of cats, we can move to the next level
 	if goal.catAmount == catAmount: 
-		#going to need like a ten second timer here  that checks at the end if this condition is still true, and if so then goes to next level
+		#wait a bit to actually end the level
+		catAmount +=1
+		$Player.scoreMessage("Level Complete!!")
+		await get_tree().create_timer(5.0).timeout
 		next_level()
 
 
@@ -107,6 +110,7 @@ func next_level():
 	
 	#increment the level counter
 	level +=1
+	print(level)
 	
 	#update the amount of cats
 	catAmount = $levelData.catAmount[level]
