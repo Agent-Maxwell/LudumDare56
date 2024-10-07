@@ -74,6 +74,7 @@ func _process(delta):
 		if(level == 8):
 			$Cutscene.show()
 			$Cutscene/DialogueBox.show()
+			$PauseSoundtrack.play($MainSoundtrack.get_playback_position())
 			get_tree().paused = true
 			emit_signal("start_cutscene", 9)
 		else:
