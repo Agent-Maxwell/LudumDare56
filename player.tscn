@@ -633,7 +633,7 @@ libraries = {
 
 [node name="kickSounds" type="AudioStreamPlayer" parent="CanvasLayer/HUD/hands/leg"]
 stream = SubResource("AudioStreamRandomizer_xyk1u")
-volume_db = -2.63
+volume_db = -0.529
 bus = &"Sfx"
 
 [node name="MegaKickSound" type="AudioStreamPlayer" parent="CanvasLayer/HUD/hands/leg"]

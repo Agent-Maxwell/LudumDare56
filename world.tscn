@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
 [ext_resource type="Script" path="res://tall_fence.gd" id="2_2s6gq"]
 [ext_resource type="PackedScene" uid="uid://8k0txei0ny7a" path="res://SM_chainlinkFence.fbx" id="2_agltw"]
-[ext_resource type="Script" path="res://tree.gd" id="2_l0eu8"]
 [ext_resource type="PackedScene" uid="uid://bi4cuip087y7c" path="res://SM_picketFence.fbx" id="3_0yoi2"]
 [ext_resource type="ArrayMesh" uid="uid://uk78ifei1sl3" path="res://Obstacle Models/grill.obj" id="3_q5qvw"]
 [ext_resource type="Script" path="res://trampoline.gd" id="4_268g1"]
@@ -15,6 +14,7 @@
 [ext_resource type="ArrayMesh" uid="uid://7ba1affe73ky" path="res://Obstacle Models/trampoline.obj" id="5_x2iex"]
 [ext_resource type="Script" path="res://cat_spawner.gd" id="6_c0b2u"]
 [ext_resource type="PackedScene" uid="uid://cq1632l237tc2" path="res://main_menu.tscn" id="6_ewqnf"]
+[ext_resource type="Script" path="res://grill.gd" id="7_1i6q3"]
 [ext_resource type="Script" path="res://oob_catcher.gd" id="7_kxeyp"]
 [ext_resource type="Script" path="res://level_data.gd" id="7_ml12b"]
 [ext_resource type="PackedScene" uid="uid://dnx0lyo5wsmhn" path="res://cutscene.tscn" id="8_lp2vk"]
@@ -665,7 +665,7 @@ disabled = true
 transform = Transform3D(-0.40787, 0, 0.802325, 0, 0.900046, 0, -0.802325, 0, -0.40787, 16.4734, 1.1706, -15.8112)
 visible = false
 mesh = ExtResource("3_q5qvw")
-script = ExtResource("2_l0eu8")
+script = ExtResource("7_1i6q3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/Grill"]
 collision_mask = 6

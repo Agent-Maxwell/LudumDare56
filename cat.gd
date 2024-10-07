@@ -8,6 +8,8 @@ var multiplier = 1
 
 @onready var groundRay = $GroundRayCast
 
+@onready var positivePoints = $PositivePoints
+
 var state
 var prevVelocity # to detect bounce collision speed, need to compare current vel with prev vel
 
@@ -42,13 +44,13 @@ func _physics_process(delta):
 				if deltaV > 20: #if it was fast, bounce;
 					player.scoreMessage("Bounce! (100)")
 					score += 100
-					$PositivePoints.play()
+					positivePoints.play()
 					$Bounce.play()
 				elif deltaV > 10: #if it was medium, play soft impact sound,
 					$SoftImpact.play()
 					player.scoreMessage("Bonk! (50)")
 					score += 50
-					$PositivePoints.play()
+					positivePoints.play()
 					if groundRay.is_colliding(): #and if it was medium AND on the ground, land
 						set_state("grounded")
 				else:
@@ -92,7 +94,7 @@ func getKicked(kickDir, kickVel):
 	if beenKicked and beenGrabbed:
 		player.scoreMessage("Dropkick! (50)")
 		score += 50
-		$PositivePoints.play()
+		positivePoints.play()
 
 # manager for setting airborne/grounded state
 func set_state(newState):
@@ -107,3 +109,6 @@ func set_state(newState):
 		physics_material_override.bounce = 0.7
 	else:
 		print("error wtf is my state rn (-the cat)")
+		
+func play_pos_points():
+	positivePoints.play()
