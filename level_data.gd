@@ -8,13 +8,13 @@ var catAmount = [1,2,3,3,3,3,3,3,3]
 var unhideObstacles = [
 ["Grill", "Shrubbery","ChainLinkFence"],
 ["Grill", "Shrubbery", "ChainLinkFence"],
-["Grill", "Shrubbery", "PicketFence", "Trampoline"],
-["Grill", "Shrubbery", "PicketFence", "Trampoline", "TrampolineRedirector"],
-["Grill", "Shrubbery", "PicketFence", "Trampoline", "TrampolineRedirector", "Blower"],
-["Grill", "Shrubbery", "PicketFence", "Trampoline", "TrampolineRedirector", "Blower", "Drone"],
-["Grill", "Shrubbery", "MetalFence", "Trampoline", "TrampolineRedirector", "Blower", "Drone", "PoolUnfilled"],
-["Grill", "Shrubbery", "MetalFence", "Trampoline", "TrampolineRedirector", "Blower", "Drone", "PoolFilled", "HardLight"],
-["Grill", "Shrubbery", "MetalFence", "Trampoline", "TrampolineRedirector", "Blower", "Drone", "PoolUnfilled", "HardLight"]]
+["Grill", "Shrubbery", "PicketFence","PicketFenceCollider", "Trampoline"],
+["Grill", "Shrubbery", "PicketFence","PicketFenceCollider", "Trampoline", "TrampolineRedirector"],
+["Grill", "Shrubbery", "PicketFence","PicketFenceCollider", "Trampoline", "TrampolineRedirector", "Blower"],
+["Grill", "Shrubbery", "PicketFence","PicketFenceCollider", "Trampoline", "TrampolineRedirector", "Blower", "Drone"],
+["Grill", "Shrubbery", "MetalFence","MetalFenceCollider", "Trampoline", "TrampolineRedirector", "Blower", "Drone", "PoolUnfilled"],
+["Grill", "Shrubbery", "MetalFence","MetalFenceCollider", "Trampoline", "TrampolineRedirector", "Blower", "Drone", "PoolFilled", "HardLight"],
+["Grill", "Shrubbery", "MetalFence","MetalFenceCollider", "Trampoline", "TrampolineRedirector", "Blower", "Drone", "PoolUnfilled", "HardLight"]]
 
 #obstacles to have active for each level (all obstacles are deactivated between levels)
 #format [array0(level 0)[obstaclename1, obstaclename2, etc], array1(level 1)[obstaclename1, obstaclename2, etc], [etc]]
