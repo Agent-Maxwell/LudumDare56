@@ -16,7 +16,7 @@ func _on_body_entered(body):
 		#give the catt some score
 		body.score +=100
 		#score it
-		$"..".score_points(body.score, body.multiplier, "Cat Scored! Total " + str(body.score))
+		$"..".score_points(body.score, body.multiplier, "Cat Scored! Total " + str(body.score * body.multiplier))
 		#then stop it
 		body.set_state("grounded")
 		#body.linear_velocity = Vector3(0,0,0)
