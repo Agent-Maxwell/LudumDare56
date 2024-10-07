@@ -85,6 +85,10 @@ func level_start():
 	
 func score_points(value, multiplier, text):
 	score += value * multiplier
+	if value > 0:
+		$CatScoredSound.play()
+	else:
+		$NegativePointsSound.play()
 	
 	$Player.updateScore(score)
 	$Player.scoreMessage(text)

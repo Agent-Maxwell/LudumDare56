@@ -10,6 +10,7 @@ extends CharacterBody3D
 @onready var whiffSound = $GrabWhiffSound
 @onready var chargeSound = $ChargeUpSound
 @onready var megaKickSound = $CanvasLayer/HUD/hands/leg/MegaKickSound
+
 # mouse/movement stuff
 const SPEED = 5.0
 const SPEED_WHILE_CHARGING = 3.0
@@ -70,6 +71,8 @@ func _process(delta):
 #updates the score on the hud
 func updateScore (score):
 	$CanvasLayer/HUD/Panel/ScoreValue.text = str(score)
+
+	
 
 #writes a message to the score box
 func scoreMessage(message):

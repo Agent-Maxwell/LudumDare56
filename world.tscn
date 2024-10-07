@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=66 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://oja52qj5sf8m" path="res://note_reader.tscn" id="16_tg7wx"]
 [ext_resource type="AudioStream" uid="uid://snxbekus5642" path="res://cat kicker sfx/beats to kick cats to.wav" id="26_agklj"]
 [ext_resource type="AudioStream" uid="uid://c04umn2su47bs" path="res://cat kicker sfx/beats to kick cats to (lofi).wav" id="27_2dobt"]
+[ext_resource type="AudioStream" uid="uid://b3skmfyrf3xov" path="res://cat kicker sfx/positive_points.wav" id="28_x2h3l"]
+[ext_resource type="AudioStream" uid="uid://creuf433edrwo" path="res://cat kicker sfx/negative_points.wav" id="29_lbtat"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_070dd"]
 metallic = 0.44
@@ -946,6 +948,12 @@ bus = &"Music"
 stream = ExtResource("27_2dobt")
 volume_db = -10.0
 bus = &"Music"
+
+[node name="CatScoredSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_x2h3l")
+
+[node name="NegativePointsSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_lbtat")
 
 [connection signal="start_cutscene" from="." to="Cutscene" method="start_cutscene"]
 [connection signal="body_entered" from="Environment/PicketFenceCollider/Area3D" to="Environment/PicketFenceCollider" method="_on_area_3d_body_entered"]

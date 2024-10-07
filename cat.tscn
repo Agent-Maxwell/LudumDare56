@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://y4dkkkvom4u8"]
+[gd_scene load_steps=22 format=3 uid="uid://y4dkkkvom4u8"]
 
 [ext_resource type="Script" path="res://cat.gd" id="1_fjgkt"]
 [ext_resource type="AudioStream" uid="uid://dpko8x56r5vnp" path="res://cat kicker sfx/throw_meow_1.wav" id="2_h5ni7"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://5vt0adc0kk8m" path="res://cat kicker sfx/cat_land_2.wav" id="11_b47cu"]
 [ext_resource type="AudioStream" uid="uid://cdcmtar5x3mv8" path="res://cat kicker sfx/cat_land_3.wav" id="12_bpqy6"]
 [ext_resource type="PackedScene" uid="uid://ck117aft2axhk" path="res://SM_SCat.fbx" id="14_vf8g0"]
+[ext_resource type="AudioStream" uid="uid://civh6mp4y4si5" path="res://cat kicker sfx/ding1000000.wav" id="15_qnqnx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8yadw"]
 bounce = 0.7
@@ -86,5 +87,10 @@ texture = ExtResource("10_1iesj")
 
 [node name="SM_SCat" parent="." instance=ExtResource("14_vf8g0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="PositivePoints" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_qnqnx")
+volume_db = -6.551
+bus = &"Sfx"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

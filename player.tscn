@@ -634,9 +634,12 @@ libraries = {
 [node name="kickSounds" type="AudioStreamPlayer" parent="CanvasLayer/HUD/hands/leg"]
 stream = SubResource("AudioStreamRandomizer_xyk1u")
 volume_db = -2.63
+bus = &"Sfx"
 
 [node name="MegaKickSound" type="AudioStreamPlayer" parent="CanvasLayer/HUD/hands/leg"]
 stream = ExtResource("10_hlwlq")
+volume_db = -2.101
+bus = &"Sfx"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/HUD"]
 position = Vector2(960, 540)
@@ -688,12 +691,15 @@ bus = &"Sfx"
 
 [node name="CatThrowSound" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_ik1aq")
+bus = &"Sfx"
 
 [node name="GrabWhiffSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_h5etk")
+bus = &"Sfx"
 
 [node name="ChargeUpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_sk301")
+bus = &"Sfx"
 
 [connection signal="animation_finished" from="CanvasLayer/HUD/hands/leg/legPlayer" to="." method="_on_leg_player_animation_finished"]
 [connection signal="animation_finished" from="CanvasLayer/HUD/handPlayer" to="." method="_on_animation_player_animation_finished"]
