@@ -1,19 +1,19 @@
-[gd_scene load_steps=88 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=90 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
 [ext_resource type="Script" path="res://tall_fence.gd" id="2_2s6gq"]
-[ext_resource type="PackedScene" uid="uid://8k0txei0ny7a" path="res://SM_chainlinkFence.fbx" id="2_agltw"]
 [ext_resource type="PackedScene" uid="uid://bi4cuip087y7c" path="res://SM_picketFence.fbx" id="3_0yoi2"]
 [ext_resource type="ArrayMesh" uid="uid://uk78ifei1sl3" path="res://Obstacle Models/grill.obj" id="3_q5qvw"]
 [ext_resource type="Script" path="res://trampoline.gd" id="4_268g1"]
-[ext_resource type="PackedScene" uid="uid://0ayi05qepnpa" path="res://SM_metalFence.fbx" id="4_qbjc5"]
 [ext_resource type="Script" path="res://cat_checker_a.gd" id="4_xa23j"]
 [ext_resource type="ArrayMesh" uid="uid://cao26f7x33a5j" path="res://Obstacle Models/shrubbery.obj" id="5_nkjyj"]
+[ext_resource type="Material" uid="uid://plvmef0ylywf" path="res://M_metal.material" id="5_o1e7y"]
 [ext_resource type="Script" path="res://shrubbery.gd" id="5_tkrkt"]
 [ext_resource type="ArrayMesh" uid="uid://7ba1affe73ky" path="res://Obstacle Models/trampoline.obj" id="5_x2iex"]
 [ext_resource type="Script" path="res://cat_spawner.gd" id="6_c0b2u"]
 [ext_resource type="PackedScene" uid="uid://cq1632l237tc2" path="res://main_menu.tscn" id="6_ewqnf"]
+[ext_resource type="ArrayMesh" uid="uid://b554557n8cmfv" path="res://SM_metalFence.obj" id="6_j4rfp"]
 [ext_resource type="Script" path="res://grill.gd" id="7_1i6q3"]
 [ext_resource type="Script" path="res://oob_catcher.gd" id="7_kxeyp"]
 [ext_resource type="Script" path="res://level_data.gd" id="7_ml12b"]
@@ -36,6 +36,8 @@
 [ext_resource type="AudioStream" uid="uid://c04umn2su47bs" path="res://cat kicker sfx/beats to kick cats to (lofi).wav" id="27_2dobt"]
 [ext_resource type="AudioStream" uid="uid://b3skmfyrf3xov" path="res://cat kicker sfx/positive_points.wav" id="28_x2h3l"]
 [ext_resource type="AudioStream" uid="uid://creuf433edrwo" path="res://cat kicker sfx/negative_points.wav" id="29_lbtat"]
+[ext_resource type="Material" uid="uid://drtntp8n1ltru" path="res://M_chainlink.material" id="38_ea5te"]
+[ext_resource type="ArrayMesh" uid="uid://dg06ec44qynot" path="res://SM_chainlinkFence.obj" id="39_yg2xc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_070dd"]
 metallic = 0.44
@@ -207,62 +209,119 @@ script = ExtResource("1_b8frq")
 [node name="ChainLinkFence" type="Node3D" parent="Environment"]
 visible = false
 
-[node name="SM_chainlinkFence" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179268, 0.0187724, 0.296946)
+[node name="SmChainlinkFence" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -30.0864)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence2" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179267, 0.0187724, -1.39433)
+[node name="SmChainlinkFence2" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -28.3502)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence3" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179266, 0.0187724, -3.11682)
+[node name="SmChainlinkFence3" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -26.6206)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence4" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179265, 0.0187724, -4.80809)
+[node name="SmChainlinkFence4" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -24.8843)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence5" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179265, 0.0187724, -6.5163)
+[node name="SmChainlinkFence5" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -23.1458)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence6" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179264, 0.0187724, -8.20758)
+[node name="SmChainlinkFence6" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -21.4095)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence7" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179263, 0.0187724, -9.93006)
+[node name="SmChainlinkFence7" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -19.68)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence8" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179262, 0.0187724, -11.6213)
+[node name="SmChainlinkFence8" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -17.9437)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence9" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179262, 0.0187724, -13.0418)
+[node name="SmChainlinkFence9" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -16.2177)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence10" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179261, 0.0187724, -14.7331)
+[node name="SmChainlinkFence10" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -14.4815)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence11" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.017926, 0.0187724, -16.4556)
+[node name="SmChainlinkFence11" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -12.7519)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence12" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179259, 0.0187724, -18.1469)
+[node name="SmChainlinkFence12" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -11.0156)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence13" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179259, 0.0187724, -19.8551)
+[node name="SmChainlinkFence13" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -9.27711)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence14" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179258, 0.0187724, -21.5464)
+[node name="SmChainlinkFence14" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -7.54084)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence15" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179257, 0.0187724, -23.2688)
+[node name="SmChainlinkFence15" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -5.81127)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence16" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179256, 0.0187724, -24.9601)
+[node name="SmChainlinkFence16" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -4.07499)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence17" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179256, 0.0187724, -26.6737)
+[node name="SmChainlinkFence17" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -2.36293)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence18" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179255, 0.0187724, -28.365)
+[node name="SmChainlinkFence18" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, -0.633364)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
-[node name="SM_chainlinkFence19" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
-transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179254, 0.0187724, -30.0875)
+[node name="SmChainlinkFence19" type="MeshInstance3D" parent="Environment/ChainLinkFence"]
+transform = Transform3D(-7.05835e-10, 0, 0.0161476, 0, 0.0161476, 0, -0.0161476, 0, -7.05835e-10, 0.0195119, 0.031149, 1.10291)
+material_override = ExtResource("38_ea5te")
+mesh = ExtResource("39_yg2xc")
+skeleton = NodePath("../../..")
 
 [node name="PicketFence" type="Node3D" parent="Environment"]
 visible = false
@@ -318,53 +377,101 @@ transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4
 [node name="MetalFence" type="Node3D" parent="Environment"]
 visible = false
 
-[node name="SM_metalFence" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387695, 0.0219776, -0.531947)
+[node name="SmMetalFence" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -30.6513)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence2" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387696, 0.0219776, -2.53936)
+[node name="SmMetalFence2" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -28.668)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence3" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387697, 0.0219776, -4.54889)
+[node name="SmMetalFence3" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -26.6814)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence4" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387698, 0.0219776, -6.55631)
+[node name="SmMetalFence4" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -24.6982)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence5" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387699, 0.0219776, -8.56716)
+[node name="SmMetalFence5" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -22.7122)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence6" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.03877, 0.0219776, -10.5746)
+[node name="SmMetalFence6" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -20.729)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence7" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387701, 0.0219776, -12.5841)
+[node name="SmMetalFence7" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -18.7424)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence8" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387702, 0.0219776, -14.5915)
+[node name="SmMetalFence8" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -16.7591)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence9" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387702, 0.0219776, -16.5971)
+[node name="SmMetalFence9" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -14.769)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence10" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387703, 0.0219776, -18.6045)
+[node name="SmMetalFence10" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -12.7857)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence11" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387704, 0.0219776, -20.6141)
+[node name="SmMetalFence11" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -10.7991)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence12" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387705, 0.0219776, -22.6215)
+[node name="SmMetalFence12" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -8.81588)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence13" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387706, 0.0219776, -24.6323)
+[node name="SmMetalFence13" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -6.82992)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence14" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387707, 0.0219776, -26.6397)
+[node name="SmMetalFence14" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -4.84666)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence15" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387708, 0.0219776, -28.6493)
+[node name="SmMetalFence15" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -2.86009)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
-[node name="SM_metalFence16" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
-transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387709, 0.0219776, -30.6567)
+[node name="SmMetalFence16" type="MeshInstance3D" parent="Environment/MetalFence"]
+transform = Transform3D(-4.34638e-10, 0, -0.00994336, 0, 0.00994336, 0, 0.00994336, 0, -4.34638e-10, -0.0446424, 0.0611233, -0.876835)
+material_override = ExtResource("5_o1e7y")
+mesh = ExtResource("6_j4rfp")
+skeleton = NodePath("../..")
 
 [node name="OuterFence" type="Node3D" parent="Environment"]
 
