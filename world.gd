@@ -92,11 +92,14 @@ func score_points(value, multiplier, text):
 # update all variables and take us to the next level
 func next_level():
 	
-	#deactivate previous obstacles/hazards
+	#deactivate/hide previous obstacles/hazards
 	if (level) != -1:
 		for i in $levelData.activateObstacles[level].size():
 			find_child($levelData.activateObstacles[level][i]).get_child(1).get_child(0).disabled = true
-			print("skog")
+		for i in $levelData.unhideObstacles[level].size():
+			find_child($levelData.unhideObstacles[level][i]).hide()
+			if(!$levelData.unhideObstacles[level][i].ends_with("Fence")):
+				find_child($levelData.unhideObstacles[level][i]).get_child(0).get_child(0).disabled = true
 	
 	#increment the level counter
 	level +=1
@@ -117,7 +120,8 @@ func next_level():
 	#unhide obstacles/hazards
 	for i in $levelData.unhideObstacles[level].size():
 		find_child($levelData.unhideObstacles[level][i]).show()
-		find_child($levelData.unhideObstacles[level][i]).get_child(0).get_child(0).disabled = false
+		if(!$levelData.unhideObstacles[level][i].ends_with("Fence")):
+			find_child($levelData.unhideObstacles[level][i]).get_child(0).get_child(0).disabled = false
 	
 	#activate obstacles/hazards
 	for i in $levelData.activateObstacles[level].size():

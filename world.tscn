@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=56 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://o05om0sdhr7i" path="res://option_menu.tscn" id="14_k2rpt"]
 [ext_resource type="AudioStream" uid="uid://dnh1y83vklrxm" path="res://make_a_break_for_it.mp3" id="15_bm5av"]
 [ext_resource type="AudioStream" uid="uid://dc40785yuvkbm" path="res://make_a_break_for_it_lofi_version.mp3" id="16_rfdqs"]
-[ext_resource type="PackedScene" path="res://note_reader.tscn" id="16_tg7wx"]
+[ext_resource type="PackedScene" uid="uid://oja52qj5sf8m" path="res://note_reader.tscn" id="16_tg7wx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_070dd"]
 metallic = 0.44
@@ -46,7 +46,7 @@ size = Vector3(1, 1.27161, 1)
 size = Vector3(1, 1.22253, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lxx6"]
-albedo_color = Color(0.0352941, 1, 0.0745098, 1)
+albedo_color = Color(0.0895058, 0.74399, 9.62615e-07, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wldeh"]
 
@@ -54,20 +54,24 @@ albedo_color = Color(0.0352941, 1, 0.0745098, 1)
 size = Vector3(2.09713, 1.20752, 2.06055)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u5iwo"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ts7sr"]
-size = Vector3(1, 2.06934, 1)
+size = Vector3(1, 1.07379, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kamdc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_023i7"]
 size = Vector3(0.892029, 0.0354614, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bs5mp"]
+size = Vector3(1.11133, 2.05463, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0f8x3"]
+size = Vector3(1, 0.027771, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_f5oqg"]
 size = Vector3(1.2547, 2.07553, 2.68005)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yr742"]
-size = Vector3(1.36736, 2.13426, 2.89403)
+size = Vector3(1.47946, 2.13426, 2.89403)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_i8etp"]
 height = 0.777128
@@ -118,63 +122,64 @@ script = ExtResource("1_b8frq")
 
 [node name="Environment" type="Node3D" parent="."]
 
-[node name="ChainlinkFence" type="Node3D" parent="Environment"]
+[node name="ChainLinkFence" type="Node3D" parent="Environment"]
+visible = false
 
-[node name="SM_chainlinkFence" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179268, 0.0187724, 0.296946)
 
-[node name="SM_chainlinkFence2" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence2" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179267, 0.0187724, -1.39433)
 
-[node name="SM_chainlinkFence3" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence3" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179266, 0.0187724, -3.11682)
 
-[node name="SM_chainlinkFence4" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence4" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179265, 0.0187724, -4.80809)
 
-[node name="SM_chainlinkFence5" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence5" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179265, 0.0187724, -6.5163)
 
-[node name="SM_chainlinkFence6" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence6" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179264, 0.0187724, -8.20758)
 
-[node name="SM_chainlinkFence7" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence7" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179263, 0.0187724, -9.93006)
 
-[node name="SM_chainlinkFence8" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence8" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179262, 0.0187724, -11.6213)
 
-[node name="SM_chainlinkFence9" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence9" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179262, 0.0187724, -13.0418)
 
-[node name="SM_chainlinkFence10" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence10" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179261, 0.0187724, -14.7331)
 
-[node name="SM_chainlinkFence11" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence11" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.017926, 0.0187724, -16.4556)
 
-[node name="SM_chainlinkFence12" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence12" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179259, 0.0187724, -18.1469)
 
-[node name="SM_chainlinkFence13" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence13" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179259, 0.0187724, -19.8551)
 
-[node name="SM_chainlinkFence14" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence14" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179258, 0.0187724, -21.5464)
 
-[node name="SM_chainlinkFence15" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence15" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179257, 0.0187724, -23.2688)
 
-[node name="SM_chainlinkFence16" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence16" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179256, 0.0187724, -24.9601)
 
-[node name="SM_chainlinkFence17" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence17" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179256, 0.0187724, -26.6737)
 
-[node name="SM_chainlinkFence18" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence18" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179255, 0.0187724, -28.365)
 
-[node name="SM_chainlinkFence19" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+[node name="SM_chainlinkFence19" parent="Environment/ChainLinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179254, 0.0187724, -30.0875)
 
 [node name="PicketFence" type="Node3D" parent="Environment"]
@@ -581,54 +586,65 @@ collision_mask = 7
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999977, 0.0178044, -0.586059, -0.0239189)
 shape = SubResource("BoxShape3D_pcqxp")
 
-[node name="Fence" type="MeshInstance3D" parent="Environment"]
+[node name="ChainLinkFenceCollider" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, -32.5685, 0, 0.5, -15.8755)
 visible = false
 material_override = SubResource("StandardMaterial3D_070dd")
 mesh = SubResource("BoxMesh_vxh1j")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Fence"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/ChainLinkFenceCollider"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Fence/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/ChainLinkFenceCollider/StaticBody3D"]
+transform = Transform3D(0.999997, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.0368958, 0)
 shape = SubResource("BoxShape3D_u5iwo")
 
-[node name="PlayerFenceCenterClip" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, -32.5685, 0, 0.5, -15.8755)
-material_override = SubResource("StandardMaterial3D_070dd")
-mesh = SubResource("BoxMesh_vxh1j")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PlayerFenceCenterClip"]
-collision_layer = 64
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PlayerFenceCenterClip/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.534668, 0)
-shape = SubResource("BoxShape3D_ts7sr")
-
-[node name="TallFence" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, -32.5685, 0, 1.95205, -15.8755)
+[node name="PicketFenceCollider" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, -32.5685, 0, 0.776455, -15.8755)
 visible = false
 material_override = SubResource("StandardMaterial3D_070dd")
 mesh = SubResource("BoxMesh_vxh1j")
 script = ExtResource("2_2s6gq")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/TallFence"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PicketFenceCollider"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/TallFence/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PicketFenceCollider/StaticBody3D"]
 shape = SubResource("BoxShape3D_kamdc")
 disabled = true
 
-[node name="Area3D" type="Area3D" parent="Environment/TallFence"]
+[node name="Area3D" type="Area3D" parent="Environment/PicketFenceCollider"]
 collision_layer = 8
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/TallFence/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PicketFenceCollider/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.50663, 0)
 shape = SubResource("BoxShape3D_023i7")
 disabled = true
 
+[node name="MetalFenceCollider" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, -32.5685, 0, 0.776455, -15.8755)
+visible = false
+material_override = SubResource("StandardMaterial3D_070dd")
+mesh = SubResource("BoxMesh_vxh1j")
+script = ExtResource("2_2s6gq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/MetalFenceCollider"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/MetalFenceCollider/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0556632, 0.527313, 0)
+shape = SubResource("BoxShape3D_bs5mp")
+disabled = true
+
+[node name="Area3D" type="Area3D" parent="Environment/MetalFenceCollider"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/MetalFenceCollider/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 1.57365, 0)
+shape = SubResource("BoxShape3D_0f8x3")
+disabled = true
+
 [node name="Grill" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(-0.453166, 0, 0.891426, 0, 1, 0, -0.891426, 0, -0.453166, 16.4734, 1.29767, -15.8112)
+transform = Transform3D(-0.40787, 0, 0.802325, 0, 0.900046, 0, -0.802325, 0, -0.40787, 16.4734, 1.1706, -15.8112)
 visible = false
 mesh = ExtResource("3_q5qvw")
 script = ExtResource("2_l0eu8")
@@ -637,7 +653,7 @@ script = ExtResource("2_l0eu8")
 collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Grill/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00452137, 0.103998, 0.0402031)
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, -0.00452137, 0.103998, 0.0402031)
 shape = SubResource("BoxShape3D_f5oqg")
 disabled = true
 
@@ -646,7 +662,7 @@ collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Grill/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999994, 0, 0, 0, 1, 0.0113659, 0.0794983, 0.203993)
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 0.999994, 0, -1, 0, -2.98023e-08, 0.0113673, 0.0794983, 0.147943)
 shape = SubResource("BoxShape3D_yr742")
 disabled = true
 
@@ -875,7 +891,8 @@ bus = &"Music"
 parameters/looping = true
 
 [connection signal="start_cutscene" from="." to="Cutscene" method="start_cutscene"]
-[connection signal="body_entered" from="Environment/TallFence/Area3D" to="Environment/TallFence" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Environment/PicketFenceCollider/Area3D" to="Environment/PicketFenceCollider" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Environment/MetalFenceCollider/Area3D" to="Environment/MetalFenceCollider" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Environment/Grill/Area3D" to="Environment/Grill" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Environment/Shrubbery/Area3D" to="Environment/Shrubbery" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Environment/Trampoline/Area3D" to="Environment/Trampoline" method="_on_area_3d_body_entered"]
