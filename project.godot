@@ -95,6 +95,7 @@ sprint={
 3d_physics/layer_4="obstacles"
 3d_physics/layer_5="catcollider"
 3d_physics/layer_6="ground"
+3d_physics/layer_7="playerclip"
 
 [physics]
 
