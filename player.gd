@@ -9,6 +9,7 @@ extends CharacterBody3D
 @onready var kickSounds = $CanvasLayer/HUD/hands/leg/kickSounds
 @onready var whiffSound = $GrabWhiffSound
 @onready var chargeSound = $ChargeUpSound
+@onready var megaKickSound = $CanvasLayer/HUD/hands/leg/MegaKickSound
 # mouse/movement stuff
 const SPEED = 5.0
 const SPEED_WHILE_CHARGING = 3.0
@@ -182,6 +183,10 @@ func kick():
 		if kickHitbox.is_colliding():
 			for i in kickHitbox.get_collision_count():
 				kickHitbox.get_collider(i).getKicked(-transform.basis.z.rotated(transform.basis.x, deg_to_rad(KICK_ANGLE)), KICK_VELOCITY)
+				if kickHitbox.get_collider(i).linear_velocity.length() > 20:
+					kickHitbox.get_collider(i).score += 100
+					scoreMessage("MEGA DROPKICK (100)")
+					megaKickSound.play()
 					
 
 # you fail
