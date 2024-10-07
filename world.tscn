@@ -1,11 +1,14 @@
-[gd_scene load_steps=51 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=54 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
 [ext_resource type="Script" path="res://tall_fence.gd" id="2_2s6gq"]
+[ext_resource type="PackedScene" uid="uid://8k0txei0ny7a" path="res://SM_chainlinkFence.fbx" id="2_agltw"]
 [ext_resource type="Script" path="res://tree.gd" id="2_l0eu8"]
+[ext_resource type="PackedScene" uid="uid://bi4cuip087y7c" path="res://SM_picketFence.fbx" id="3_0yoi2"]
 [ext_resource type="ArrayMesh" uid="uid://uk78ifei1sl3" path="res://Obstacle Models/grill.obj" id="3_q5qvw"]
 [ext_resource type="Script" path="res://trampoline.gd" id="4_268g1"]
+[ext_resource type="PackedScene" uid="uid://0ayi05qepnpa" path="res://SM_metalFence.fbx" id="4_qbjc5"]
 [ext_resource type="Script" path="res://cat_checker_a.gd" id="4_xa23j"]
 [ext_resource type="ArrayMesh" uid="uid://cao26f7x33a5j" path="res://Obstacle Models/shrubbery.obj" id="5_nkjyj"]
 [ext_resource type="Script" path="res://shrubbery.gd" id="5_tkrkt"]
@@ -22,6 +25,26 @@
 [ext_resource type="AudioStream" uid="uid://dc40785yuvkbm" path="res://make_a_break_for_it_lofi_version.mp3" id="16_rfdqs"]
 [ext_resource type="PackedScene" path="res://note_reader.tscn" id="16_tg7wx"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_070dd"]
+metallic = 0.44
+
+[sub_resource type="BoxMesh" id="BoxMesh_vxh1j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_05m5m"]
+size = Vector3(1, 1.19835, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_elj6u"]
+size = Vector3(1, 1.25696, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8s2nq"]
+size = Vector3(1, 1.27393, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lwluu"]
+size = Vector3(1, 1.27161, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1nn2h"]
+size = Vector3(1, 1.22253, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2lxx6"]
 albedo_color = Color(0.0352941, 1, 0.0745098, 1)
 
@@ -30,27 +53,12 @@ albedo_color = Color(0.0352941, 1, 0.0745098, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_pcqxp"]
 size = Vector3(2.09713, 1.20752, 2.06055)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_070dd"]
-metallic = 0.44
-
-[sub_resource type="BoxMesh" id="BoxMesh_vxh1j"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_u5iwo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kamdc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_023i7"]
 size = Vector3(0.892029, 0.0354614, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_05m5m"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_elj6u"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8s2nq"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lwluu"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1nn2h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f5oqg"]
 size = Vector3(1.2547, 2.07553, 2.68005)
@@ -107,6 +115,456 @@ script = ExtResource("1_b8frq")
 
 [node name="Environment" type="Node3D" parent="."]
 
+[node name="ChainlinkFence" type="Node3D" parent="Environment"]
+
+[node name="SM_chainlinkFence" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179268, 0.0187724, 0.296946)
+
+[node name="SM_chainlinkFence2" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179267, 0.0187724, -1.39433)
+
+[node name="SM_chainlinkFence3" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179266, 0.0187724, -3.11682)
+
+[node name="SM_chainlinkFence4" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179265, 0.0187724, -4.80809)
+
+[node name="SM_chainlinkFence5" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179265, 0.0187724, -6.5163)
+
+[node name="SM_chainlinkFence6" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179264, 0.0187724, -8.20758)
+
+[node name="SM_chainlinkFence7" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179263, 0.0187724, -9.93006)
+
+[node name="SM_chainlinkFence8" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179262, 0.0187724, -11.6213)
+
+[node name="SM_chainlinkFence9" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179262, 0.0187724, -13.0418)
+
+[node name="SM_chainlinkFence10" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179261, 0.0187724, -14.7331)
+
+[node name="SM_chainlinkFence11" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.017926, 0.0187724, -16.4556)
+
+[node name="SM_chainlinkFence12" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179259, 0.0187724, -18.1469)
+
+[node name="SM_chainlinkFence13" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179259, 0.0187724, -19.8551)
+
+[node name="SM_chainlinkFence14" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179258, 0.0187724, -21.5464)
+
+[node name="SM_chainlinkFence15" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179257, 0.0187724, -23.2688)
+
+[node name="SM_chainlinkFence16" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179256, 0.0187724, -24.9601)
+
+[node name="SM_chainlinkFence17" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179256, 0.0187724, -26.6737)
+
+[node name="SM_chainlinkFence18" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179255, 0.0187724, -28.365)
+
+[node name="SM_chainlinkFence19" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
+transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179254, 0.0187724, -30.0875)
+
+[node name="PicketFence" type="Node3D" parent="Environment"]
+visible = false
+
+[node name="SM_picketFence" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343756, 0.0216497, -0.717266)
+
+[node name="SM_picketFence2" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343757, 0.0216497, -2.70076)
+
+[node name="SM_picketFence3" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343758, 0.0216497, -4.68485)
+
+[node name="SM_picketFence4" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343759, 0.0216497, -6.66834)
+
+[node name="SM_picketFence5" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.034376, 0.0216497, -8.65207)
+
+[node name="SM_picketFence6" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343761, 0.0216497, -10.6356)
+
+[node name="SM_picketFence7" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343762, 0.0216497, -12.6197)
+
+[node name="SM_picketFence8" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343762, 0.0216497, -14.6032)
+
+[node name="SM_picketFence9" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343763, 0.0216497, -16.5909)
+
+[node name="SM_picketFence10" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343764, 0.0216497, -18.5744)
+
+[node name="SM_picketFence11" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343765, 0.0216497, -20.5584)
+
+[node name="SM_picketFence12" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343766, 0.0216497, -22.5419)
+
+[node name="SM_picketFence13" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343767, 0.0216497, -24.5257)
+
+[node name="SM_picketFence14" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343768, 0.0216497, -26.5092)
+
+[node name="SM_picketFence15" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343769, 0.0216497, -28.4932)
+
+[node name="SM_picketFence16" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343769, 0.0216497, -30.4767)
+
+[node name="MetalFence" type="Node3D" parent="Environment"]
+visible = false
+
+[node name="SM_metalFence" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387695, 0.0219776, -0.531947)
+
+[node name="SM_metalFence2" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387696, 0.0219776, -2.53936)
+
+[node name="SM_metalFence3" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387697, 0.0219776, -4.54889)
+
+[node name="SM_metalFence4" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387698, 0.0219776, -6.55631)
+
+[node name="SM_metalFence5" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387699, 0.0219776, -8.56716)
+
+[node name="SM_metalFence6" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.03877, 0.0219776, -10.5746)
+
+[node name="SM_metalFence7" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387701, 0.0219776, -12.5841)
+
+[node name="SM_metalFence8" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387702, 0.0219776, -14.5915)
+
+[node name="SM_metalFence9" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387702, 0.0219776, -16.5971)
+
+[node name="SM_metalFence10" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387703, 0.0219776, -18.6045)
+
+[node name="SM_metalFence11" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387704, 0.0219776, -20.6141)
+
+[node name="SM_metalFence12" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387705, 0.0219776, -22.6215)
+
+[node name="SM_metalFence13" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387706, 0.0219776, -24.6323)
+
+[node name="SM_metalFence14" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387707, 0.0219776, -26.6397)
+
+[node name="SM_metalFence15" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387708, 0.0219776, -28.6493)
+
+[node name="SM_metalFence16" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
+transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387709, 0.0219776, -30.6567)
+
+[node name="OuterFence" type="Node3D" parent="Environment"]
+
+[node name="SM_picketFence" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -0.717265)
+
+[node name="SM_picketFence2" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -2.70076)
+
+[node name="SM_picketFence3" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -4.68485)
+
+[node name="SM_picketFence4" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -6.66834)
+
+[node name="SM_picketFence5" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -8.65207)
+
+[node name="SM_picketFence17" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, 9.20555)
+
+[node name="SM_picketFence18" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, 7.22205)
+
+[node name="SM_picketFence19" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, 5.23797)
+
+[node name="SM_picketFence20" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, 3.25447)
+
+[node name="SM_picketFence21" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, 1.27074)
+
+[node name="SM_picketFence6" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -10.6356)
+
+[node name="SM_picketFence7" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -12.6197)
+
+[node name="SM_picketFence8" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -14.6032)
+
+[node name="SM_picketFence9" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -16.5909)
+
+[node name="SM_picketFence10" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -18.5744)
+
+[node name="SM_picketFence11" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -20.5584)
+
+[node name="SM_picketFence12" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -22.5419)
+
+[node name="SM_picketFence13" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -24.5257)
+
+[node name="SM_picketFence14" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -26.5092)
+
+[node name="SM_picketFence15" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -28.4932)
+
+[node name="SM_picketFence16" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -26.7763, 0.0216497, -30.4767)
+
+[node name="SM_picketFence22" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -0.717268)
+
+[node name="SM_picketFence23" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -2.70076)
+
+[node name="SM_picketFence24" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -4.68485)
+
+[node name="SM_picketFence25" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -6.66835)
+
+[node name="SM_picketFence26" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -8.65207)
+
+[node name="SM_picketFence27" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, 9.20554)
+
+[node name="SM_picketFence28" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, 7.22205)
+
+[node name="SM_picketFence29" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, 5.23796)
+
+[node name="SM_picketFence30" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, 3.25447)
+
+[node name="SM_picketFence31" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, 1.27074)
+
+[node name="SM_picketFence32" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -10.6356)
+
+[node name="SM_picketFence33" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -12.6197)
+
+[node name="SM_picketFence34" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -14.6032)
+
+[node name="SM_picketFence35" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -16.5909)
+
+[node name="SM_picketFence36" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -18.5744)
+
+[node name="SM_picketFence37" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -20.5584)
+
+[node name="SM_picketFence38" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -22.5419)
+
+[node name="SM_picketFence39" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -24.5257)
+
+[node name="SM_picketFence40" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -26.5092)
+
+[node name="SM_picketFence41" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -28.4932)
+
+[node name="SM_picketFence42" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, 26.9184, 0.0216497, -30.4767)
+
+[node name="SM_picketFence43" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 25.7467, 0.0216497, -31.7246)
+
+[node name="SM_picketFence44" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 23.763, 0.0216497, -31.7246)
+
+[node name="SM_picketFence45" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 21.778, 0.0216497, -31.7246)
+
+[node name="SM_picketFence46" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 19.7942, 0.0216497, -31.7246)
+
+[node name="SM_picketFence47" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 17.8116, 0.0216497, -31.7246)
+
+[node name="SM_picketFence70" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 25.5919, 0.0216497, 10.0597)
+
+[node name="SM_picketFence71" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 23.6081, 0.0216497, 10.0597)
+
+[node name="SM_picketFence72" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 21.6231, 0.0216497, 10.0597)
+
+[node name="SM_picketFence73" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 19.6393, 0.0216497, 10.0597)
+
+[node name="SM_picketFence74" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 17.6567, 0.0216497, 10.0597)
+
+[node name="SM_picketFence48" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 15.8278, 0.0216497, -31.7246)
+
+[node name="SM_picketFence49" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 13.8428, 0.0216497, -31.7246)
+
+[node name="SM_picketFence50" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 11.859, 0.0216497, -31.7246)
+
+[node name="SM_picketFence51" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 9.8717, 0.0216497, -31.7246)
+
+[node name="SM_picketFence52" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 7.88793, 0.0216497, -31.7246)
+
+[node name="SM_picketFence53" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 5.90293, 0.0216497, -31.7246)
+
+[node name="SM_picketFence54" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 3.91917, 0.0216497, -31.7246)
+
+[node name="SM_picketFence55" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, 1.93654, 0.0216497, -31.7246)
+
+[node name="SM_picketFence56" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -0.047235, 0.0216497, -31.7246)
+
+[node name="SM_picketFence57" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -2.03223, 0.0216497, -31.7246)
+
+[node name="SM_picketFence58" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -4.016, 0.0216497, -31.7246)
+
+[node name="SM_picketFence59" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -6.00273, 0.0216497, -31.7246)
+
+[node name="SM_picketFence60" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -7.98536, 0.0216497, -31.7246)
+
+[node name="SM_picketFence61" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -9.96913, 0.0216497, -31.7246)
+
+[node name="SM_picketFence62" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -11.9541, 0.0216497, -31.7246)
+
+[node name="SM_picketFence63" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -13.9379, 0.0216497, -31.7246)
+
+[node name="SM_picketFence64" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -15.9252, 0.0216497, -31.7246)
+
+[node name="SM_picketFence65" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -17.909, 0.0216497, -31.7246)
+
+[node name="SM_picketFence66" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -19.894, 0.0216497, -31.7246)
+
+[node name="SM_picketFence67" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -21.8778, 0.0216497, -31.7246)
+
+[node name="SM_picketFence68" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -23.8604, 0.0216497, -31.7246)
+
+[node name="SM_picketFence69" parent="Environment/OuterFence" instance=ExtResource("3_0yoi2")]
+transform = Transform3D(-1.01129, 0, -8.84098e-08, 0, 1.01129, 0, 8.84098e-08, 0, -1.01129, -25.8442, 0.0216497, -31.7246)
+
+[node name="Fence3" type="MeshInstance3D" parent="Environment/OuterFence"]
+transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 42, -26.8857, 0.5, -10.715)
+visible = false
+material_override = SubResource("StandardMaterial3D_070dd")
+mesh = SubResource("BoxMesh_vxh1j")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/OuterFence/Fence3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/OuterFence/Fence3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0991745, 0)
+shape = SubResource("BoxShape3D_05m5m")
+
+[node name="Fence2" type="MeshInstance3D" parent="Environment/OuterFence"]
+transform = Transform3D(-2.18557e-08, 0, 27, 0, 1.5, 0, -0.5, 0, -1.18021e-06, -13.5, 0.5, -31.9076)
+visible = false
+material_override = SubResource("StandardMaterial3D_070dd")
+mesh = SubResource("BoxMesh_vxh1j")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/OuterFence/Fence2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/OuterFence/Fence2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -1.60982e-15, 0, 1, 0, 0.128479, 0)
+shape = SubResource("BoxShape3D_elj6u")
+
+[node name="Fence4" type="MeshInstance3D" parent="Environment/OuterFence"]
+transform = Transform3D(-2.18557e-08, 0, 27, 0, 1.5, 0, -0.5, 0, -1.18021e-06, 13.5, 0.5, -31.9076)
+visible = false
+material_override = SubResource("StandardMaterial3D_070dd")
+mesh = SubResource("BoxMesh_vxh1j")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/OuterFence/Fence4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/OuterFence/Fence4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -1.60982e-15, 0, 1, 0, 0.136963, 0)
+shape = SubResource("BoxShape3D_8s2nq")
+
+[node name="Fence6" type="MeshInstance3D" parent="Environment/OuterFence"]
+transform = Transform3D(-2.18557e-08, 0, 27, 0, 1.5, 0, -0.5, 0, -1.18021e-06, 13.5, 0.5, 10.0373)
+visible = false
+material_override = SubResource("StandardMaterial3D_070dd")
+mesh = SubResource("BoxMesh_vxh1j")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/OuterFence/Fence6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/OuterFence/Fence6/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -1.60982e-15, 0, 1, 0, 0.135803, 0)
+shape = SubResource("BoxShape3D_lwluu")
+
+[node name="Fence5" type="MeshInstance3D" parent="Environment/OuterFence"]
+transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 42, 26.9692, 0.5, -10.715)
+visible = false
+material_override = SubResource("StandardMaterial3D_070dd")
+mesh = SubResource("BoxMesh_vxh1j")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/OuterFence/Fence5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/OuterFence/Fence5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.111267, 0)
+shape = SubResource("BoxShape3D_1nn2h")
+
 [node name="Ground" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(63.873, 0, 0, 0, 5.502, 0, 0, 0, 61.945, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_2lxx6")
@@ -122,6 +580,7 @@ shape = SubResource("BoxShape3D_pcqxp")
 
 [node name="Fence" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, -32.5685, 0, 0.5, -15.8755)
+visible = false
 material_override = SubResource("StandardMaterial3D_070dd")
 mesh = SubResource("BoxMesh_vxh1j")
 
@@ -151,56 +610,6 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00765991, 0.50663, 0)
 shape = SubResource("BoxShape3D_023i7")
 disabled = true
-
-[node name="Fence3" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 42, -26.8857, 0.5, -10.715)
-material_override = SubResource("StandardMaterial3D_070dd")
-mesh = SubResource("BoxMesh_vxh1j")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Fence3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Fence3/StaticBody3D"]
-shape = SubResource("BoxShape3D_05m5m")
-
-[node name="Fence2" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(-2.18557e-08, 0, 27, 0, 1.5, 0, -0.5, 0, -1.18021e-06, -13.5, 0.5, -31.9076)
-material_override = SubResource("StandardMaterial3D_070dd")
-mesh = SubResource("BoxMesh_vxh1j")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Fence2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Fence2/StaticBody3D"]
-shape = SubResource("BoxShape3D_elj6u")
-
-[node name="Fence4" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(-2.18557e-08, 0, 27, 0, 1.5, 0, -0.5, 0, -1.18021e-06, 13.5, 0.5, -31.9076)
-material_override = SubResource("StandardMaterial3D_070dd")
-mesh = SubResource("BoxMesh_vxh1j")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Fence4"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Fence4/StaticBody3D"]
-shape = SubResource("BoxShape3D_8s2nq")
-
-[node name="Fence6" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(-2.18557e-08, 0, 27, 0, 1.5, 0, -0.5, 0, -1.18021e-06, 13.5, 0.5, 10.0373)
-material_override = SubResource("StandardMaterial3D_070dd")
-mesh = SubResource("BoxMesh_vxh1j")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Fence6"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Fence6/StaticBody3D"]
-shape = SubResource("BoxShape3D_lwluu")
-
-[node name="Fence5" type="MeshInstance3D" parent="Environment"]
-transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 42, 26.9692, 0.5, -10.715)
-material_override = SubResource("StandardMaterial3D_070dd")
-mesh = SubResource("BoxMesh_vxh1j")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Fence5"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Fence5/StaticBody3D"]
-shape = SubResource("BoxShape3D_1nn2h")
 
 [node name="Grill" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-0.453166, 0, 0.891426, 0, 1, 0, -0.891426, 0, -0.453166, 16.4734, 1.29767, -15.8112)
