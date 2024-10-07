@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dqlf1qs7uiso"
+path="res://.godot/imported/drone.obj-6a4b4d39a176ca5a3e7a11ac744cd95b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/drone.obj-6a4b4d39a176ca5a3e7a11ac744cd95b.mesh"]
+
+source_file="res://Obstacle Models/drone.obj"
+dest_files=["res://.godot/imported/drone.obj-6a4b4d39a176ca5a3e7a11ac744cd95b.mesh", "res://.godot/imported/drone.obj-6a4b4d39a176ca5a3e7a11ac744cd95b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
