@@ -116,6 +116,7 @@ script = ExtResource("1_b8frq")
 [node name="Environment" type="Node3D" parent="."]
 
 [node name="ChainlinkFence" type="Node3D" parent="Environment"]
+visible = false
 
 [node name="SM_chainlinkFence" parent="Environment/ChainlinkFence" instance=ExtResource("2_agltw")]
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179268, 0.0187724, 0.296946)
@@ -226,7 +227,6 @@ transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4
 transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343769, 0.0216497, -30.4767)
 
 [node name="MetalFence" type="Node3D" parent="Environment"]
-visible = false
 
 [node name="SM_metalFence" parent="Environment/MetalFence" instance=ExtResource("4_qbjc5")]
 transform = Transform3D(-4.40187e-08, 0, 1.00703, 0, 1.00703, 0, -1.00703, 0, -4.40187e-08, -0.0387695, 0.0219776, -0.531947)
@@ -742,7 +742,9 @@ environment = SubResource("Environment_sfw5c")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.773696, 0.507434, -0.379347, 0, 0.598758, 0.80093, 0.633556, -0.619677, 0.463257, 0, 4, 0)
+light_color = Color(1, 0.941176, 0.839216, 1)
 shadow_enabled = true
+directional_shadow_blend_splits = true
 
 [node name="Player" parent="." instance=ExtResource("1_jfpvx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76998, 2.33752, -2.14209)
