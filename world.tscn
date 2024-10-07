@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://trampoline.gd" id="4_268g1"]
 [ext_resource type="Script" path="res://cat_checker_a.gd" id="4_xa23j"]
 [ext_resource type="ArrayMesh" uid="uid://cao26f7x33a5j" path="res://Obstacle Models/shrubbery.obj" id="5_nkjyj"]
-[ext_resource type="Material" path="res://M_metal.material" id="5_o1e7y"]
+[ext_resource type="Material" uid="uid://plvmef0ylywf" path="res://M_metal.material" id="5_o1e7y"]
 [ext_resource type="Script" path="res://shrubbery.gd" id="5_tkrkt"]
 [ext_resource type="ArrayMesh" uid="uid://7ba1affe73ky" path="res://Obstacle Models/trampoline.obj" id="5_x2iex"]
 [ext_resource type="Script" path="res://cat_spawner.gd" id="6_c0b2u"]
@@ -36,7 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://creuf433edrwo" path="res://cat kicker sfx/negative_points.wav" id="29_lbtat"]
 [ext_resource type="AudioStream" uid="uid://itdd3wfgwxev" path="res://cat kicker sfx/beats to kick cats to.mp3" id="35_3e2ug"]
 [ext_resource type="AudioStream" uid="uid://pn2yughe3i44" path="res://cat kicker sfx/beats to kick cats to (lofi).mp3" id="36_0yp1k"]
-[ext_resource type="Material" path="res://M_chainlink.material" id="38_ea5te"]
+[ext_resource type="Material" uid="uid://drtntp8n1ltru" path="res://M_chainlink.material" id="38_ea5te"]
 [ext_resource type="ArrayMesh" uid="uid://dg06ec44qynot" path="res://SM_chainlinkFence.obj" id="39_yg2xc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_070dd"]
@@ -187,7 +187,7 @@ size = Vector3(26.5658, 0.29, 41.9642)
 [sub_resource type="SphereShape3D" id="SphereShape3D_y6j6o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mq4f1"]
-size = Vector3(1, 62.5316, 42.9699)
+size = Vector3(1, 154.188, 49.2741)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_irxec"]
 size = Vector3(10.5938, 62.7549, 1)
@@ -1152,15 +1152,15 @@ collision_mask = 4
 script = ExtResource("7_kxeyp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OOBCatcher"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.364, 30.3894, -11.0138)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.364, 49.8607, -11.0138)
 shape = SubResource("BoxShape3D_mq4f1")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="OOBCatcher"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.122298, 30.3894, -32.5392)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.02982, 46.2357, -32.5392)
 shape = SubResource("BoxShape3D_mq4f1")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="OOBCatcher"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6146, 30.3894, -9.83807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6146, 40.8999, -9.83807)
 shape = SubResource("BoxShape3D_mq4f1")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="OOBCatcher"]

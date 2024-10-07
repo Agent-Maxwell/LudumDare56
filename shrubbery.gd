@@ -1,6 +1,6 @@
 extends MeshInstance3D
 
 func _on_area_3d_body_entered(body):
-	body.score += 50
+	body.score += 300
 	body.play_pos_points()
-	$"../../Player".scoreMessage("Shrubbery! (50)")
+	$"../../Player".scoreMessage("Shrubbery! (300)")
