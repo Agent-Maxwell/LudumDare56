@@ -66,7 +66,15 @@ func _process(delta):
 		catAmount +=1
 		$Player.scoreMessage("Level Complete!!")
 		await get_tree().create_timer(5.0).timeout
-		next_level()
+		
+		#Checks for ending cutscene
+		if(level == 1):
+			$Cutscene.show()
+			$Cutscene/DialogueBox.show()
+			get_tree().paused = true
+			emit_signal("start_cutscene", 9)
+		else:
+			next_level()
 
 
 func _on_pause_menu_unpause() -> void:

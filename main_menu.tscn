@@ -55,6 +55,7 @@ theme = ExtResource("2_14mwx")
 text = "Settings"
 
 [node name="About" type="Button" parent="Menu/MarginContainer/Background Color/Button Spacer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_14mwx")
 text = "About"

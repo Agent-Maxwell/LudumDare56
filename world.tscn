@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://trampoline.gd" id="4_268g1"]
 [ext_resource type="Script" path="res://cat_checker_a.gd" id="4_xa23j"]
 [ext_resource type="ArrayMesh" uid="uid://cao26f7x33a5j" path="res://Obstacle Models/shrubbery.obj" id="5_nkjyj"]
-[ext_resource type="Material" uid="uid://plvmef0ylywf" path="res://M_metal.material" id="5_o1e7y"]
+[ext_resource type="Material" path="res://M_metal.material" id="5_o1e7y"]
 [ext_resource type="Script" path="res://shrubbery.gd" id="5_tkrkt"]
 [ext_resource type="ArrayMesh" uid="uid://7ba1affe73ky" path="res://Obstacle Models/trampoline.obj" id="5_x2iex"]
 [ext_resource type="Script" path="res://cat_spawner.gd" id="6_c0b2u"]
@@ -32,11 +32,11 @@
 [ext_resource type="ArrayMesh" uid="uid://dx24dhuhb024d" path="res://Obstacle Models/poolunfilled.obj" id="19_th5a7"]
 [ext_resource type="ArrayMesh" uid="uid://bckj6eodacga6" path="res://Obstacle Models/poolfilled.obj" id="20_twent"]
 [ext_resource type="Script" path="res://pool_filled.gd" id="21_7eqnf"]
-[ext_resource type="AudioStream" uid="uid://snxbekus5642" path="res://cat kicker sfx/beats to kick cats to.wav" id="26_agklj"]
-[ext_resource type="AudioStream" uid="uid://c04umn2su47bs" path="res://cat kicker sfx/beats to kick cats to (lofi).wav" id="27_2dobt"]
 [ext_resource type="AudioStream" uid="uid://b3skmfyrf3xov" path="res://cat kicker sfx/positive_points.wav" id="28_x2h3l"]
 [ext_resource type="AudioStream" uid="uid://creuf433edrwo" path="res://cat kicker sfx/negative_points.wav" id="29_lbtat"]
-[ext_resource type="Material" uid="uid://drtntp8n1ltru" path="res://M_chainlink.material" id="38_ea5te"]
+[ext_resource type="AudioStream" uid="uid://itdd3wfgwxev" path="res://cat kicker sfx/beats to kick cats to.mp3" id="35_3e2ug"]
+[ext_resource type="AudioStream" uid="uid://pn2yughe3i44" path="res://cat kicker sfx/beats to kick cats to (lofi).mp3" id="36_0yp1k"]
+[ext_resource type="Material" path="res://M_chainlink.material" id="38_ea5te"]
 [ext_resource type="ArrayMesh" uid="uid://dg06ec44qynot" path="res://SM_chainlinkFence.obj" id="39_yg2xc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_070dd"]
@@ -1196,14 +1196,16 @@ process_mode = 2
 layer = 10
 
 [node name="MainSoundtrack" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("26_agklj")
+stream = ExtResource("35_3e2ug")
 volume_db = -10.0
 bus = &"Music"
+parameters/looping = true
 
 [node name="PauseSoundtrack" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("27_2dobt")
+stream = ExtResource("36_0yp1k")
 volume_db = -10.0
 bus = &"Music"
+parameters/looping = true
 
 [node name="CatScoredSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("28_x2h3l")
