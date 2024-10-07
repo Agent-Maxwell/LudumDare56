@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=82 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://trampoline.gd" id="4_268g1"]
 [ext_resource type="PackedScene" uid="uid://0ayi05qepnpa" path="res://SM_metalFence.fbx" id="4_qbjc5"]
 [ext_resource type="Script" path="res://cat_checker_a.gd" id="4_xa23j"]
+[ext_resource type="Texture2D" uid="uid://bxfaij8k61hb8" path="res://dagbbg.jpg" id="5_gfq27"]
 [ext_resource type="ArrayMesh" uid="uid://cao26f7x33a5j" path="res://Obstacle Models/shrubbery.obj" id="5_nkjyj"]
 [ext_resource type="Script" path="res://shrubbery.gd" id="5_tkrkt"]
 [ext_resource type="ArrayMesh" uid="uid://7ba1affe73ky" path="res://Obstacle Models/trampoline.obj" id="5_x2iex"]
@@ -40,7 +41,12 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_070dd"]
 metallic = 0.44
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73abw"]
+albedo_texture = ExtResource("5_gfq27")
+uv1_scale = Vector3(1.765, 1.765, 1.765)
+
 [sub_resource type="BoxMesh" id="BoxMesh_vxh1j"]
+material = SubResource("StandardMaterial3D_73abw")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_05m5m"]
 size = Vector3(1, 1.19835, 1)
@@ -812,6 +818,7 @@ shape = SubResource("BoxShape3D_h5wuw")
 
 [node name="Drone" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(0.995666, 0.0929962, 0, -0.0929962, 0.995666, 0, 0, 0, 1, -17.3958, 7.3756, -16.9133)
+visible = false
 mesh = ExtResource("15_uqutc")
 script = ExtResource("16_x2jqm")
 
@@ -821,6 +828,7 @@ collision_mask = 6
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Drone/StaticBody3D"]
 transform = Transform3D(1.00001, 8.64267e-07, 0, -8.64267e-07, 1.00001, 0, 0, 0, 1, -0.00301552, 0.00426149, 0.00680542)
 shape = SubResource("BoxShape3D_8hvrk")
+disabled = true
 
 [node name="Area3D" type="Area3D" parent="Environment/Drone"]
 collision_layer = 8
@@ -829,9 +837,11 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Drone/Area3D"]
 transform = Transform3D(1.00001, 8.64267e-07, 0, -8.64267e-07, 1.00001, 0, 0, 0, 1, 0.00406456, 0.145589, 0.0110474)
 shape = SubResource("BoxShape3D_qxw1l")
+disabled = true
 
 [node name="HardLight" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-3.25407e-08, 0.707107, 0.526402, -0.744445, -3.09086e-08, -2.30098e-08, -1.77636e-15, -0.707107, 0.526402, -6.81416, 7.69656, -23.9517)
+visible = false
 mesh = ExtResource("18_vcgsd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment/HardLight"]
@@ -840,6 +850,7 @@ collision_mask = 6
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HardLight/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0033412, -0.00698853, -0.00157166)
 shape = SubResource("BoxShape3D_xf1rh")
+disabled = true
 
 [node name="Area3D" type="Area3D" parent="Environment/HardLight"]
 collision_layer = 8
@@ -848,6 +859,7 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HardLight/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00335646, -0.00357056, -0.000244141)
 shape = SubResource("BoxShape3D_i0wgj")
+disabled = true
 
 [node name="PoolUnfilled" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.89243, 0.973295, -23.6118)
@@ -859,6 +871,7 @@ collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PoolUnfilled/StaticBody3D"]
 shape = SubResource("CylinderShape3D_hgwqp")
+disabled = true
 
 [node name="Area3D" type="Area3D" parent="Environment/PoolUnfilled"]
 collision_layer = 8
@@ -867,9 +880,11 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PoolUnfilled/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.191906, 0)
 shape = SubResource("CylinderShape3D_icd3p")
+disabled = true
 
 [node name="PoolFilled" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.892, 0.973, -23.612)
+visible = false
 mesh = ExtResource("20_twent")
 script = ExtResource("21_7eqnf")
 
@@ -878,6 +893,7 @@ collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PoolFilled/StaticBody3D"]
 shape = SubResource("CylinderShape3D_d3bvn")
+disabled = true
 
 [node name="Area3D" type="Area3D" parent="Environment/PoolFilled"]
 collision_layer = 8
@@ -886,12 +902,12 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PoolFilled/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.192, 0)
 shape = SubResource("CylinderShape3D_hcwrm")
+disabled = true
 
 [node name="HouseBoxes" type="Node3D" parent="Environment"]
 
 [node name="House" type="MeshInstance3D" parent="Environment/HouseBoxes"]
 transform = Transform3D(28.359, 0, 0, 0, 13.0013, 0, 0, 0, 18.3284, -14.1458, 6.36456, 19.2963)
-material_override = SubResource("StandardMaterial3D_070dd")
 mesh = SubResource("BoxMesh_vxh1j")
 skeleton = NodePath("../..")
 
