@@ -199,6 +199,7 @@ transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7
 transform = Transform3D(-7.12723e-08, 0, 1.63052, 0, 1.63052, 0, -1.63052, 0, -7.12723e-08, 0.0179254, 0.0187724, -30.0875)
 
 [node name="PicketFence" type="Node3D" parent="Environment"]
+visible = false
 
 [node name="SM_picketFence" parent="Environment/PicketFence" instance=ExtResource("3_0yoi2")]
 transform = Transform3D(-4.42049e-08, 0, 1.01129, 0, 1.01129, 0, -1.01129, 0, -4.42049e-08, -0.0343756, 0.0216497, -0.717266)
@@ -752,6 +753,7 @@ disabled = true
 
 [node name="Blower" type="MeshInstance3D" parent="Environment"]
 transform = Transform3D(-3.20711e-08, 0.710705, -0.182253, 3.20711e-08, 0.182253, 0.710705, 0.733702, 2.30994e-08, -3.90325e-08, 0.174103, 1.4399, -18.0525)
+visible = false
 mesh = ExtResource("13_mgqdn")
 script = ExtResource("13_02ocp")
 

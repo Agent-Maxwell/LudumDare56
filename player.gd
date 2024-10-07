@@ -8,7 +8,7 @@ extends CharacterBody3D
 @onready var throwSound = $CatThrowSound
 @onready var kickSounds = $CanvasLayer/HUD/hands/leg/kickSounds
 @onready var whiffSound = $GrabWhiffSound
-
+@onready var chargeSound = $ChargeUpSound
 # mouse/movement stuff
 const SPEED = 5.0
 const SPEED_WHILE_CHARGING = 3.0
@@ -130,12 +130,13 @@ func click_action():
 		can_grab = false
 		charging = true
 		hand_anim.play("charge_throw")
-		
+		chargeSound.playing = true
 
 # called when click action is released; for throwing after charge up
 func click_release_action():
 	if charging == true:
 		charging = false
+		chargeSound.playing = false
 		# setup cat instance
 		var catInst = catPrefab.instantiate()
 		var spawn_position = $Face.global_transform.origin + -$Face.global_transform.basis.z * 1 # face location + (face's forward vector * some distance)

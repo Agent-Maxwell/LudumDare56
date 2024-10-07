@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://rmhrq5qmmkuj"]
+[gd_scene load_steps=42 format=3 uid="uid://rmhrq5qmmkuj"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_cqcfi"]
 [ext_resource type="Texture2D" uid="uid://bkagmxvxuyrog" path="res://handplaceholder.png" id="1_ia0tg"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://d3rjj4npuhnsa" path="res://cat kicker sfx/throw_1.wav" id="13_4pwf7"]
 [ext_resource type="AudioStream" uid="uid://booumlrc55ncs" path="res://cat kicker sfx/throw_2.wav" id="14_l1ixa"]
 [ext_resource type="AudioStream" uid="uid://dc5t8mmfgqdrw" path="res://geh.mp3" id="15_h5etk"]
+[ext_resource type="AudioStream" uid="uid://70vp668lyteb" path="res://cat kicker sfx/charge_up.wav" id="16_sk301"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xgkp0"]
 
@@ -675,6 +676,9 @@ stream = SubResource("AudioStreamRandomizer_ik1aq")
 
 [node name="GrabWhiffSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_h5etk")
+
+[node name="ChargeUpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_sk301")
 
 [connection signal="animation_finished" from="CanvasLayer/HUD/hands/leg/legPlayer" to="." method="_on_leg_player_animation_finished"]
 [connection signal="animation_finished" from="CanvasLayer/HUD/handPlayer" to="." method="_on_animation_player_animation_finished"]
