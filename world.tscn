@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bec1hoklibvtm"]
+[gd_scene load_steps=80 format=3 uid="uid://bec1hoklibvtm"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_b8frq"]
 [ext_resource type="PackedScene" uid="uid://rmhrq5qmmkuj" path="res://player.tscn" id="1_jfpvx"]
@@ -28,6 +28,10 @@
 [ext_resource type="ArrayMesh" uid="uid://dqlf1qs7uiso" path="res://Obstacle Models/drone.obj" id="15_uqutc"]
 [ext_resource type="PackedScene" uid="uid://oja52qj5sf8m" path="res://note_reader.tscn" id="16_tg7wx"]
 [ext_resource type="Script" path="res://drone.gd" id="16_x2jqm"]
+[ext_resource type="ArrayMesh" uid="uid://cbq5t4cfn2k37" path="res://Obstacle Models/hardlightpanel.obj" id="18_vcgsd"]
+[ext_resource type="ArrayMesh" uid="uid://dx24dhuhb024d" path="res://Obstacle Models/poolunfilled.obj" id="19_th5a7"]
+[ext_resource type="ArrayMesh" uid="uid://bckj6eodacga6" path="res://Obstacle Models/poolfilled.obj" id="20_twent"]
+[ext_resource type="Script" path="res://pool_filled.gd" id="21_7eqnf"]
 [ext_resource type="AudioStream" uid="uid://snxbekus5642" path="res://cat kicker sfx/beats to kick cats to.wav" id="26_agklj"]
 [ext_resource type="AudioStream" uid="uid://c04umn2su47bs" path="res://cat kicker sfx/beats to kick cats to (lofi).wav" id="27_2dobt"]
 [ext_resource type="AudioStream" uid="uid://b3skmfyrf3xov" path="res://cat kicker sfx/positive_points.wav" id="28_x2h3l"]
@@ -108,6 +112,28 @@ size = Vector3(4.56342, 0.438995, 4.57208)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qxw1l"]
 size = Vector3(4.54047, 0.63089, 4.59534)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xf1rh"]
+size = Vector3(8.90579, 0.906799, 8.90915)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i0wgj"]
+size = Vector3(8.91956, 0.899963, 8.91943)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hgwqp"]
+height = 2.03941
+radius = 4.12601
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_icd3p"]
+height = 1.97353
+radius = 4.12601
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d3bvn"]
+height = 2.039
+radius = 4.126
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hcwrm"]
+height = 1.974
+radius = 4.126
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_aohfv"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -804,6 +830,63 @@ collision_mask = 4
 transform = Transform3D(1.00001, 8.64267e-07, 0, -8.64267e-07, 1.00001, 0, 0, 0, 1, 0.00406456, 0.145589, 0.0110474)
 shape = SubResource("BoxShape3D_qxw1l")
 
+[node name="HardLight" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(-3.25407e-08, 0.707107, 0.526402, -0.744445, -3.09086e-08, -2.30098e-08, -1.77636e-15, -0.707107, 0.526402, -6.81416, 7.69656, -23.9517)
+mesh = ExtResource("18_vcgsd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/HardLight"]
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HardLight/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0033412, -0.00698853, -0.00157166)
+shape = SubResource("BoxShape3D_xf1rh")
+
+[node name="Area3D" type="Area3D" parent="Environment/HardLight"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/HardLight/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00335646, -0.00357056, -0.000244141)
+shape = SubResource("BoxShape3D_i0wgj")
+
+[node name="PoolUnfilled" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.89243, 0.973295, -23.6118)
+visible = false
+mesh = ExtResource("19_th5a7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PoolUnfilled"]
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PoolUnfilled/StaticBody3D"]
+shape = SubResource("CylinderShape3D_hgwqp")
+
+[node name="Area3D" type="Area3D" parent="Environment/PoolUnfilled"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PoolUnfilled/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.191906, 0)
+shape = SubResource("CylinderShape3D_icd3p")
+
+[node name="PoolFilled" type="MeshInstance3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.892, 0.973, -23.612)
+mesh = ExtResource("20_twent")
+script = ExtResource("21_7eqnf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Environment/PoolFilled"]
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PoolFilled/StaticBody3D"]
+shape = SubResource("CylinderShape3D_d3bvn")
+
+[node name="Area3D" type="Area3D" parent="Environment/PoolFilled"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/PoolFilled/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.192, 0)
+shape = SubResource("CylinderShape3D_hcwrm")
+
 [node name="HouseBoxes" type="Node3D" parent="Environment"]
 
 [node name="House" type="MeshInstance3D" parent="Environment/HouseBoxes"]
@@ -995,6 +1078,7 @@ stream = ExtResource("29_lbtat")
 [connection signal="body_entered" from="Environment/TrampolineRedirector/Area3D" to="Environment/TrampolineRedirector" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Environment/Blower/Area3D" to="Environment/Blower" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Environment/Drone/Area3D" to="Environment/Drone" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Environment/PoolFilled/Area3D" to="Environment/PoolFilled" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="CatCheckerA" to="CatCheckerA" method="_on_body_entered"]
 [connection signal="body_exited" from="CatCheckerA" to="CatCheckerA" method="_on_body_exited"]
 [connection signal="body_entered" from="CatCheckerB" to="CatCheckerB" method="_on_body_entered"]
