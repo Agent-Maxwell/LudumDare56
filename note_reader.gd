@@ -9,6 +9,8 @@ signal second_note_finished
 
 func _ready() -> void:
 	$Image.texture = ResourceLoader.load(bbqLetter)
+	$"letter animation".play("letter opening animation")
+	$Button.visible = false
 
 func _on_button_pressed():
 	if(pageNum == 1):
@@ -17,3 +19,7 @@ func _on_button_pressed():
 		pageNum+= 1
 	else:
 		emit_signal("second_note_finished")
+
+
+func _on_letter_animation_animation_finished(anim_name):
+	$Button.visible = true

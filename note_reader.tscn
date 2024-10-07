@@ -1,12 +1,98 @@
-[gd_scene load_steps=10 format=3 uid="uid://oja52qj5sf8m"]
+[gd_scene load_steps=14 format=3 uid="uid://oja52qj5sf8m"]
 
 [ext_resource type="Script" path="res://note_reader.gd" id="1_ua1yl"]
 [ext_resource type="Texture2D" uid="uid://dtan6neoy2bje" path="res://character sprites/BBQ_Dad_Actual_Letter.PNG" id="1_va4n3"]
 [ext_resource type="Texture2D" uid="uid://b5c2oyr1dyxln" path="res://character sprites/Cat_Arrow.PNG" id="2_df2wi"]
 [ext_resource type="Texture2D" uid="uid://kt2kj2lhcfln" path="res://character sprites/Cat_Arrow_Highlighted.png" id="3_5oemv"]
+[ext_resource type="Texture2D" uid="uid://bpithgtebwwql" path="res://character sprites/spritesheet (3).png" id="3_dmxlq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qugaw"]
 bg_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+
+[sub_resource type="Animation" id="Animation_8dt35"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("letter1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Image:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("letter1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rgsw6"]
+resource_name = "letter opening animation"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("letter1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Image:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("letter1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kuotk"]
+_data = {
+"RESET": SubResource("Animation_8dt35"),
+"letter opening animation": SubResource("Animation_rgsw6")
+}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oma1a"]
 texture = ExtResource("2_df2wi")
@@ -32,6 +118,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qugaw")
 
 [node name="Image" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
@@ -44,6 +131,18 @@ texture = ExtResource("1_va4n3")
 expand_mode = 3
 stretch_mode = 4
 
+[node name="letter1" type="Sprite2D" parent="."]
+position = Vector2(963, 636)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("3_dmxlq")
+hframes = 3
+frame = 2
+
+[node name="letter animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kuotk")
+}
+
 [node name="Button" type="Button" parent="."]
 offset_left = 1546.0
 offset_top = 805.0
@@ -54,5 +153,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_kim84")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_mnfcu")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ogbke")
 
+[connection signal="animation_finished" from="letter animation" to="." method="_on_letter_animation_animation_finished"]
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
