@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dqnemnodd1c4w" path="res://pause_menu.tscn" id="13_ixj68"]
 [ext_resource type="ArrayMesh" uid="uid://dh7mwrq5onbd" path="res://Obstacle Models/leafblower.obj" id="13_mgqdn"]
 [ext_resource type="PackedScene" uid="uid://o05om0sdhr7i" path="res://option_menu.tscn" id="14_k2rpt"]
-[ext_resource type="PackedScene" path="res://note_reader.tscn" id="16_tg7wx"]
+[ext_resource type="PackedScene" uid="uid://oja52qj5sf8m" path="res://note_reader.tscn" id="16_tg7wx"]
 [ext_resource type="AudioStream" uid="uid://snxbekus5642" path="res://cat kicker sfx/beats to kick cats to.wav" id="26_agklj"]
 [ext_resource type="AudioStream" uid="uid://c04umn2su47bs" path="res://cat kicker sfx/beats to kick cats to (lofi).wav" id="27_2dobt"]
 
