@@ -1214,6 +1214,7 @@ stream = ExtResource("28_x2h3l")
 stream = ExtResource("29_lbtat")
 
 [connection signal="start_cutscene" from="." to="Cutscene" method="start_cutscene"]
+[connection signal="start_letter_animation" from="." to="NoteReader" method="_on_world_start_letter_animation"]
 [connection signal="body_entered" from="Environment/PicketFenceCollider/Area3D" to="Environment/PicketFenceCollider" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Environment/MetalFenceCollider/Area3D" to="Environment/MetalFenceCollider" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Environment/Grill/Area3D" to="Environment/Grill" method="_on_area_3d_body_entered"]

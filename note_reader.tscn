@@ -138,7 +138,7 @@ texture = ExtResource("3_dmxlq")
 hframes = 3
 frame = 2
 
-[node name="letter animation" type="AnimationPlayer" parent="."]
+[node name="LetterAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_kuotk")
 }
@@ -153,6 +153,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_kim84")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_mnfcu")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ogbke")
 
-[connection signal="animation_finished" from="letter animation" to="." method="_on_letter_animation_animation_finished"]
+[connection signal="animation_finished" from="LetterAnimation" to="." method="_on_letter_animation_animation_finished"]
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

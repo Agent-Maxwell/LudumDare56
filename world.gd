@@ -1,6 +1,7 @@
 extends Node3D
 
 signal start_cutscene(cutsceneID)
+signal start_letter_animation
 
 #the side we are on, and the side we are throwing the cats to
 var currentSide = "B"
@@ -36,6 +37,8 @@ func _ready():
 #Occurs after someone hits "start" on the main menu. Activates note reader
 func start():
 	$NoteReader.show()
+	emit_signal("start_letter_animation")
+
 	
 func _on_note_reader_first_note_finished() -> void:
 	$NoteReader.hide()
@@ -68,7 +71,7 @@ func _process(delta):
 		await get_tree().create_timer(5.0).timeout
 		
 		#Checks for ending cutscene
-		if(level == 1):
+		if(level == 8):
 			$Cutscene.show()
 			$Cutscene/DialogueBox.show()
 			get_tree().paused = true
