@@ -960,7 +960,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_aohfv")
 
 [node name="House4" type="MeshInstance3D" parent="Environment/HouseBoxes"]
-transform = Transform3D(4.13023, -3.45287, 0, 4.77312, 2.98781, 0, 0, 0, 13.5506, 11.4017, 10.0012, 12.4434)
+transform = Transform3D(4.13023, -3.45287, 0, 4.77312, 2.98781, 0, 0, 0, 13.5506, 11.4017, 10.0012, 12.6203)
 mesh = SubResource("BoxMesh_rkxv2")
 skeleton = NodePath("../..")
 
@@ -970,7 +970,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_aohfv")
 
 [node name="House5" type="MeshInstance3D" parent="Environment/HouseBoxes"]
-transform = Transform3D(5.16382, 3.00603, 0, -4.51629, 3.43703, 0, 0, 0, 13.5506, 12.8448, 9.93247, 12.4434)
+transform = Transform3D(5.16382, 3.00603, 0, -4.51629, 3.43703, 0, 0, 0, 13.5506, 12.8448, 9.93247, 12.6203)
 mesh = SubResource("BoxMesh_v8jjr")
 skeleton = NodePath("../..")
 
